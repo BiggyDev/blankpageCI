@@ -1,6 +1,6 @@
 <?php
 
-class Candidat extends CI_Model
+class Candidat_model extends CI_Model
 {
 
 }
