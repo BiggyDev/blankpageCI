@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Accueil extends CI_Controller {
 
-
     public function index()
 	{
 	    $data['title'] = 'Blank Page - Accueil';
@@ -17,23 +16,66 @@ class Accueil extends CI_Controller {
 
 	public function login()
     {
-        $this->load->helper(array('form', 'url'));
-        $this->load->library('form_validation');
-
         $data['title'] = 'Blank Page - Connexion';
 
+        $this->load->helper(array('form', 'url'));
 
+        $this->load->library('form_validation');
+
+        if (isset($_POST['submitted'])) {
+
+            $rules = array(
+                array(
+                    'field' => 'email',
+                    'label' => 'Adresse E-mail',
+                    'rules' => 'trim|required|valid_email'
+                ),
+                array(
+                    'field' => 'password',
+                    'label' => 'Mot de Passe',
+                    'rules' => 'trim|required'
+                ),
+            );
+
+            $this->form_validation->set_rules($rules);
+
+            if ($this->form_validation->run() === TRUE) {
+
+                $this->form_validation->set_data($_POST);
+
+                $this->db->select('*');
+                $this->db->from('bp_candidats');
+                $this->db->where('email', $this->input->post('email'));
+                $user = $this->db->get()->result_array();
+
+
+                var_dump($user);
+
+                if (isset($user)) {
+                    $password = $user[0]['password'];
+                    if(!password_verify($this->input->post('password'), $password)) {
+                        $this->form_validation->set_message('rule', 'Mot de passe erroné');
+                    }
+                } else {
+                    $this->form_validation->set_message('rule', 'Veuillez vous inscrire');
+                }
+
+                $_SESSION['bp_candidats'] = array(
+                    'id'      => $user[0]['id'],
+                    'email'   => $user[0]['email'],
+                    'ip'      => $_SERVER['REMOTE_ADDR']
+                );
+
+                // TODO: Rediriger vers connexion
+//                redirect('accueil/profil_candidat');
+            }
+        }
 
         $this->load->view('include/header', $data);
-//            if($this->form_validation->run() == FALSE)
-//                // TODO: Afficher profil candidat
-//                $this->load->view('main/profil_candidat');
-//            else
-//                $this->load->view('main/login', $data);
-//
         $this->load->view('main/login', $data);
         $this->load->view('include/footer', $data);
     }
+
 
     public function inscription()
     {
@@ -43,21 +85,63 @@ class Accueil extends CI_Controller {
 
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('nom', 'Nom & Pr&eacute;nom', 'required');
-        $this->form_validation->set_rules('password', 'Mot de Passe', 'required');
-        $this->form_validation->set_rules('confirmpassword', 'Confirmation Mot de Passe', 'required');
-        $this->form_validation->set_rules('email', 'Adresse E-mail', 'required');
+        if (isset($_POST['submitted'])) {
+
+            $rules = array(
+                array(
+                    'field' => 'name',
+                    'label' => 'Nom & Pr&eacute;nom',
+                    'rules' => 'trim|required|min_length[4]|max_length[60]'
+                ),
+                array(
+                    'field' => 'email',
+                    'label' => 'Adresse E-mail',
+                    'rules' => 'trim|required|min_length[6]|max_length[70]|is_unique[bp_candidats.email]|valid_email'
+                ),
+                array(
+                    'field' => 'password',
+                    'label' => 'Mot de Passe',
+                    'rules' => 'trim|required|min_length[6]|max_length[200]'
+                ),
+                array(
+                    'field' => 'confirmpassword',
+                    'label' => 'Confirmation Mot de Passe',
+                    'rules' => 'trim|required|min_length[6]|max_length[200]|matches[password]'
+                )
+            );
+
+            $this->form_validation->set_rules($rules);
+
+            if ($this->form_validation->run() === TRUE) {
+
+                $this->form_validation->set_data($_POST);
+
+                $this->load->model('Auth_candidat', '', TRUE);
+
+                $hash = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+                $token = $this->generateRandomString(255);
+
+                $this->Auth_candidat->insert_entry($this->input->post('name'), $this->input->post('email'), $hash, $token);
+
+                // TODO: Rediriger vers connexion
+                redirect('accueil/login');
+            }
+        }
 
         $this->load->view('include/header', $data);
-
-        if($this->form_validation->run() == FALSE)
-                // TODO: Rediriger vers connexion
-                $this->load->view('main/inscription');
-            else
-                $this->load->view('main/login', $data);
-
+        $this->load->view('main/inscription');
         $this->load->view('include/footer', $data);
+    }
 
+    private function generateRandomString($length)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 
 }
