@@ -3,15 +3,15 @@
  * Created by PhpStorm.
  * User: Baptiste ANGOT
  * Date: 23/01/2019
- * Time: 10:03
+ * Time: 10:21
  */
 
-class Certification_model extends CI_Model
+class Experiences_model extends CI_Model
 {
     function __construct()
     {
         parent::__construct();
-        $this->table = "bp_certifications";
+        $this->table = "bp_experiences";
     }
 
     function get_all(){
@@ -20,7 +20,7 @@ class Certification_model extends CI_Model
 
     function get_one($id)
     {
-        $this->db->select("id, name, description, date, duree, id_candidats")
+        $this->db->select("id, entreprise, intitule,date_debut,duree,description,adresse,cp,ville,id_candidats")
             ->from($this->table)
             ->where("id", $id)
             ->limit(1);
@@ -29,5 +29,5 @@ class Certification_model extends CI_Model
     }
 }
 
-/* End of file Certification_model.php */
-/* Location: ./application/models/Certification_model.php */
+/* End of file Experience_model.php */
+/* Location: ./application/models/Experience_model.php */
