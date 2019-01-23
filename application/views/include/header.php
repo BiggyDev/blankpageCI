@@ -27,5 +27,11 @@
         <link rel="stylesheet" type="text/css" href="<?= base_url('semantic/dist/components/transition.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?= base_url('semantic/assets/css/style.css'); ?>"
 
+              <!-- JQuery -->
+        <script href="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+                crossorigin="anonymous"></script>
+        <script src="<?= base_url('node_modules/jquery/dist/jquery.min.js'); ?>"></script>
+
     </head>
     <body>

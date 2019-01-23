@@ -63,6 +63,13 @@ class Accueil extends CI_Controller {
                     'ip'      => $_SERVER['REMOTE_ADDR']
                 );
 
+                $userdata = array(
+                  'name'     =>  $user[0]['name'],
+                  'email'    =>  $user[0]['email'],
+                );
+
+                $this->session->set_userdata($userdata);
+
                 // TODO: Rediriger vers connexion
                 redirect('accueil/profil_candidat');
             }
