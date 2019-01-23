@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Baptiste ANGOT
  * Date: 23/01/2019
- * Time: 10:03
+ * Time: 10:05
  */
 
 class Certification_model extends CI_Model
