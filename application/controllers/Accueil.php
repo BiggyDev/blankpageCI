@@ -48,9 +48,6 @@ class Accueil extends CI_Controller {
                 $this->db->where('email', $this->input->post('email'));
                 $user = $this->db->get()->result_array();
 
-
-                var_dump($user);
-
                 if (isset($user)) {
                     $password = $user[0]['password'];
                     if(!password_verify($this->input->post('password'), $password)) {
@@ -67,7 +64,7 @@ class Accueil extends CI_Controller {
                 );
 
                 // TODO: Rediriger vers connexion
-//                redirect('accueil/profil_candidat');
+                redirect('accueil/profil_candidat');
             }
         }
 

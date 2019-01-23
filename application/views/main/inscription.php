@@ -1,5 +1,3 @@
-
-
 <div class="ui middle aligned center aligned grid">
     <div class="column">
         <h2 class="ui teal image header">
@@ -8,9 +6,7 @@
             </div>
         </h2>
 
-
         <?= form_open('', 'class = "ui large form"'); ?>
-
 
         <div class="ui stacked segment">
 
@@ -51,7 +47,6 @@
               } else {
                     echo '<div class="ui error message">' . validation_errors() . '</div>';
               }; ?>
-
 
         <?= form_close(); ?>
 
