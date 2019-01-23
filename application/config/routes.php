@@ -35,6 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 |	$route['404_override'] = 'errors/page_missing';
 |
+
 | This route will tell the Router which controller/method to use if those
 | provided in the URL cannot be matched to a valid route.
 |
@@ -51,7 +52,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['default_controller'] = 'accueil/index';
 $route['(:any)'] = 'accueil/index/$1';
+$route['default_controller'] = 'accueil/index';
+
+$route["api/v1/candidat"]["get"]           = "api/v1/candidat";
+$route["api/v1/candidat/(:num)"]["get"]    = "api/v1/candidat/view/$1";
+
 
 
