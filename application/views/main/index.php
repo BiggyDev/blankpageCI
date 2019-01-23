@@ -42,7 +42,7 @@
             </div>
         </div>
 
-        <div class="infos"">
+        <div class="infos">
             <h4 class="ui horizontal header divider">Visilibilibilité</h4>
             <h3 class="ui header">Élaborez votre CV</h3>
             <p>Grâce aux outils conçus spécialement pour vous.</p>
