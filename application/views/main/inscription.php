@@ -1,5 +1,17 @@
 <?= validation_errors(); ?>
 
+<?php
+
+$ENROLLEES = $this->load->database('ENROLLEES', TRUE);
+$ACCOUNTS  = $this->load->database('ACCOUNTS', TRUE);
+
+$INSERT    = "INSERT ";
+
+$query = $this->db->query($SQL);
+return $query->result_array();
+
+?>
+
 <div class="ui middle aligned center aligned grid">
     <div class="column">
         <h2 class="ui teal image header">
@@ -8,9 +20,7 @@
             </div>
         </h2>
 
-
         <?= form_open('form', 'class = "ui large form"'); ?>
-
 
         <div class="ui stacked segment">
 
@@ -48,9 +58,11 @@
 
         <div class="ui error message"></div>
 
-
         <?= form_close(); ?>
 
+        <div class="ui message">
+            Vous êtes déja inscrit(e)? <?= anchor('Accueil/login', 'login'); ?>
+        </div>
 
     </div>
 </div>

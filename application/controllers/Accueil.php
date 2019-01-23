@@ -21,8 +21,6 @@ class Accueil extends CI_Controller {
 
         $data['title'] = 'Blank Page - Connexion';
 
-
-
         $this->load->view('include/header');
 //            if($this->form_validation->run() == FALSE)
 //                // TODO: Afficher profil candidat

@@ -7,23 +7,25 @@
                 Connectez-vous pour accéder à votre compte
             </div>
         </h2>
+
         <?= form_open('form', 'class = "ui large form"'); ?>
+
             <div class="ui stacked segment">
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="user icon"></i>
-                        <input type="text" name="email" placeholder="E-mail address" />
+                        <input type="text" name="email" placeholder="adresse E-mail" />
                     </div>
                 </div>
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="lock icon"></i>
-                        <input type="password" name="password" placeholder="Password" />
+                        <input type="password" name="password" placeholder="mot de passe" />
                     </div>
                 </div>
 <!--                <div class="ui fluid large teal submit button">Login</div>-->
                 <div class="ui animated teal submit button" tabindex="0">
-                    <div class="visible content">Login</div>
+                    <div class="visible content">Connexion</div>
                     <div class="hidden content">
                         <i class="right arrow icon"></i>
                     </div>
