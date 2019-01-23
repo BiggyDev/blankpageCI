@@ -1,12 +1,17 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: yamna
+ * Date: 23/01/2019
+ * Time: 10:04
+ */
 
-
-class Candidat_model extends CI_Model
+class Savoiretre_model extends CI_Model
 {
     function __construct()
     {
         parent::__construct();
-        $this->table = "bp_candidats";
+        $this->table = "bp_savoiretre";
     }
 
     function get_all(){
@@ -15,7 +20,7 @@ class Candidat_model extends CI_Model
 
     function get_one($id)
     {
-        $this->db->select("id, name, email, password, token, created_at")
+        $this->db->select("id, name, id_candidats")
             ->from($this->table)
             ->where("id", $id)
             ->limit(1);
@@ -24,5 +29,6 @@ class Candidat_model extends CI_Model
     }
 }
 
-/* End of file Candidat_model.php */
-/* Location: ./application/models/Candidat_model.php */
+
+/* End of file Savoiretre_model.php */
+/* Location: ./application/models/Savoiretremodel.php */

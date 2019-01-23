@@ -1,12 +1,17 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: yamna
+ * Date: 23/01/2019
+ * Time: 10:04
+ */
 
-
-class Candidat_model extends CI_Model
+class Interet_model extends CI_Model
 {
     function __construct()
     {
         parent::__construct();
-        $this->table = "bp_candidats";
+        $this->table = "bp_interet";
     }
 
     function get_all(){
@@ -15,7 +20,7 @@ class Candidat_model extends CI_Model
 
     function get_one($id)
     {
-        $this->db->select("id, name, email, password, token, created_at")
+        $this->db->select("id, name, description, id_candidats")
             ->from($this->table)
             ->where("id", $id)
             ->limit(1);
@@ -24,5 +29,5 @@ class Candidat_model extends CI_Model
     }
 }
 
-/* End of file Candidat_model.php */
-/* Location: ./application/models/Candidat_model.php */
+/* End of file Interet_model.php */
+/* Location: ./application/models/Interet_model.php */
