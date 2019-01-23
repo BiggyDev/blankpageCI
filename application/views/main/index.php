@@ -22,43 +22,33 @@
                     Bienvenue sur Blankpage
                 </h1>
                 <h2>Blankpage est un site permettant la création d'un CV complet et ergonomique</h2>
-                <div class="ui huge primary button">Créer mon CV <i class="right arrow icon"></i></div>
+                <div class="ui huge teal button">Créer mon CV <i class="right arrow icon"></i></div>
             </div>
 
         </div>
 
-        <div class="left">
-
         <div class="infos">
             <h2>Élaborez votre CV</h2><hr/>
-            <h3>Grâce aux outils conçus spécialement pour vous.</h3>
-            <p>
-                Quisque massa nibh, dapibus sed justo finibus, volutpat maximus ipsum. Maecenas ac leo et tortor cursus aliquet eget sit amet risus. Nam placerat, lectus sed mattis efficitur, eros nibh aliquam leo, ac vulputate augue odio eu magna. Phasellus id purus at nibh pharetra dignissim et vel elit. Sed auctor placerat metus eu placerat. Ut sagittis ipsum id lorem dictum, ut rhoncus metus pellentesque. Phasellus suscipit rutrum lorem, sit amet ornare quam vulputate quis. Nunc vel velit volutpat, cursus turpis et, interdum tortor. Nullam magna nulla, aliquet et gravida nec, congue in urna. Proin viverra euismod dolor. Praesent congue ex nibh, non pulvinar nibh accumsan ut. Suspendisse potenti. Suspendisse gravida orci in nunc auctor vehicula. Ut at ornare dui. Nam non augue eget nunc porta cursus.</p>
+            <h3>Grâce aux outils fournis</h3>
+            <p>En renseignant quelques informations tel que vos études, vos compétences et vos passions vous pourrez choisir un design de CV et le mettre en ligne sur notre site WEB</p>
         </div>
 
         <div class="infos">
             <h2>Augmenter votre visibilité</h2><hr/>
-            <h3>Auprès des professionnels utilisant notre site pour leur recrutements.</h3>
-            <p>
-                Quisque massa nibh, dapibus sed justo finibus, volutpat maximus ipsum. Maecenas ac leo et tortor cursus aliquet eget sit amet risus. Nam placerat, lectus sed mattis efficitur, eros nibh aliquam leo, ac vulputate augue odio eu magna. Phasellus id purus at nibh pharetra dignissim et vel elit. Sed auctor placerat metus eu placerat. Ut sagittis ipsum id lorem dictum, ut rhoncus metus pellentesque. Phasellus suscipit rutrum lorem, sit amet ornare quam vulputate quis. Nunc vel velit volutpat, cursus turpis et, interdum tortor. Nullam magna nulla, aliquet et gravida nec, congue in urna. Proin viverra euismod dolor. Praesent congue ex nibh, non pulvinar nibh accumsan ut. Suspendisse potenti. Suspendisse gravida orci in nunc auctor vehicula. Ut at ornare dui. Nam non augue eget nunc porta cursus.</p>
+            <h3>Auprès des professionnels</h3>
+            <p>Votre CV est visible auprès de tous les professionnels utilisant notre plateforme, dans ce cas n'hésitez pas à renseigner toutes vos compétences et autres informations sur vous dans votre CV</p>
         </div>
-
-        </div>
-        <div class="right">
 
         <div class="infos">
             <h2>Trouver le métier qui vous convient</h2><hr/>
             <h3>Rencontrez des professionnels.</h3>
-            <p>
-                Quisque massa nibh, dapibus sed justo finibus, volutpat maximus ipsum. Maecenas ac leo et tortor cursus aliquet eget sit amet risus. Nam placerat, lectus sed mattis efficitur, eros nibh aliquam leo, ac vulputate augue odio eu magna. Phasellus id purus at nibh pharetra dignissim et vel elit. Sed auctor placerat metus eu placerat. Ut sagittis ipsum id lorem dictum, ut rhoncus metus pellentesque. Phasellus suscipit rutrum lorem, sit amet ornare quam vulputate quis. Nunc vel velit volutpat, cursus turpis et, interdum tortor. Nullam magna nulla, aliquet et gravida nec, congue in urna. Proin viverra euismod dolor. Praesent congue ex nibh, non pulvinar nibh accumsan ut. Suspendisse potenti. Suspendisse gravida orci in nunc auctor vehicula. Ut at ornare dui. Nam non augue eget nunc porta cursus.</p>
+            <p>Avec vos informations, nous sommes apte à vous mettre en relations avec des professionnels recherchant votre profil.</p>
         </div>
 
         <div class="infos">
             <h2>Accessible partout</h2><hr/>
             <h3>Sur toutes les plateformes</h3>
-            <p>Quisque massa nibh, dapibus sed justo finibus, volutpat maximus ipsum. Maecenas ac leo et tortor cursus aliquet eget sit amet risus. Nam placerat, lectus sed mattis efficitur, eros nibh aliquam leo, ac vulputate augue odio eu magna. Phasellus id purus at nibh pharetra dignissim et vel elit. Sed auctor placerat metus eu placerat. Ut sagittis ipsum id lorem dictum, ut rhoncus metus pellentesque. Phasellus suscipit rutrum lorem, sit amet ornare quam vulputate quis. Nunc vel velit volutpat, cursus turpis et, interdum tortor. Nullam magna nulla, aliquet et gravida nec, congue in urna. Proin viverra euismod dolor. Praesent congue ex nibh, non pulvinar nibh accumsan ut. Suspendisse potenti. Suspendisse gravida orci in nunc auctor vehicula. Ut at ornare dui. Nam non augue eget nunc porta cursus.</p>
-        </div>
-
+            <p>En dehors des entretients vous pouvez avoir une occasions de donner votre CV en main propre ou simplement un moyen de l'afficher, c'est une part a ne pas négliger dans la recherche d'un emploi et elle fait souvent la différence</p>
         </div>
 
         <div class="clear"></div>
