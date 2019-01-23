@@ -27,43 +27,34 @@
 
         </div>
 
-        <div class="ui vertical stripe quote segment">
-            <div class="ui equal width stackable internally celled grid">
-                <div class="center aligned row">
-                    <div class="column">
-                        <h3>bujuur</h3>
-                        <p>bujur</p>
-                    </div>
-                    <div class="column">
-                        <h3>"I shouldn't have gone with their competitor."</h3>
-                        <p>hello there</p>
-                    </div>
-                </div>
-            </div>
+        <div class="left">
+
+        <div class="infos">
+            <h2>Élaborez votre CV</h2><hr/>
+            <h3>Grâce aux outils conçus spécialement pour vous.</h3>
         </div>
 
         <div class="infos">
-            <h4 class="ui horizontal header divider">Visilibilibilité</h4>
-            <h3 class="ui header">Élaborez votre CV</h3>
-            <p>Grâce aux outils conçus spécialement pour vous.</p>
+            <h2>Augmenter votre visibilité</h2><hr/>
+            <h3>Auprès des professionnels utilisant notre site pour leur recrutements.</h3>
+        </div>
+
+        </div>
+        <div class="right">
+
+        <div class="infos">
+            <h2>Trouver le métier qui vous convient</h2><hr/>
+            <h3>Rencontrez des professionnels.</h3>
         </div>
 
         <div class="infos">
-            <h4 class="ui horizontal header divider">Visilibilibilité</h4>
-            <h3 class="ui header">Augmenter votre visibilité</h3>
-            <p>Auprès des professionnels utilisant notre site pour leur recrutements.</p>
+            <h2>Accessible partout</h2><hr/>
+            <h3>Sur toutes les plateformes</h3>
         </div>
 
-        <div class="infos">
-            <h4 class="ui horizontal header divider">Visilibilibilité</h4>
-            <h3 class="ui header">Trouver le métier qui vous convient</h3>
-            <p>Et rencontrez des professionnels.</p>
         </div>
 
-        <div class="infos">
-            <h4 class="ui horizontal header divider">Visilibilibilité</h4>
-            <h3 class="ui header">Trouver le métier qui vous convient</h3>
-            <p>Et rencontrez des professionnels.</p>
-        </div>
+        <div class="clear"></div>
+
     </div>
 </div>
