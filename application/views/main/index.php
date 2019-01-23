@@ -32,11 +32,15 @@
         <div class="infos">
             <h2>Élaborez votre CV</h2><hr/>
             <h3>Grâce aux outils conçus spécialement pour vous.</h3>
+            <p>
+                Quisque massa nibh, dapibus sed justo finibus, volutpat maximus ipsum. Maecenas ac leo et tortor cursus aliquet eget sit amet risus. Nam placerat, lectus sed mattis efficitur, eros nibh aliquam leo, ac vulputate augue odio eu magna. Phasellus id purus at nibh pharetra dignissim et vel elit. Sed auctor placerat metus eu placerat. Ut sagittis ipsum id lorem dictum, ut rhoncus metus pellentesque. Phasellus suscipit rutrum lorem, sit amet ornare quam vulputate quis. Nunc vel velit volutpat, cursus turpis et, interdum tortor. Nullam magna nulla, aliquet et gravida nec, congue in urna. Proin viverra euismod dolor. Praesent congue ex nibh, non pulvinar nibh accumsan ut. Suspendisse potenti. Suspendisse gravida orci in nunc auctor vehicula. Ut at ornare dui. Nam non augue eget nunc porta cursus.</p>
         </div>
 
         <div class="infos">
             <h2>Augmenter votre visibilité</h2><hr/>
             <h3>Auprès des professionnels utilisant notre site pour leur recrutements.</h3>
+            <p>
+                Quisque massa nibh, dapibus sed justo finibus, volutpat maximus ipsum. Maecenas ac leo et tortor cursus aliquet eget sit amet risus. Nam placerat, lectus sed mattis efficitur, eros nibh aliquam leo, ac vulputate augue odio eu magna. Phasellus id purus at nibh pharetra dignissim et vel elit. Sed auctor placerat metus eu placerat. Ut sagittis ipsum id lorem dictum, ut rhoncus metus pellentesque. Phasellus suscipit rutrum lorem, sit amet ornare quam vulputate quis. Nunc vel velit volutpat, cursus turpis et, interdum tortor. Nullam magna nulla, aliquet et gravida nec, congue in urna. Proin viverra euismod dolor. Praesent congue ex nibh, non pulvinar nibh accumsan ut. Suspendisse potenti. Suspendisse gravida orci in nunc auctor vehicula. Ut at ornare dui. Nam non augue eget nunc porta cursus.</p>
         </div>
 
         </div>
@@ -45,11 +49,14 @@
         <div class="infos">
             <h2>Trouver le métier qui vous convient</h2><hr/>
             <h3>Rencontrez des professionnels.</h3>
+            <p>
+                Quisque massa nibh, dapibus sed justo finibus, volutpat maximus ipsum. Maecenas ac leo et tortor cursus aliquet eget sit amet risus. Nam placerat, lectus sed mattis efficitur, eros nibh aliquam leo, ac vulputate augue odio eu magna. Phasellus id purus at nibh pharetra dignissim et vel elit. Sed auctor placerat metus eu placerat. Ut sagittis ipsum id lorem dictum, ut rhoncus metus pellentesque. Phasellus suscipit rutrum lorem, sit amet ornare quam vulputate quis. Nunc vel velit volutpat, cursus turpis et, interdum tortor. Nullam magna nulla, aliquet et gravida nec, congue in urna. Proin viverra euismod dolor. Praesent congue ex nibh, non pulvinar nibh accumsan ut. Suspendisse potenti. Suspendisse gravida orci in nunc auctor vehicula. Ut at ornare dui. Nam non augue eget nunc porta cursus.</p>
         </div>
 
         <div class="infos">
             <h2>Accessible partout</h2><hr/>
             <h3>Sur toutes les plateformes</h3>
+            <p>Quisque massa nibh, dapibus sed justo finibus, volutpat maximus ipsum. Maecenas ac leo et tortor cursus aliquet eget sit amet risus. Nam placerat, lectus sed mattis efficitur, eros nibh aliquam leo, ac vulputate augue odio eu magna. Phasellus id purus at nibh pharetra dignissim et vel elit. Sed auctor placerat metus eu placerat. Ut sagittis ipsum id lorem dictum, ut rhoncus metus pellentesque. Phasellus suscipit rutrum lorem, sit amet ornare quam vulputate quis. Nunc vel velit volutpat, cursus turpis et, interdum tortor. Nullam magna nulla, aliquet et gravida nec, congue in urna. Proin viverra euismod dolor. Praesent congue ex nibh, non pulvinar nibh accumsan ut. Suspendisse potenti. Suspendisse gravida orci in nunc auctor vehicula. Ut at ornare dui. Nam non augue eget nunc porta cursus.</p>
         </div>
 
         </div>
