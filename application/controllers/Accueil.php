@@ -8,9 +8,11 @@ class Accueil extends CI_Controller {
 	    $data['title'] = 'Blank Page - Accueil';
 
         $this->load->view('include/header', $data);
-        $this->load->view('include/main_menu', $data);
+        $this->load->view('include/following_menu', $data);
         $this->load->view('include/sidebar_menu', $data);
+        $this->load->view('include/header_menu', $data);
 		$this->load->view('main/index', $data);
+		$this->load->view('include/footer_menu', $data);
 		$this->load->view('include/footer', $data);
 	}
 
@@ -71,7 +73,7 @@ class Accueil extends CI_Controller {
                 $this->session->set_userdata($userdata);
 
                 // TODO: Rediriger vers connexion
-                redirect('accueil/profil_candidat');
+                redirect('candidats/index');
             }
         }
 
