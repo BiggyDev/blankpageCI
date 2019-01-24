@@ -31,5 +31,8 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/results/
 
 node_modules/*
-semantic/*
+semantic/dist/*
+semantic/src/*
+semantic/tasks/*
+semantic/gulpfile.js
 semantic.json
