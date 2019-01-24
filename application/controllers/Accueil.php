@@ -20,10 +20,6 @@ class Accueil extends CI_Controller {
     {
         $data['title'] = 'Blank Page - Connexion';
 
-        $this->load->helper(array('form', 'url'));
-
-        $this->load->library('form_validation');
-
         if (isset($_POST['submitted'])) {
 
             $rules = array(
@@ -53,27 +49,29 @@ class Accueil extends CI_Controller {
                 if (isset($user)) {
                     $password = $user[0]['password'];
                     if(!password_verify($this->input->post('password'), $password)) {
-                        $this->form_validation->set_message('rule', 'Mot de passe erroné');
+                        $this->form_validation->set_message('password', 'Mot de passe erroné');
+                    } else {
+
+                        $_SESSION['bp_candidats'] = array(
+                            'id'      => $user[0]['id'],
+                            'email'   => $user[0]['email'],
+                            'ip'      => $_SERVER['REMOTE_ADDR']
+                        );
+
+                        $userdata = array(
+                            'name'     =>  $user[0]['name'],
+                            'email'    =>  $user[0]['email'],
+                        );
+
+                        $this->session->set_userdata($userdata);
+
+                        // TODO: Rediriger vers connexion
+                        redirect('candidats/index');
                     }
                 } else {
-                    $this->form_validation->set_message('rule', 'Veuillez vous inscrire');
+                    $this->form_validation->set_message('email', 'Veuillez vous inscrire');
                 }
 
-                $_SESSION['bp_candidats'] = array(
-                    'id'      => $user[0]['id'],
-                    'email'   => $user[0]['email'],
-                    'ip'      => $_SERVER['REMOTE_ADDR']
-                );
-
-                $userdata = array(
-                  'name'     =>  $user[0]['name'],
-                  'email'    =>  $user[0]['email'],
-                );
-
-                $this->session->set_userdata($userdata);
-
-                // TODO: Rediriger vers connexion
-                redirect('candidats/index');
             }
         }
 
@@ -86,10 +84,6 @@ class Accueil extends CI_Controller {
     public function inscription()
     {
         $data['title'] = 'Blank Page - Inscription';
-
-        $this->load->helper(array('form', 'url'));
-
-        $this->load->library('form_validation');
 
         if (isset($_POST['submitted'])) {
 
