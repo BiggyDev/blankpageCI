@@ -11,8 +11,13 @@
                 <a class="item" href="#métier">Métier</a>
                 <a class="item" href="#accessibilité">Accessibilité</a>
                 <div class="right item">
-                    <?= anchor('Accueil/login', 'Connexion', 'class = "ui inverted button"'); ?>
-                    <?= anchor('Accueil/inscription', 'Inscription', 'class = "ui inverted button"'); ?>
+                    <?php if(!isLogged()){
+                        echo anchor('Accueil/login', 'Connexion', 'class = "ui inverted button"');
+                        echo anchor('Accueil/inscription', 'Inscription', 'class = "ui inverted button"');
+                    } else {
+                        echo anchor('Candidats/index', 'Mon Profil', 'class = "ui inverted button"');
+                        echo anchor('Candidats/disconnect', 'Déconnexion', 'class = "ui inverted button"');
+                    } ?>
                 </div>
             </div>
         </div>

@@ -2,10 +2,10 @@
 
 class Candidats extends CI_Controller
 {
+
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('session');
     }
 
     public function index()
@@ -19,4 +19,24 @@ class Candidats extends CI_Controller
         $this->load->view('profil/profil_candidat', $data);
         $this->load->view('include/footer', $data);
     }
+
+    public function disconnect()
+    {
+        if (isLogged()) {
+            $this->session->sess_destroy();
+            redirect('accueil/index');
+        } else {
+            echo '404';
+        }
+
+    }
+
+    public function mon_cv()
+    {
+        $data['title'] = 'Blank Page - Mon CV';
+
+
+    }
+
+
 }
