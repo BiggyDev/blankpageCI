@@ -12,8 +12,7 @@ class Candidat extends CI_Controller{
 
     function __construct()
     {
-        // Charge tout les modeles
-
+        // Charge tout les modèles pour l'interaction en BDD
         parent::__construct();
         $this->load->database();
         $this->load->model("Candidat_model");
@@ -27,12 +26,13 @@ class Candidat extends CI_Controller{
         $this->load->model("Savoiretre_model");
     }
 
+    // Index() permet de charger toutes les informations d'un candidat
     public function index(){
-        $dataCandidat= $this->Candidat_model->get_all();
+        $dataCandidat= $this->Candidat_model->get_all();        // Récupération de tout les candidats
 
         if ($dataCandidat->num_rows() > 0){
             foreach ($dataCandidat->result() as $row){
-                $result[] = $this->view(intval($row->id), false);
+                $result[] = $this->view(intval($row->id), false);   // Création d'un tableau avec les données de chaque candidat.
             }
             echo json_encode($result);
         }
@@ -43,6 +43,8 @@ class Candidat extends CI_Controller{
     }
 
     public function view($id, $echo = true){
+
+        //Va dans les différents model pour aller chercher les informations d'un candidat par son ID.
 
         $dataCandidat = $this->Candidat_model->get_one($id);
         $dataCertification = $this->Certification_model->get_one($id);
@@ -57,7 +59,10 @@ class Candidat extends CI_Controller{
         $local= function ($candidat,$certification,$competences,$experience,$formation,$info,$interet,$reseaux,$savoir){
 
             foreach ($candidat->result() as $row) {
-                $result[] = array("id" => intval($row->id), "name" => $row->name, "email" => $row->email,"created_at"=> $row->created_at);
+                $result["id"]=$row->id;
+                $result["nomcandidat"]=$row->name;
+                $result["emailcandidat"]=$row->email;
+                $result["datecreationcandidat"]=$row->created_at;
             }
 
             foreach ($certification->result() as $row){
@@ -119,17 +124,16 @@ class Candidat extends CI_Controller{
             foreach ($savoir->result() as $row){
                 $result["namesavoir"]=$row->name;
             }
-
-
             return $result;
         };
 
         if ($dataCandidat->num_rows() > 0) {
                 $result = $local($dataCandidat,$dataCertification, $dataCompetencestech,$dataExperience,$dataFormation,$dataInfos,$dataInteret,$dataReseaux,$dataSavoirEtre);
+                // Encodage et affichage des informations du candidat si echo == true
                 if($echo){
                     echo json_encode($result);
                 }else{
-                    return $result;
+                    return $result; // Sinon, on return le tableau (utilisation de ce tableau dans la fonction index)
                 }
         } else {
             header("HTTP/1.0 404 Not Found");
