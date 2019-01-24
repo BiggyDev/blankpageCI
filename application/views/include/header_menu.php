@@ -21,5 +21,5 @@
             Bienvenue sur Blankpage
         </h1>
         <h2>Blankpage est un site permettant la création d'un CV complet et ergonomique</h2>
-        <?= anchor('Accueil/login', 'Créer mon CV', 'class = "ui inverted teal huge button"'); ?>
+        <?= anchor('Accueil/login', 'Créer mon CV', 'class = "ui inverted teal massive button"'); ?>
     </div>

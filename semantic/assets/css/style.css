@@ -47,6 +47,12 @@
 .ui.text.container {
     color: teal;
     font-size: 1.5em;
+    opacity:0.3;
+}
+.ui.text.container:hover {
+    transition-property: opacity;
+    transition-duration: 1s;
+    opacity: 1;
 }
 .padding {
     padding: 50px;
