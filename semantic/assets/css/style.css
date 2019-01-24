@@ -48,6 +48,7 @@
     font-size: 1.5em;
     opacity:0.3;
     color:black;
+    border: 1px solid white;
 }
 .ui.text.container:hover {
     transition-property: opacity,color,border;
@@ -62,6 +63,9 @@
 }
 .margin {
     margin: 50px;
+}
+.marginB{
+    margin-bottom:50px;
 }
 .quote.stripe.segment {
     padding: 0em;
