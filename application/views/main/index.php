@@ -31,7 +31,6 @@
 
 <!-- Menu fondu -->
 <script>
-
     $(document)
         .ready(function() {
 
