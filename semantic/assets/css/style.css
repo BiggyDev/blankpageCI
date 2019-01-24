@@ -49,8 +49,13 @@
 }
 .ui.text.container {
     color: teal;
-    padding: 50px;
     font-size: 1.5em;
+}
+.padding {
+    padding: 50px;
+}
+.margin {
+    margin: 50px;
 }
 .quote.stripe.segment {
     padding: 0em;
