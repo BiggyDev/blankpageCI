@@ -45,14 +45,17 @@
     margin: 3em 0em;
 }
 .ui.text.container {
-    color: teal;
     font-size: 1.5em;
     opacity:0.3;
+    color:black;
 }
 .ui.text.container:hover {
-    transition-property: opacity;
-    transition-duration: 1s;
-    opacity: 1;
+    transition-property: opacity,color,border;
+    transition-duration: 0.25s;
+    opacity:1;
+    color:teal;
+    border: 1px solid teal;
+    border-radius: 15px;
 }
 .padding {
     padding: 50px;
