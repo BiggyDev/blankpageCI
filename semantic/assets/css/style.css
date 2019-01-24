@@ -2,11 +2,9 @@
     margin:0;
     padding:0;
 }
-
 .hidden.menu {
     display: none;
 }
-
 .masthead.segment {
     min-height: 700px;
     padding: 1em 0em;
@@ -27,7 +25,6 @@
     font-size: 1.7em;
     font-weight: normal;
 }
-
 .ui.vertical.stripe {
     padding: 8em 0em;
 }
@@ -64,15 +61,12 @@
     padding-top: 5em;
     padding-bottom: 5em;
 }
-
 .footer.segment {
     padding: 5em 0em;
 }
-
 .secondary.pointing.menu .toc.item {
     display: none;
 }
-
 body > .grid {
     height: 100%;
 }
