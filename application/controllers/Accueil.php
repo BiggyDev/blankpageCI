@@ -74,7 +74,6 @@ class Accueil extends CI_Controller {
 
             }
         }
-
         $this->load->view('include/header', $data);
         $this->load->view('main/login', $data);
         $this->load->view('include/footer', $data);
@@ -127,7 +126,6 @@ class Accueil extends CI_Controller {
                 redirect('accueil/login');
             }
         }
-
         $this->load->view('include/header', $data);
         $this->load->view('main/inscription');
         $this->load->view('include/footer', $data);
@@ -143,5 +141,4 @@ class Accueil extends CI_Controller {
         }
         return $randomString;
     }
-
 }
