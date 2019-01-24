@@ -1,7 +1,6 @@
 *{
     margin:0;
     padding:0;
-    background: none;
 }
 
 .hidden.menu {
@@ -48,7 +47,11 @@
 .ui.vertical.stripe .horizontal.divider {
     margin: 3em 0em;
 }
-
+.ui.text.container {
+    color: teal;
+    padding: 50px;
+    font-size: 1.5em;
+}
 .quote.stripe.segment {
     padding: 0em;
 }
@@ -98,5 +101,3 @@ body > .grid {
         font-size: 1.5em;
     }
 }
-
-jouj
