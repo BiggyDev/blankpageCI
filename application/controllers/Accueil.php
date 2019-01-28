@@ -16,19 +16,6 @@ class Accueil extends CI_Controller {
 		$this->load->view('include/footer', $data);
 	}
 
-    public function profil_candidat()
-    {
-        $data['title'] = 'Blank Page - Profil';
-
-        $this->load->view('include/header', $data);
-        $this->load->view('include/following_menu', $data);
-        $this->load->view('include/sidebar_menu', $data);
-        $this->load->view('include/header_menu', $data);
-        $this->load->view('main/profil_candidat', $data);
-        $this->load->view('include/footer_menu', $data);
-        $this->load->view('include/footer', $data);
-    }
-
 	public function login()
     {
         $data['title'] = 'Blank Page - Connexion';
