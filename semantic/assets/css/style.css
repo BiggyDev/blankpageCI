@@ -2,12 +2,11 @@
     margin:0;
     padding:0;
 }
-body {
-    background-color: #1b1c1d;
-}
 .content {
-    color:white;
     font-size: 1.25em;
+}
+.ui.button {
+    border: 1px solid darkgray;
 }
 .hidden.menu {
     display: none;
@@ -107,7 +106,6 @@ body > .grid {
     -webkit-transform:rotate(45deg); /* Safari et Chrome */
     -o-transform:rotate(45deg); /* Opera */
 }
-
 @media only screen and (max-width: 700px) {
     .ui.fixed.menu {
         display: none !important;

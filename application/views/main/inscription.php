@@ -54,7 +54,7 @@
             <div class="ui info message">
                 Déjà inscrit(e)?
             </div>
-            <?= anchor('Accueil/login', 'Se Connecter', 'class="ui teal big button"'); ?>
+            <?= anchor('Accueil/login', 'Se Connecter', 'class="ui button"'); ?>
         </div>
 
 
