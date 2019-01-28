@@ -40,7 +40,7 @@
             <div class="ui info message">
                 Vous n'êtes pas inscrit(e)?
             </div>
-            <?= anchor('Accueil/inscription', 'Inscription', 'class="ui teal big button"'); ?>
+            <?= anchor('Accueil/inscription', 'Inscription', 'class="ui button"'); ?>
         </div>
 
     </div>
