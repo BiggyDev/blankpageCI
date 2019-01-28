@@ -2,6 +2,13 @@
     margin:0;
     padding:0;
 }
+body {
+    background-color: #1b1c1d;
+}
+.content {
+    color:white;
+    font-size: 1.25em;
+}
 .hidden.menu {
     display: none;
 }
@@ -46,7 +53,7 @@
 }
 .ui.text.container {
     font-size: 1.5em;
-    opacity:0.3;
+    opacity:0.5;
     color:black;
     border: 1px solid white;
 }
@@ -88,6 +95,17 @@ body > .grid {
 }
 .column {
     max-width: 450px;
+}
+
+.border-top-left {
+    width:50%;
+    height:50%;
+    background-color:cyan;
+    transform:rotate(45deg);
+    -ms-transform:rotate(45deg); /* Internet Explorer */
+    -moz-transform:rotate(45deg); /* Firefox */
+    -webkit-transform:rotate(45deg); /* Safari et Chrome */
+    -o-transform:rotate(45deg); /* Opera */
 }
 
 @media only screen and (max-width: 700px) {

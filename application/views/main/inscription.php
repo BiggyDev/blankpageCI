@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <?= form_submit('submitted', 'S\'inscrire', 'class="ui fluid teal large submit button"'); ?>
+            <?= form_submit('submitted', 'S\'inscrire', 'class="ui teal big button"'); ?>
 
         </div>
 
@@ -54,7 +54,7 @@
             <div class="ui info message">
                 Déjà inscrit(e)?
             </div>
-            <?= anchor('Accueil/login', 'Se Connecter', 'class="ui button"'); ?>
+            <?= anchor('Accueil/login', 'Se Connecter', 'class="ui teal big button"'); ?>
         </div>
 
 
