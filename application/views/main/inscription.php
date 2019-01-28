@@ -1,5 +1,3 @@
-<?= validation_errors(); ?>
-
 <div class="ui middle aligned center aligned grid">
     <div class="column">
         <h2 class="ui teal image header">
@@ -8,48 +6,56 @@
             </div>
         </h2>
 
-
         <?= form_open('', 'class = "ui large form"'); ?>
-
 
         <div class="ui stacked segment">
 
             <div class="field">
                 <div class="ui left icon input">
                     <i class="user icon"></i>
-                    <input type="text" name="nom" placeholder="Nom & Pr&eacute;nom" value="<?= set_value('nom'); ?>" />
+                    <?= form_input('name', set_value('name'), 'placeholder ="Nom & Pr&eacute;nom"'); ?>
                 </div>
             </div>
 
             <div class="field">
                 <div class="ui left icon input">
                     <i class="mail icon"></i>
-                    <input type="text" name="email" placeholder="Adresse E-Mail" value="<?= set_value('email'); ?>"/>
+                    <?= form_input('email', set_value('email'), 'placeholder ="Adresse E-Mail"'); ?>
                 </div>
             </div>
 
             <div class="field">
                 <div class="ui left icon input">
                     <i class="lock icon"></i>
-                    <input type="password" name="password" placeholder="Mot de Passe" value="<?= set_value('password'); ?>"/>
+                    <?= form_password('password', set_value('password'), 'placeholder ="Mot de Passe"'); ?>
                 </div>
             </div>
 
             <div class="field">
                 <div class="ui left icon input">
                     <i class="lock icon"></i>
-                    <input type="password" name="confirmpassword" placeholder="Confirmation Mot de Passe" value="<?= set_value('confirmpassword'); ?>"/>
+                    <?= form_password('confirmpassword', set_value('confirmpassword'), 'placeholder ="Confirmation Mot de Passe"'); ?>
                 </div>
             </div>
 
-            <input class="ui fluid teal large submit button" type="submit" name="submitted" value="S'inscrire">
+            <?= form_submit('submitted', 'S\'inscrire', 'class="ui teal big button"'); ?>
 
         </div>
 
-        <div class="ui error message"></div>
-
+        <?php if (isset($_POST['submitted'])) {
+                    echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
+              } else {
+                    echo '<div class="ui error message">' . validation_errors() . '</div>';
+              }; ?>
 
         <?= form_close(); ?>
+
+        <div class="ui message">
+            <div class="ui info message">
+                Déjà inscrit(e)?
+            </div>
+            <?= anchor('Accueil/login', 'Se Connecter', 'class="ui button"'); ?>
+        </div>
 
 
     </div>

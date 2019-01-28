@@ -2,7 +2,6 @@
 <html lang="fr">
     <head>
 
-        <!-- Standard Meta -->
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -27,6 +26,12 @@
         <link rel="stylesheet" type="text/css" href="<?= base_url('semantic/dist/components/sidebar.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?= base_url('semantic/dist/components/transition.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?= base_url('semantic/assets/css/style.css'); ?>"
+
+              <!-- JQuery -->
+        <script href="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+                crossorigin="anonymous"></script>
+        <script src="<?= base_url('node_modules/jquery/dist/jquery.min.js'); ?>"></script>
 
     </head>
     <body>
