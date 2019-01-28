@@ -22,18 +22,7 @@ class Interet_model extends CI_Model
     {
         $this->db->select("id, name, description, id_candidats")
             ->from($this->table)
-            ->where("id", $id)
-            ->limit(1);
-
-        return $this->db->get();
-    }
-
-    function get_onebyidcandidat($id_candidats)
-    {
-        $this->db->select("id, name, description, id_candidats")
-            ->from($this->table)
-            ->where("id_candidats", $id_candidats)
-            ->limit(1);
+            ->where("id_candidats", $id);
 
         return $this->db->get();
     }

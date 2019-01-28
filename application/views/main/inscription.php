@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <?= form_submit('submitted', 'S\'inscrire', 'class="ui fluid teal large submit button"'); ?>
+            <?= form_submit('submitted', 'S\'inscrire', 'class="ui teal big button"'); ?>
 
         </div>
 
