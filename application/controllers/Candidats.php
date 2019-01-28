@@ -17,6 +17,7 @@ class Candidats extends CI_Controller
         $this->load->view('include/sidebar_menu', $data);
         $this->load->view('include/header_menu', $data);
         $this->load->view('main/index', $data);
+        $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
     }
 

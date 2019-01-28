@@ -25,7 +25,7 @@
         <h1 class="ui inverted header">
             Bienvenue sur Blankpage
         </h1>
-        <h2>Blankpage est un site permettant la création d'un CV complet et ergonomique</h2>
+        <h2 class="marginB">Blankpage est un site permettant la création d'un CV complet et ergonomique</h2>
         <?php if (!isLogged())
         echo anchor('Accueil/login', 'Créer mon CV', 'class = "ui inverted teal massive button"');
               else
