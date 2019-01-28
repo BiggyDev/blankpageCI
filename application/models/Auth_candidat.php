@@ -6,7 +6,6 @@ class Auth_candidat extends CI_Model
     protected $email;
     protected $password;
     protected $token;
-    protected $created_at;
 
     public function insert_entry($name, $email, $password, $token)
     {

@@ -16,7 +16,7 @@ class Candidats extends CI_Controller
         $this->load->view('include/following_menu', $data);
         $this->load->view('include/sidebar_menu', $data);
         $this->load->view('include/header_menu', $data);
-        $this->load->view('profil/profil_candidat', $data);
+        $this->load->view('main/index', $data);
         $this->load->view('include/footer', $data);
     }
 
@@ -31,11 +31,24 @@ class Candidats extends CI_Controller
 
     }
 
-    public function mon_cv()
+    public function profile()
     {
-        $data['title'] = 'Blank Page - Mon CV';
+        $data['title'] = 'Blank Page - Mon profil';
 
+        $this->load->view('include/header', $data);
+        $this->load->view('profil/profil_candidat', $data);
+        $this->load->view('include/footer_menu', $data);
+        $this->load->view('include/footer', $data);
+    }
 
+    public function addCV()
+    {
+        $data['title'] = 'Blank Page - Nouveau CV';
+
+        $this->load->view('include/header', $data);
+        $this->load->view('profil/newCV', $data);
+        $this->load->view('include/footer_menu', $data);
+        $this->load->view('include/footer', $data);
     }
 
 

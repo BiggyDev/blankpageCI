@@ -95,7 +95,7 @@ class Accueil extends CI_Controller {
                 array(
                     'field' => 'email',
                     'label' => 'Adresse E-mail',
-                    'rules' => 'trim|required|min_length[6]|max_length[70]|is_unique[bp_candidats.email]|valid_email'
+                    'rules' => 'trim|required|min_length[6]|max_length[70]|valid_email'
                 ),
                 array(
                     'field' => 'password',
