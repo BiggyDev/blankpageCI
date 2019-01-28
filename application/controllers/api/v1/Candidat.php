@@ -56,8 +56,8 @@ class Candidat extends CI_Controller{
         $dataReseaux = $this->Reseaux_model->get_one($id);
         $dataSavoirEtre = $this->Savoiretre_model->get_one($id);
 
-        $local= function ($candidat,$certification,$competences,$experience,$formation,$info,$interet,$reseaux,$savoir){
 
+        $local= function ($candidat,$certification,$competences,$experience,$formation,$info,$interet,$reseaux,$savoir){
             foreach ($candidat->result() as $row) {
                 $result["id"]=$row->id;
                 $result["nomcandidat"]=$row->name;
@@ -65,37 +65,43 @@ class Candidat extends CI_Controller{
                 $result["datecreationcandidat"]=$row->created_at;
             }
 
+            $i=0;
             foreach ($certification->result() as $row){
-                $result["nomcertif"]=$row->name;
-                $result["descriptioncertif"]=$row->description;
-                $result["datecertif"]=$row->date;
-                $result["dureecertif"]=$row->duree;
+                $result['certif'][$i]["nomcertif"]=$row->name;
+                $result['certif'][$i]["descriptioncertif"]=$row->description;
+                $result['certif'][$i]["datecertif"]=$row->date;
+                $result['certif'][$i]["dureecertif"]=$row->duree;
+                $i++;
             }
-
+            $i=0;
             foreach ($competences->result() as $row){
-                $result["namecompetence"]=$row->name;
-                $result["niveaucompentence"]=$row->niveau;
+                $result['comp'][$i]["namecompetence"]=$row->name;
+                $result['comp'][$i]["niveaucompentence"]=$row->niveau;
+                $i++;
             }
-
+            $i=0;
             foreach ($experience->result() as $row){
-                $result["entreprisexp"]=$row->entreprise;
-                $result["intitulexp"]=$row->intitule;
-                $result["date_debutxp"]=$row->date_debut;
-                $result["dureexp"]=$row->duree;
-                $result["descriptionxp"]=$row->description;
-                $result["adressexp"]=$row->adresse;
-                $result["cpxp"]=$row->cp;
-                $result["villexp"]=$row->ville;
+                $result['xp'][$i]["entreprisexp"]=$row->entreprise;
+                $result['xp'][$i]["intitulexp"]=$row->intitule;
+                $result['xp'][$i]["date_debutxp"]=$row->date_debut;
+                $result['xp'][$i]["dureexp"]=$row->duree;
+                $result['xp'][$i]["descriptionxp"]=$row->description;
+                $result['xp'][$i]["adressexp"]=$row->adresse;
+                $result['xp'][$i]["cpxp"]=$row->cp;
+                $result['xp'][$i]["villexp"]=$row->ville;
+                $i++;
             }
+            $i=0;
             foreach ($formation->result() as $row){
-                $result["ecoleformation"]=$row->ecole;
-                $result["adresseformation"]=$row->adresse;
-                $result["cpformation"]=$row->cp;
-                $result["villeformation"]=$row->ville;
-                $result["diplomeformation"]=$row->diplome;
-                $result["datedebutformation"]=$row->datedebut;
-                $result["dureeformation"]=$row->duree;
-                $result["mentionformation"]=$row->mention;
+                $result['formation'][$i]["ecoleformation"]=$row->ecole;
+                $result['formation'][$i]["adresseformation"]=$row->adresse;
+                $result['formation'][$i]["cpformation"]=$row->cp;
+                $result['formation'][$i]["villeformation"]=$row->ville;
+                $result['formation'][$i]["diplomeformation"]=$row->diplome;
+                $result['formation'][$i]["datedebutformation"]=$row->datedebut;
+                $result['formation'][$i]["dureeformation"]=$row->duree;
+                $result['formation'][$i]["mentionformation"]=$row->mention;
+                $i++;
             }
             foreach ($info->result() as $row){
                 $result["ageinfo"]=$row->age;
@@ -113,16 +119,22 @@ class Candidat extends CI_Controller{
                 $result["mobiliteinfo"]=$row->mobilite;
                 $result["rayoninfo"]=$row->rayon;
             }
+            $i=0;
             foreach ($interet->result() as $row){
-                $result["nameinteret"]= $row->name;
-                $result["descriptioninteret"]= $row->description;
+                $result['interet'][$i]["nameinteret"]= $row->name;
+                $result['interet'][$i]["descriptioninteret"]= $row->description;
+                $i++;
             }
+            $i=0;
             foreach ($reseaux->result() as $row){
-                $result["namereseau"]= $row->name;
-                $result["lienreseau"]= $row->lien;
+                $result['reseau'][$i]["namereseau"]= $row->name;
+                $result['reseau'][$i]["lienreseau"]= $row->lien;
+                $i++;
             }
+            $i=0;
             foreach ($savoir->result() as $row){
-                $result["namesavoir"]=$row->name;
+                $result['savoir'][$i]["namesavoir"]=$row->name;
+                $i++;
             }
             return $result;
         };
