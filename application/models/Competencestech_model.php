@@ -22,8 +22,7 @@ class Competencestech_model extends CI_Model
     {
         $this->db->select("id, name, niveau,id_candidats")
             ->from($this->table)
-            ->where("id", $id)
-            ->limit(1);
+            ->where("id_candidats", $id);
 
         return $this->db->get();
     }
