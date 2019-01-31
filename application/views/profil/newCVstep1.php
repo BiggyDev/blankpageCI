@@ -1,51 +1,20 @@
-<?php
-
-$gender = array(
-            ''          => 'Sexe',
-            'female'    => 'Femme',
-            'male'      => 'Homme'
-        );
-
-$permis = array(
-            ''      => 'Choisissez vos permis',
-            'am'    => 'AM',
-            'a1'    => 'A1',
-            'a2'    => 'A2',
-            'a'     => 'A',
-            'b1'    => 'B1',
-            'b'     => 'B',
-            'c1'    => 'C1',
-            'c'     => 'C',
-            'd1'    => 'D1',
-            'd'     => 'D',
-            'be'    => 'BE',
-            'c1e'   => 'C1E',
-            'ce'    => 'CE',
-            'd1e'   => 'D1E',
-            'de'    => 'DE'
-);
-
-?>
-
-<div class="ui vertical steps">
-    <div class="step"></i>
+<div class="ui steps">
+    <div class="active step">
         <div class="content">
-            <div class="title">Shipping</div>
-            <div class="description">Choose your shipping options</div>
+            <div class="title">Informations</div>
+            <div class="description">Parlez nous de vous</div>
         </div>
     </div>
     <div class="step">
-        <i class="credit card icon"></i>
         <div class="content">
-            <div class="title">Billing</div>
-            <div class="description">Enter billing information</div>
+            <div class="title">Formations</div>
+            <div class="description">Entrez vos diff&eacute;rents dipl&ocirc;mes</div>
         </div>
     </div>
     <div class="step">
-        <i class="info icon"></i>
         <div class="content">
-            <div class="title">Confirm Order</div>
-            <div class="description">Verify order details</div>
+            <div class="title">Exp&eacute;riences</div>
+            <div class="description">Vos exp&eacute;riences professionnelles</div>
         </div>
     </div>
 </div>
@@ -61,7 +30,7 @@ $permis = array(
             <div class="field">
                 <label>Date de naissance</label>
                 <div class="ui left input">
-                    <?= form_input('birthday', set_value('birthday'), 'placeholder ="Date de naissance"'); ?>
+                    <?= form_input($birthday); ?>
                 </div>
             </div>
 

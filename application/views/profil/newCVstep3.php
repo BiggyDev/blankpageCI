@@ -5,13 +5,13 @@
             <div class="description">Parlez nous de vous</div>
         </div>
     </div>
-    <div class="active step">
+    <div class="disabled step">
         <div class="content">
             <div class="title">Formations</div>
             <div class="description">Entrez vos diff&eacute;rents dipl&ocirc;mes</div>
         </div>
     </div>
-    <div class="step">
+    <div class="active step">
         <div class="content">
             <div class="title">Exp&eacute;riences</div>
             <div class="description">Vos exp&eacute;riences professionnelles</div>
@@ -21,16 +21,16 @@
 
 <div class="ui middle aligned center aligned">
     <div class="column">
-        <h1 class="title">Formations</h1>
+        <h1 class="title">Exp&eacute;riences</h1>
 
         <?= form_open('', 'class = "ui huge form"'); ?>
 
         <div class="ui stacked segment">
 
             <div class="field">
-                <label>Ecole</label>
+                <label>Entreprise</label>
                 <div class="ui left input">
-                    <?= form_input('ecole', set_value('ecole'), 'placeholder ="ex : NFactory School"'); ?>
+                    <?= form_input('entreprise', set_value('entreprise'), 'placeholder ="ex : NFactory"'); ?>
                 </div>
             </div>
 
@@ -54,15 +54,15 @@
             </div>
 
             <div class="field">
-                <label>Diplôme</label>
+                <label>Intitul&eacute; du poste</label>
                 <div class="ui left input">
-                    <?= form_input('diplome', set_value('diplome'), 'placeholder ="Baccalaur&eacute;at, Licence..."'); ?>
+                    <?= form_input('intitule', set_value('intitule'), 'placeholder ="D&eacute;veloppeur, technicien, chef de projet..."'); ?>
                 </div>
             </div>
 
             <div class="field">
                 <label>Date de d&eacute;but</label>
-                <?= form_input($datedebut); ?>
+                <?= form_input($date_debut); ?>
             </div>
 
 
@@ -74,9 +74,9 @@
             </div>
 
             <div class="field">
-                <label>Mention / Commentaires</label>
+                <label>Description du poste</label>
                 <div class="ui left input">
-                    <?= form_textarea('mention_commentaires', set_value('mention_commentaires'), 'placeholder="Indiquez la mention obtenue, les matières étudi&eacute;es, ect..."'); ?>
+                    <?= form_textarea('description', set_value('description'), 'placeholder="D&eacute;crivez bri&egrave;vement votre exp&eacute;rience &agrave; ce poste"'); ?>
                 </div>
             </div>
 
