@@ -93,7 +93,7 @@ body > .grid {
     margin-top: -100px;
 }
 .column {
-    max-width: 450px;
+    max-width: 850px;
 }
 
 .border-top-left {
@@ -128,4 +128,8 @@ body > .grid {
         margin-top: 0.5em;
         font-size: 1.5em;
     }
+}
+.margin50 {
+    margin: 0 auto;
+    width: 850px;
 }

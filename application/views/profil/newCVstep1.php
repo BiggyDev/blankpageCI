@@ -27,21 +27,22 @@ $permis = array(
 
 ?>
 
-<div class="ui vertical steps">
-    <div class="step"></i>
+<div class="ui three top attached steps">
+    <div class="active step">
+        <i class="truck icon"></i>
         <div class="content">
-            <div class="title">Shipping</div>
-            <div class="description">Choose your shipping options</div>
+            <div class="title">Infos personnelles</div>
+            <div class="description">Dîtes nous qui vous êtes</div>
         </div>
     </div>
-    <div class="step">
-        <i class="credit card icon"></i>
+    <div class="disabled step">
+        <i class="payment icon"></i>
         <div class="content">
-            <div class="title">Billing</div>
-            <div class="description">Enter billing information</div>
+            <div class="title">Formations</div>
+            <div class="description">Quels sont vos diplômes ?</div>
         </div>
     </div>
-    <div class="step">
+    <div class="disabled step">
         <i class="info icon"></i>
         <div class="content">
             <div class="title">Confirm Order</div>
@@ -49,9 +50,8 @@ $permis = array(
         </div>
     </div>
 </div>
-
-<div class="ui middle aligned center aligned">
-    <div class="column">
+<div class="ui attached segment">
+    <div class="column margin50">
         <h1 class="title">Infos Personnelles</h1>
 
         <?= form_open('', 'class = "ui huge form"'); ?>
@@ -98,29 +98,29 @@ $permis = array(
 
             <div class="field">
                 <label>Permis</label>
-                    <?= form_multiselect('permis', $permis, '', 'class="ui fluid normal dropdown"'); ?>
+                <?= form_multiselect('permis', $permis, '', 'class="ui fluid normal dropdown"'); ?>
             </div>
 
             <div class="inline fields">
                 <label for="vehicle">Véhicule personnel</label>
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <?= form_radio('vehicle', 'yes', FALSE, 'class="hidden"'); ?>
-                            <?= form_label('Oui'); ?>
-                        </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <?= form_radio('vehicle', 'yes', FALSE, 'class="hidden"'); ?>
+                        <?= form_label('Oui'); ?>
                     </div>
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <?= form_radio('vehicle', 'no', FALSE, 'class="hidden"'); ?>
-                            <?= form_label('Non'); ?>
-                        </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <?= form_radio('vehicle', 'no', FALSE, 'class="hidden"'); ?>
+                        <?= form_label('Non'); ?>
                     </div>
+                </div>
             </div>
 
             <div class="field">
                 <label>Photo</label>
                 <div class="ui left input">
-                <?= form_upload('picture'); ?>
+                    <?= form_upload('picture'); ?>
                 </div>
             </div>
 
@@ -162,10 +162,6 @@ $permis = array(
     </div>
 </div>
 
-
-
-
-
 <script>
 
     $(document)
@@ -186,5 +182,3 @@ $permis = array(
         })
     ;
 </script>
-
-
