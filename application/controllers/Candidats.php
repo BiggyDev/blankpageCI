@@ -120,6 +120,7 @@ class Candidats extends CI_Controller
         $_GET['id'] = $id;
 
         $this->load->view('include/header', $data);
+        $this->load->view('include/header_menu_logged', $data);
 
         if (isset($id)) {
             $this->load->view('profil/newCVstep' . $id, $data);
