@@ -22,8 +22,7 @@ class Infos_model extends CI_Model
     {
         $this->db->select("id, age, sexe, adresse, cp, ville, portable, permis, vehicule, picture, bio, portfolio, more, id_candidats")
             ->from($this->table)
-            ->where("id", $id)
-            ->limit(1);
+            ->where("id_candidats", $id);
 
         return $this->db->get();
     }

@@ -23,8 +23,7 @@ class Formation_model extends CI_Model
     {
         $this->db->select("id, ecole, adresse,cp,ville,diplome,datedebut,duree,mention,id_candidats")
             ->from($this->table)
-            ->where("id", $id)
-            ->limit(1);
+            ->where("id_candidats", $id);
 
         return $this->db->get();
     }

@@ -17,8 +17,7 @@ class Candidat_model extends CI_Model
     {
         $this->db->select("id, name, email, password, token, created_at")
             ->from($this->table)
-            ->where("id", $id)
-            ->limit(1);
+            ->where("id", $id);
 
         return $this->db->get();
     }
