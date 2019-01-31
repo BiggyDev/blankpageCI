@@ -113,9 +113,18 @@ class Candidats extends CI_Controller
                 'confirme' => 'Confirm&eacute;',
                 'expert' => 'Expert'
             );
+        } elseif ($id == 6) {
+            $data['datedebut'] = array(
+                'type' => 'date',
+                'name' => 'datedebut',
+                'value' => 'datedebut'
+            );
+        } elseif ($id == 7) {
+            $data['savoiretre'] = array(
+                'amical' => 'Amical',
+                'respectueux' => 'Respectueux'
+            );
         }
-
-
 
         $_GET['id'] = $id;
 
