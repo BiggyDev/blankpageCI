@@ -46,6 +46,8 @@ class Candidats extends CI_Controller
     {
         $data['title'] = 'Blank Page - Nouveau CV';
 
+
+
         $this->load->view('include/header', $data);
         $this->load->view('profil/newCV', $data);
         $this->load->view('include/footer_menu', $data);
