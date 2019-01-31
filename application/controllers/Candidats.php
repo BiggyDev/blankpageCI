@@ -42,12 +42,17 @@ class Candidats extends CI_Controller
         $this->load->view('include/footer', $data);
     }
 
-    public function addCV()
+    public function addCV($id)
     {
         $data['title'] = 'Blank Page - Nouveau CV';
+        $_GET['id'] = $id;
 
         $this->load->view('include/header', $data);
-        $this->load->view('profil/newCV', $data);
+
+        if (isset($id)) {
+            $this->load->view('profil/newCVstep' . $id, $data);
+        }
+
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
     }
