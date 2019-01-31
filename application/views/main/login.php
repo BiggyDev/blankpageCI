@@ -24,7 +24,7 @@
                     </div>
                 </div>
 
-                <?= form_submit('submitted', 'Se connecter', 'class="ui fluid teal large submit button"'); ?>
+                <?= form_submit('submitted', 'Se connecter', 'class="ui teal big button""'); ?>
 
             </div>
 

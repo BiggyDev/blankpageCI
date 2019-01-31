@@ -5,6 +5,11 @@
 <a class="item" href="#visibilité">Visibilité</a>
 <a class="item" href="#métier">Métier</a>
 <a class="item" href="#accessibilité">Accessibilité</a>
-<?= anchor('Accueil/login', 'Connexion', 'class = "item"'); ?>
-<?= anchor('Accueil/inscription', 'Inscription', 'class = "item"'); ?>
+    <?php if(!isLogged()){
+        echo anchor('Accueil/login', 'Connexion', 'class = "item"');
+        echo anchor('Accueil/inscription', 'Inscription', 'class = "item"');
+    } else {
+        echo anchor('Candidats/profile', 'Mon Profil', 'class = "item"');
+        echo anchor('Candidats/disconnect', 'Déconnexion', 'class = "item"');
+    } ?>
 </div>
