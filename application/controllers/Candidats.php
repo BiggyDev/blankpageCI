@@ -109,9 +109,9 @@ class Candidats extends CI_Controller
             );
             $data['niveau'] = array (
                 'debutant' => 'Débutant',
-                'intermediaire' => 'Interm&eacute;diaire',
-                'confirme' => 'Confirm&eacute;',
-                'expert' => 'Expert'
+                'scolaire' => 'Scolaire',
+                'professionnel' => 'Professionnel',
+                'maternelle' => 'Langue Maternelle'
             );
         } elseif ($id == 6) {
             $data['datedebut'] = array(

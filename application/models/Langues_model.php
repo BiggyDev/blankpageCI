@@ -6,14 +6,15 @@
  * Time: 10:13
  */
 
-class Competencestech_model extends CI_Model
+class Langues_model extends CI_Model
 {
     public $name;
+    public $niveau;
 
     function __construct()
     {
         parent::__construct();
-        $this->table = "bp_competencestech";
+        $this->table = "bp_langues";
     }
 
     function get_all(){
@@ -22,22 +23,20 @@ class Competencestech_model extends CI_Model
 
     function get_one($id)
     {
-        $this->db->select("id, name,id_candidats")
+        $this->db->select("id, name, niveau,id_candidats")
             ->from($this->table)
             ->where("id_candidats", $id);
 
         return $this->db->get();
     }
 
-    public function insert_entry($name)
+    public function insert_entry($name, $niveau)
     {
-        $competencestech = array(
+        $langues = array(
             'name'                => $name,
+            'niveau'              => $niveau
         );
 
-        $this->db->insert('bp_competencestech', $competencestech);
+        $this->db->insert('bp_langues', $langues);
     }
 }
-
-/* End of file Competencestech_model.php */
-/* Location: ./application/models/Competencestech_model.php */

@@ -9,6 +9,15 @@
 
 class Formation_model extends CI_Model
 {
+    public $ecole;
+    public $adresse;
+    public $cp;
+    public $ville;
+    public $diplome;
+    public $datedebut;
+    public $duree;
+    public $mention;
+
     function __construct()
     {
         parent::__construct();
@@ -21,11 +30,28 @@ class Formation_model extends CI_Model
 
     function get_one($id)
     {
-        $this->db->select("id, ecole, adresse,cp,ville,diplome,datedebut,duree,mention,id_candidats")
+        $this->db->select("id, ecole, adresse,cp,ville,diplome,datedebut,duree,mention_commentaires,id_candidats")
             ->from($this->table)
             ->where("id_candidats", $id);
 
         return $this->db->get();
+    }
+
+    public function insert_entry($ecole, $adresse, $cp, $ville, $diplome, $datedebut, $duree, $mention)
+    {
+        $formation = array(
+
+            'ecole'                         => $ecole,
+            'adresse'                       => $adresse,
+            'cp'                            => $cp,
+            'ville'                         => $ville,
+            'diplome'                       => $diplome,
+            'datedebut'                     => $datedebut,
+            'duree'                         => $duree,
+            'mention_commentaires'          => $mention
+        );
+
+        $this->db->insert('bp_formation', $formation);
     }
 }
 

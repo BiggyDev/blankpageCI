@@ -28,16 +28,8 @@
         <div class="ui stacked segment">
 
             <div class="field">
-                <label>Comp&eacute;tence</label>
-                <?= form_dropdown('name', $competence, '', 'class="ui fluid normal dropdown"'); ?>
-            </div>
-
-
-            <div class="field">
-                <label>Niveau</label>
-                <div class="ui left input">
-                    <?= form_dropdown('niveau', $niveau, '', 'class="ui fluid selection dropdown" id="niveau"'); ?>
-                </div>
+                <label>Comp&eacute;tences</label>
+                <?= form_multiselect('name', $competence, '', 'class="ui fluid normal dropdown"'); ?>
             </div>
 
             <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>

@@ -28,29 +28,24 @@
         <div class="ui stacked segment">
 
             <div class="field">
-                <label>Langue</label>
+                <label>Langues</label>
                 <?= form_dropdown('name', $langue, '', 'class="ui fluid normal dropdown"'); ?>
             </div>
 
-
             <div class="field">
                 <label>Niveau</label>
-                <div class="ui left input">
-                    <?= form_dropdown('niveau', $niveau, '', 'class="ui fluid selection dropdown" id="niveau"'); ?>
-                </div>
+                <?= form_dropdown('name', $niveau, '', 'class="ui fluid normal dropdown"'); ?>
             </div>
 
             <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-        </div>
+            <?php if (isset($_POST['submitted'])) {
+                echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
+            } else {
+                echo '<div class="ui error message">' . validation_errors() . '</div>';
+            };
 
-        <?php if (isset($_POST['submitted'])) {
-            echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
-        } else {
-            echo '<div class="ui error message">' . validation_errors() . '</div>';
-        }; ?>
-
-        <?= form_close(); ?>
+            form_close(); ?>
     </div>
 </div>
 
@@ -64,16 +59,7 @@
         .ready(function() {
 
             $('.ui.normal.dropdown')
-                .dropdown({
-                    maxSelections: 6
-                })
-
-            $('#niveau')
                 .dropdown()
-            ;
-
-            $('.ui.radio.checkbox')
-                .checkbox()
             ;
         })
     ;

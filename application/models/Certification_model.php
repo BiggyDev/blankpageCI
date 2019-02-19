@@ -8,6 +8,12 @@
 
 class Certification_model extends CI_Model
 {
+
+    public $name;
+    public $description;
+    public $date;
+    public $duree;
+
     function __construct()
     {
         parent::__construct();
@@ -25,6 +31,19 @@ class Certification_model extends CI_Model
             ->where("id_candidats", $id);
 
         return $this->db->get();
+    }
+
+    public function insert_entry($name, $description, $date, $duree)
+    {
+        $certification = array(
+
+            'name'                => $name,
+            'description'         => $description,
+            'date'                => $date,
+            'duree'               => $duree
+        );
+
+        $this->db->insert('bp_certifications', $certification);
     }
 }
 
