@@ -94,6 +94,8 @@ body > .grid {
 }
 .column {
     max-width: 850px;
+    margin-bottom: 90px;
+    margin-top: 90px;
 }
 
 .border-top-left {
@@ -113,6 +115,7 @@ body > .grid {
     .secondary.pointing.menu .item,
     .secondary.pointing.menu .menu {
         display: none;
+        clear: both;
     }
     .secondary.pointing.menu .toc.item {
         display: block;

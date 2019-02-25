@@ -2,15 +2,15 @@
     <div class="step">
         <i class="truck icon"></i>
         <div class="content">
-            <div class="title">Infos personnelles</div>
-            <div class="description">Dîtes nous qui vous êtes</div>
+            <div class="title">Informations</div>
+            <div class="description">Parlez nous de vous</div>
         </div>
     </div>
     <div class="active step">
         <i class="payment icon"></i>
         <div class="content">
             <div class="title">Formations</div>
-            <div class="description">Quels sont vos diplômes ?</div>
+            <div class="description">Entrez vos diff&eacute;rents dipl&ocirc;mes</div>
         </div>
     </div>
     <div class="disabled step">
