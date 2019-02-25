@@ -19,13 +19,14 @@
     </div>
 </div>
 
-<div class="ui middle aligned center aligned">
-    <div class="column">
+<div class="ui attached segment">
+    <div class="ui middle aligned center aligned margin50">
+        <div class="column">
         <h1 class="title">Langues</h1>
 
         <?= form_open('', 'class = "ui huge form"'); ?>
 
-        <div class="ui stacked segment">
+        <div class="source-item ui stacked segment">
 
             <div class="field">
                 <label>Langues</label>
@@ -37,23 +38,24 @@
                 <?= form_dropdown('name', $niveau, '', 'class="ui fluid normal dropdown"'); ?>
             </div>
 
-            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
+        </div>
 
-            <?php if (isset($_POST['submitted'])) {
-                echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
-            } else {
-                echo '<div class="ui error message">' . validation_errors() . '</div>';
-            };
+        <button class="ui teal big button" type="button" onclick="ajout(this);">Ajouter une langue</button>
 
-            form_close(); ?>
+        <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
+
+        <?php if (isset($_POST['submitted'])) {
+            echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
+        } else {
+            echo '<div class="ui error message">' . validation_errors() . '</div>';
+        };
+
+        form_close(); ?>
+        </div>
     </div>
 </div>
 
-
-
-
-
-<script>
+    <script>
 
     $(document)
         .ready(function() {
@@ -63,4 +65,4 @@
             ;
         })
     ;
-</script>
+    </script>
