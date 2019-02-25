@@ -1,17 +1,20 @@
-<div class="ui steps">
-    <div class="active step">
+<div class="ui three top attached steps">
+    <div class="step">
+        <i class="truck icon"></i>
         <div class="content">
             <div class="title">Informations</div>
             <div class="description">Parlez nous de vous</div>
         </div>
     </div>
-    <div class="step">
+    <div class="active step">
+        <i class="payment icon"></i>
         <div class="content">
             <div class="title">Formations</div>
             <div class="description">Entrez vos diff&eacute;rents dipl&ocirc;mes</div>
         </div>
     </div>
-    <div class="step">
+    <div class="disabled step">
+        <i class="info icon"></i>
         <div class="content">
             <div class="title">Exp&eacute;riences</div>
             <div class="description">Vos exp&eacute;riences professionnelles</div>
@@ -19,7 +22,7 @@
     </div>
 </div>
 
-<div class="ui middle aligned center aligned">
+<div class="ui middle aligned center aligned margin50">
     <div class="column">
         <h1 class="title">Comp&eacute;tences techniques</h1>
 
