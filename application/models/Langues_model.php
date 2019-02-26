@@ -2,16 +2,16 @@
 /**
  * Created by PhpStorm.
  * User: yamna
- * Date: 23/01/2019
- * Time: 10:04
+ * Date: 19/02/2019
+ * Time: 15:41
  */
 
-class Infos_model extends CI_Model
+class Langues_model extends CI_Model
 {
     function __construct()
     {
         parent::__construct();
-        $this->table = "bp_infos";
+        $this->table = "bp_langues";
     }
 
     function get_all(){
@@ -20,7 +20,7 @@ class Infos_model extends CI_Model
 
     function get_one($id)
     {
-        $this->db->select("id, age, sexe, adresse, cp, ville, portable, permis, vehicule, picture, bio, portfolio, more, mobilite, rayon, id_candidats")
+        $this->db->select("id, name, niveau, id_candidats")
             ->from($this->table)
             ->where("id_candidats", $id);
 
@@ -28,5 +28,4 @@ class Infos_model extends CI_Model
     }
 }
 
-/* End of file Infos_model.php */
-/* Location: ./application/models/Infos_model.php */
+/* End of file Langues_model.php */

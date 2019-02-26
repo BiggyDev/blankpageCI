@@ -22,6 +22,7 @@ class Candidat extends CI_Controller{
         $this->load->model("Formation_model");
         $this->load->model("Infos_model");
         $this->load->model("Interet_model");
+        $this->load->model("Langues_model");
         $this->load->model("Reseaux_model");
         $this->load->model("Savoiretre_model");
     }
@@ -53,11 +54,12 @@ class Candidat extends CI_Controller{
         $dataFormation = $this->Formation_model->get_one($id);
         $dataInfos = $this->Infos_model->get_one($id);
         $dataInteret = $this->Interet_model->get_one($id);
+        $dataLangues= $this->Langues_model->get_one($id);
         $dataReseaux = $this->Reseaux_model->get_one($id);
         $dataSavoirEtre = $this->Savoiretre_model->get_one($id);
 
 
-        $local= function ($candidat,$certification,$competences,$experience,$formation,$info,$interet,$reseaux,$savoir){
+        $local= function ($candidat,$certification,$competences,$experience,$formation,$info,$interet,$langues,$reseaux,$savoir){
             foreach ($candidat->result() as $row) {
                 $result["id"]=$row->id;
                 $result["nomcandidat"]=$row->name;
@@ -76,7 +78,7 @@ class Candidat extends CI_Controller{
             $i=0;
             foreach ($competences->result() as $row){
                 $result['comp'][$i]["namecompetence"]=$row->name;
-                $result['comp'][$i]["niveaucompentence"]=$row->niveau;
+                $result['comp'][$i]["niveaucompetence"]=$row->niveau;
                 $i++;
             }
             $i=0;
@@ -126,6 +128,12 @@ class Candidat extends CI_Controller{
                 $i++;
             }
             $i=0;
+            foreach ($langues->result()as $row){
+                $result['langues'][$i]['namelangue']= $row->name;
+                $result['langues'][$i]['niveaulangue']= $row->niveau;
+
+            }
+            $i=0;
             foreach ($reseaux->result() as $row){
                 $result['reseau'][$i]["namereseau"]= $row->name;
                 $result['reseau'][$i]["lienreseau"]= $row->lien;
@@ -140,7 +148,7 @@ class Candidat extends CI_Controller{
         };
 
         if ($dataCandidat->num_rows() > 0) {
-                $result = $local($dataCandidat,$dataCertification, $dataCompetencestech,$dataExperience,$dataFormation,$dataInfos,$dataInteret,$dataReseaux,$dataSavoirEtre);
+                $result = $local($dataCandidat,$dataCertification, $dataCompetencestech,$dataExperience,$dataFormation,$dataInfos,$dataInteret,$dataLangues,$dataReseaux,$dataSavoirEtre);
                 // Encodage et affichage des informations du candidat si echo == true
                 if($echo){
                     echo json_encode($result);
