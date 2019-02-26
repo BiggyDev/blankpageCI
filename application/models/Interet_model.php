@@ -8,6 +8,9 @@
 
 class Interet_model extends CI_Model
 {
+    public $name;
+    public $description;
+
     function __construct()
     {
         parent::__construct();
@@ -25,6 +28,17 @@ class Interet_model extends CI_Model
             ->where("id_candidats", $id);
 
         return $this->db->get();
+    }
+
+    public function insert_entry($name, $description)
+    {
+        $interets = array(
+
+            'name'                => $name,
+            'description'         => $description
+        );
+
+        $this->db->insert('bp_interet', $interets);
     }
 }
 

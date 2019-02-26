@@ -8,6 +8,8 @@
 
 class Savoiretre_model extends CI_Model
 {
+    public $name;
+
     function __construct()
     {
         parent::__construct();
@@ -25,6 +27,16 @@ class Savoiretre_model extends CI_Model
             ->where("id_candidats", $id);
 
         return $this->db->get();
+    }
+
+    public function insert_entry($name)
+    {
+        $savoiretre = array(
+
+            'name'                => $name,
+        );
+
+        $this->db->insert('bp_savoiretre', $savoiretre);
     }
 }
 

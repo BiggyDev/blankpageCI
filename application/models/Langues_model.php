@@ -1,13 +1,23 @@
 <?php
 /**
  * Created by PhpStorm.
+<<<<<<< HEAD
  * User: yamna
  * Date: 19/02/2019
  * Time: 15:41
+=======
+ * User: Baptiste ANGOT
+ * Date: 23/01/2019
+ * Time: 10:13
+>>>>>>> a09dfdc1b63a72de313fee2a31b1fc1e372b021c
  */
 
 class Langues_model extends CI_Model
 {
+
+    public $name;
+    public $niveau;
+
     function __construct()
     {
         parent::__construct();
@@ -20,11 +30,27 @@ class Langues_model extends CI_Model
 
     function get_one($id)
     {
-        $this->db->select("id, name, niveau, id_candidats")
+        $this->db->select("id, name, niveau,id_candidats")
+
             ->from($this->table)
             ->where("id_candidats", $id);
 
         return $this->db->get();
+    }
+
+
+
+
+
+
+    public function insert_entry($name, $niveau)
+    {
+        $langues = array(
+            'name'                => $name,
+            'niveau'              => $niveau
+        );
+
+        $this->db->insert('bp_langues', $langues);
     }
 }
 

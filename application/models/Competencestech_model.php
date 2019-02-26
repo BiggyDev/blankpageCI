@@ -8,6 +8,8 @@
 
 class Competencestech_model extends CI_Model
 {
+    public $name;
+
     function __construct()
     {
         parent::__construct();
@@ -20,11 +22,20 @@ class Competencestech_model extends CI_Model
 
     function get_one($id)
     {
-        $this->db->select("id, name, niveau,id_candidats")
+        $this->db->select("id, name,id_candidats")
             ->from($this->table)
             ->where("id_candidats", $id);
 
         return $this->db->get();
+    }
+
+    public function insert_entry($name)
+    {
+        $competencestech = array(
+            'name'                => $name,
+        );
+
+        $this->db->insert('bp_competencestech', $competencestech);
     }
 }
 

@@ -1,14 +1,50 @@
+
+
 <!-- Menu -->
+
 <div id="truc" class="ui secondary vertical pointing menu">
-    <a href="#Nouveau_CV" class="item">
-        Créer mon CV
-    </a>
-    <a href="#CV" class="item">
-        Voir mes CV
-    </a>
-    <a href="#Chipo" class="item active">
-        Chipo ?
-    </a>
+    <!-- <a href="?lien=1" class="item" onclick="getElementById('demo').innerHTML = '<p>connard</p>' ">What is the time?</a> -->
+    <a href="?lien=1" class="item">Voir mes CV</a>
+    <a href="?lien=2" class="item">Lien 2</a>
+    <a href="?lien=3" class="item">Lien 3</a>
+</div>
+
+<!--
+<div>
+    <p id="demo">demo</p>
+</div>
+-->
+
+<div>
+
+    <?php
+    if(isset($_GET['lien'])){
+        $link=$_GET['lien'];
+        if ($link == '1'){
+            echo '
+            
+            <h1>MES CV</h1>
+            
+            
+            
+            ';
+        }
+        if ($link == '2'){
+            echo '
+
+            
+
+            ';
+        }
+        if ($link == '3'){
+            echo '
+
+            
+
+            ';
+        }
+    }  ?>
+
 </div>
 
 <!-- Mes CV -->
