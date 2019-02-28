@@ -1,5 +1,7 @@
 
 
+
+
 <!-- Menu -->
 
 <div id="truc" class="ui secondary vertical pointing menu">
@@ -24,7 +26,25 @@
             echo '
             
             <h1>MES CV</h1>
-            
+            <table class="ui single line table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Registration Date</th>
+        <th>E-mail address</th>
+        <th>Premium Plan</th>
+        <th>Premium Plan</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>John Lilki</td>
+        <td>September 14, 2013</td>
+        <td>jhlilk22@yahoo.com</td>
+        <td>No</td>
+    </tr>
+    </tbody>
+</table>
             
             
             ';
@@ -32,14 +52,14 @@
         if ($link == '2'){
             echo '
 
-            
+            <p>Zizi</p>
 
             ';
         }
         if ($link == '3'){
             echo '
 
-            
+            <p>Bonjour !</p>
 
             ';
         }
