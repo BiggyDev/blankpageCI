@@ -78,19 +78,18 @@ class Candidat extends CI_Controller{
             $i=0;
             foreach ($competences->result() as $row){
                 $result['comp'][$i]["namecompetence"]=$row->name;
-                $result['comp'][$i]["niveaucompetence"]=$row->niveau;
                 $i++;
             }
             $i=0;
-            foreach ($experience->result() as $row){
-                $result['xp'][$i]["entreprisexp"]=$row->entreprise;
-                $result['xp'][$i]["intitulexp"]=$row->intitule;
-                $result['xp'][$i]["date_debutxp"]=$row->date_debut;
-                $result['xp'][$i]["dureexp"]=$row->duree;
-                $result['xp'][$i]["descriptionxp"]=$row->description;
-                $result['xp'][$i]["adressexp"]=$row->adresse;
-                $result['xp'][$i]["cpxp"]=$row->cp;
-                $result['xp'][$i]["villexp"]=$row->ville;
+            foreach ($experience->result_array() as $row){
+                $result['xp'][$i]["entreprisexp"]=$row['entreprise'];
+                $result['xp'][$i]["intitulexp"]=$row['intitule'];
+                $result['xp'][$i]["date_debutxp"]=$row['date_debut'];
+                $result['xp'][$i]["dureexp"]=$row['duree'];
+                $result['xp'][$i]["descriptionxp"]=$row['description'];
+                $result['xp'][$i]["adressexp"]=$row['adresse'];
+                $result['xp'][$i]["cpxp"]=$row['cp'];
+                $result['xp'][$i]["villexp"]=$row['ville'];
                 $i++;
             }
             $i=0;
@@ -102,7 +101,7 @@ class Candidat extends CI_Controller{
                 $result['formation'][$i]["diplomeformation"]=$row->diplome;
                 $result['formation'][$i]["datedebutformation"]=$row->datedebut;
                 $result['formation'][$i]["dureeformation"]=$row->duree;
-                $result['formation'][$i]["mentionformation"]=$row->mention;
+                $result['formation'][$i]["mentionformation"]=$row->mention_commentaires;
                 $i++;
             }
             foreach ($info->result() as $row){
@@ -118,8 +117,6 @@ class Candidat extends CI_Controller{
                 $result["bioinfo"]=$row->bio;
                 $result["portfolioinfo"]=$row->portfolio;
                 $result["moreinfo"]=$row->more;
-                $result["mobiliteinfo"]=$row->mobilite;
-                $result["rayoninfo"]=$row->rayon;
             }
             $i=0;
             foreach ($interet->result() as $row){

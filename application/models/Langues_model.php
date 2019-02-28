@@ -1,15 +1,10 @@
 <?php
 /**
  * Created by PhpStorm.
-<<<<<<< HEAD
- * User: yamna
- * Date: 19/02/2019
- * Time: 15:41
-=======
+
+ * User: Yamna MELKI
  * User: Baptiste ANGOT
- * Date: 23/01/2019
- * Time: 10:13
->>>>>>> a09dfdc1b63a72de313fee2a31b1fc1e372b021c
+
  */
 
 class Langues_model extends CI_Model
