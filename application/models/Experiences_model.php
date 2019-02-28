@@ -8,6 +8,15 @@
 
 class Experiences_model extends CI_Model
 {
+    public $entreprise;
+    public $intitule;
+    public $date_debut;
+    public $duree;
+    public $description;
+    public $adresse;
+    public $cp;
+    public $ville;
+
     function __construct()
     {
         parent::__construct();
@@ -25,6 +34,23 @@ class Experiences_model extends CI_Model
             ->where("id_candidats", $id);
 
         return $this->db->get();
+    }
+
+    public function insert_entry($entreprise, $intitule, $date_debut, $duree, $description, $adresse, $cp, $ville)
+    {
+        $experiences = array(
+
+            'entreprise'       => $entreprise,
+            'intitule'         => $intitule,
+            'date_debut'       => $date_debut,
+            'duree'            => $duree,
+            'description'      => $description,
+            'adresse'          => $adresse,
+            'cp'               => $cp,
+            'ville'            => $ville
+        );
+
+        $this->db->insert('bp_experiences', $experiences);
     }
 }
 

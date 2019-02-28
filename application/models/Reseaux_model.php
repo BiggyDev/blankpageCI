@@ -8,6 +8,9 @@
 
 class Reseaux_model extends CI_Model
 {
+    public $name;
+    public $lien;
+
     function __construct()
     {
         parent::__construct();
@@ -25,6 +28,17 @@ class Reseaux_model extends CI_Model
             ->where("id_candidats", $id);
 
         return $this->db->get();
+    }
+
+    public function insert_entry($name, $lien)
+    {
+        $reseaux = array(
+
+            'name'         => $name,
+            'lien'         => $lien
+        );
+
+        $this->db->insert('bp_reseaux', $reseaux);
     }
 }
 

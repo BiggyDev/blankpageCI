@@ -22,62 +22,51 @@
     </div>
 </div>
 
-<div class="ui middle aligned center aligned margin50">
-    <div class="column">
+<div class="ui attached segment">
+    <div class="ui middle aligned center aligned margin50">
+        <div class="column">
+
         <h1 class="title">Langues</h1>
 
         <?= form_open('', 'class = "ui huge form"'); ?>
 
-        <div class="ui stacked segment">
+        <div class="source-item ui stacked segment">
 
             <div class="field">
-                <label>Langue</label>
+                <label>Langues</label>
                 <?= form_dropdown('name', $langue, '', 'class="ui fluid normal dropdown"'); ?>
             </div>
 
-
             <div class="field">
                 <label>Niveau</label>
-                <div class="ui left input">
-                    <?= form_dropdown('niveau', $niveau, '', 'class="ui fluid selection dropdown" id="niveau"'); ?>
-                </div>
+                <?= form_dropdown('name', $niveau, '', 'class="ui fluid normal dropdown"'); ?>
             </div>
 
-            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
-
         </div>
+
+        <button class="ui teal big button" type="button" onclick="ajout(this);">Ajouter une langue</button>
+
+        <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
         <?php if (isset($_POST['submitted'])) {
             echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
         } else {
             echo '<div class="ui error message">' . validation_errors() . '</div>';
-        }; ?>
+        };
 
-        <?= form_close(); ?>
+        form_close(); ?>
+        </div>
     </div>
 </div>
 
-
-
-
-
-<script>
+    <script>
 
     $(document)
         .ready(function() {
 
             $('.ui.normal.dropdown')
-                .dropdown({
-                    maxSelections: 6
-                })
-
-            $('#niveau')
                 .dropdown()
-            ;
-
-            $('.ui.radio.checkbox')
-                .checkbox()
             ;
         })
     ;
-</script>
+    </script>

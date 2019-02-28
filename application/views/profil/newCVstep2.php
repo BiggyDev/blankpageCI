@@ -26,9 +26,9 @@
         <div class="column">
             <h1 class="title">Formations</h1>
 
-            <?= form_open('', 'class = "ui huge form"'); ?>
+            <?= form_open('', 'class = "ui huge form", name="formulaireDynamique"'); ?>
 
-            <div class="ui stacked segment">
+            <div class="source-item ui stacked segment">
 
                 <div class="field">
                     <label>Ecole</label>
@@ -82,10 +82,12 @@
                     </div>
                 </div>
 
-
-                <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
-
             </div>
+
+            <button class="ui teal big button" type="button" onclick="ajout(this);">Ajouter une formation</button>
+
+
+            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
             <?php if (isset($_POST['submitted'])) {
                 echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';

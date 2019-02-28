@@ -110,9 +110,9 @@ class Candidats extends CI_Controller
             );
             $data['niveau'] = array (
                 'debutant' => 'Débutant',
-                'intermediaire' => 'Interm&eacute;diaire',
-                'confirme' => 'Confirm&eacute;',
-                'expert' => 'Expert'
+                'scolaire' => 'Scolaire',
+                'professionnel' => 'Professionnel',
+                'maternelle' => 'Langue Maternelle'
             );
         } elseif ($id == 6) {
             $data['datedebut'] = array(
@@ -132,12 +132,14 @@ class Candidats extends CI_Controller
         $this->load->view('include/header', $data);
         $this->load->view('include/header_menu_logged', $data);
 
-        if (isset($id)) {
+        if (isset($id))
             $this->load->view('profil/newCVstep' . $id, $data);
-        }
 
+        $this->load->view('profil/dynamicform.js', $data);
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
+
+
     }
 
 

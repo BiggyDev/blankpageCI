@@ -22,8 +22,10 @@
     </div>
 </div>
 
-<div class="ui middle aligned center aligned margin50">
-    <div class="column">
+<div class="ui attached segment">
+    <div class="ui middle aligned center aligned margin50">
+        <div class="column">
+
         <h1 class="title">Savoir-être</h1>
 
         <?= form_open('', 'class = "ui huge form"'); ?>
@@ -46,6 +48,7 @@
         }; ?>
 
         <?= form_close(); ?>
+        </div>
     </div>
 </div>
 
