@@ -34,6 +34,9 @@
         <th>E-mail address</th>
         <th>Premium Plan</th>
         <th>Premium Plan</th>
+        <th>Premium Plan</th>
+        <th>Premium Plan</th>
+        <th>Premium Plan</th>
     </tr>
     </thead>
     <tbody>
