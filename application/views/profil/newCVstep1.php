@@ -22,7 +22,8 @@
     </div>
 </div>
 <div class="ui attached segment">
-    <div class="column margin50">
+    <div class="ui middle aligned center aligned margin50">
+        <div class="column">
         <h1 class="title">Infos Personnelles</h1>
 
         <?= form_open('', 'class = "ui huge form"'); ?>
@@ -123,15 +124,11 @@
 
         </div>
 
-        <?php if (isset($_POST['submitted'])) {
-            echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
-        } else {
-            echo '<div class="ui error message">' . validation_errors() . '</div>';
-        }; ?>
-
         <?= form_close(); ?>
+        </div>
     </div>
 </div>
+
 
 <script>
 

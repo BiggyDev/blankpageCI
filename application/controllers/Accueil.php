@@ -69,7 +69,7 @@ class Accueil extends CI_Controller {
                         redirect('candidats/index');
                     }
                 } else {
-                    $this->form_validation->set_message('email', 'Veuillez vous inscrire');
+                   echo '404';
                 }
 
             }

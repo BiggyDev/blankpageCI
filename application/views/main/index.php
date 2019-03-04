@@ -21,7 +21,6 @@
         <h3>Sur toutes les plateformes</h3>
         <p>En dehors des entretients vous pouvez avoir une occasions de donner votre CV en main propre ou simplement un moyen de l'afficher, c'est une part a ne pas négliger dans la recherche d'un emploi et elle fait souvent la différence</p>
     </div>
-</div>
 
 <!-- Menu fondu -->
 <script>

@@ -26,37 +26,34 @@
         <div class="column">
         <h1 class="title">Centres d'intêrets</h1>
 
-        <?= form_open('', 'class = "ui huge form"'); ?>
+        <?= form_open('', 'class = "ui huge form", id="addStep"'); ?>
 
-        <div class="source-item ui stacked segment">
+        <div class="source-item ui stacked segment" id="wrapper" data-index="0">
 
             <div class="field">
                 <label>Activit&eacute;</label>
                 <div class="ui left input">
-                    <?= form_input('name', set_value('name'), 'placeholder="ex : Violon, Football, Pêche,..."'); ?>
+                    <?= form_input('infos[0][' . 'name' . ']', set_value('name'), 'placeholder="ex : Violon, Football, Pêche,...", data-name="name"'); ?>
                 </div>
             </div>
 
             <div class="field">
                 <label>Description</label>
                 <div class="ui left input">
-                    <?= form_textarea('description', set_value('description'), 'placeholder="Quelles compétences avez-vous pu développer pendant la pratique de cette activité..."'); ?>
+                    <?= form_textarea('infos[0][' . 'description' . ']', set_value('description'), 'placeholder="Quelles compétences avez-vous pu développer pendant la pratique de cette activité...", data-name="description"'); ?>
                 </div>
             </div>
 
         </div>
+        </div>
 
-        <button class="ui teal big button" type="button" onclick="ajout(this);">Ajouter un centre d'intérêt</button>
+        <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
+
+        <button class="ui teal big button add-one" type="button">Ajouter un centre d'intérêt</button>
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-        <?php if (isset($_POST['submitted'])) {
-            echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
-        } else {
-            echo '<div class="ui error message">' . validation_errors() . '</div>';
-        }; ?>
-
         <?= form_close(); ?>
-        </div>
+
     </div>
 </div>
