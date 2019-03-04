@@ -30,6 +30,7 @@ class Langues_model extends CI_Model
         return $this->db->get();
     }
 
+
     public function insert_entry($name, $niveau)
     {
         $langues = array(

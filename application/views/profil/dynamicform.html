@@ -1,28 +1,10 @@
 <script>
-
-    $('.add-one').on('click', function() {
-        var _original = $('.source-item').first();
-        var _new 	  = _original.clone();
-        var _index 	  = parseInt($('#wrapper').attr('data-index')) + 1;
+function ajout(element){
+    var _form = $('.source-item').first();
+    var _new = _form.clone();
 
     $(_new)
-        .insertAfter(_original)
-        .appendTo($('#addStep'))
-        .addClass("formation-wrapper-" + _index);
-
-    $(".formation-wrapper-" + _index + " input").each(function() {
-        $(this).attr('name', "infos[" + _index + "][" + $(this).attr('data-name') + "]" );
-    });
-
-    $(".formation-wrapper-" + _index + " textarea").each(function() {
-        $(this).attr('name', "infos[" + _index + "][" + $(this).attr('data-name') + "]" );
-    });
-
-        $(".formation-wrapper-" + _index + " select").each(function() {
-            $(this).attr('name', "infos[" + _index + "][" + $(this).attr('data-name') + "]" );
-        });
-
-    $('#wrapper').attr('data-index', _index);
+    .insertAfter(_form);
 
     let sup = document.createElement("input");
     $(sup)
@@ -36,6 +18,6 @@
 };
 
     $(sup).appendTo(_new);
-})
+}
 
 </script>
