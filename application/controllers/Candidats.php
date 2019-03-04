@@ -140,18 +140,16 @@ class Candidats extends CI_Controller
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
 
-
-            if (isset($_POST['submitted'])) {
-                if ($this->form_validation-> run() === TRUE) {
-                    $this->form_validation->set_data($_POST);
-                    if (isset($id)) {
-                        if ($id == 1) {
-                            $this->load->model('Infos_model', '', TRUE);
-                            $this->Infos_model->insert_entry($this->input->post('age'), $this->input->post('sexe'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'), $this->input->post('portable'), $this->input->post('permis'), $this->input->post('vehicule'), $this->input->post('picture'), $this->input->post('bio'), $this->input->post('portfolio'), $this->input->post('more'));
-                        }
+        if (isset($_POST['submitted'])) {
+            if ($this->form_validation-> run() === TRUE) {
+                $this->form_validation->set_data($_POST);
+                if (isset($id)) {
+                    if ($id == 1) {
+                        $this->load->model('Infos_model', '', TRUE);
+                        $this->Infos_model->insert_entry($this->input->post('age'), $this->input->post('sexe'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'), $this->input->post('portable'), $this->input->post('permis'), $this->input->post('vehicule'), $this->input->post('picture'), $this->input->post('bio'), $this->input->post('portfolio'), $this->input->post('more'));
                     }
                 }
             }
-
+        }
     }
 }
