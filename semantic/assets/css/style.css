@@ -136,3 +136,11 @@ body > .grid {
     margin: 0 auto;
     width: 850px;
 }
+
+#cvCache{
+    display: none;
+}
+
+#cvPresent{
+    display: none;
+}
