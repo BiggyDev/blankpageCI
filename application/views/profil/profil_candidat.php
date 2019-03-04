@@ -1,5 +1,7 @@
 
 
+
+
 <!-- Menu -->
 
 <div id="truc" class="ui secondary vertical pointing menu">
@@ -77,6 +79,7 @@
     if(isset($_GET['lien'])){
 
         $link=$_GET['lien'];
+<<<<<<< HEAD
 
         if ($link == '1') {
 
@@ -110,17 +113,49 @@
                     }
                 }
             }
+=======
+        if ($link == '1'){
+            echo '
+            
+            <h1>MES CV</h1>
+            <table class="ui single line table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Registration Date</th>
+        <th>E-mail address</th>
+        <th>Premium Plan</th>
+        <th>Premium Plan</th>
+        <th>Premium Plan</th>
+        <th>Premium Plan</th>
+        <th>Premium Plan</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>John Lilki</td>
+        <td>September 14, 2013</td>
+        <td>jhlilk22@yahoo.com</td>
+        <td>No</td>
+    </tr>
+    </tbody>
+</table>
+            
+            
+            ';
+        }
+>>>>>>> fe0ef1e1a42aab246e77b48e81221c24041adad7
         if ($link == '2'){
             echo '
 
-            
+            <p>Zizi</p>
 
             ';
         }
         if ($link == '3'){
             echo '
 
-            
+            <p>Bonjour !</p>
 
             ';
         }

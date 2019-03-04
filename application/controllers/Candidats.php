@@ -55,28 +55,29 @@ class Candidats extends CI_Controller
                 'name' => 'birthday',
             );
             $data['gender'] = array(
-                ''          => 'Sexe',
-                'female'    => 'Femme',
-                'male'      => 'Homme'
+                '' => 'Sexe',
+                'female' => 'Femme',
+                'male' => 'Homme'
             );
 
             $data['permis'] = array(
-                ''      => 'Choisissez vos permis',
-                'am'    => 'AM',
-                'a1'    => 'A1',
-                'a2'    => 'A2',
-                'a'     => 'A',
-                'b1'    => 'B1',
-                'b'     => 'B',
-                'c1'    => 'C1',
-                'c'     => 'C',
-                'd1'    => 'D1',
-                'd'     => 'D',
-                'be'    => 'BE',
-                'c1e'   => 'C1E',
-                'ce'    => 'CE',
-                'd1e'   => 'D1E',
-                'de'    => 'DE'
+                '' => 'Choisissez vos permis',
+                'am' => 'AM',
+                'a1' => 'A1',
+                'a2' => 'A2',
+                'a' => 'A',
+                'b1' => 'B1',
+                'b' => 'B',
+                'c1' => 'C1',
+                'c' => 'C',
+                'd1' => 'D1',
+                'd' => 'D',
+                'be' => 'BE',
+                'c1e' => 'C1E',
+                'ce' => 'CE',
+                'd1e' => 'D1E',
+                'de' => 'DE'
+
             );
         } elseif ($id == 2) {
             $data['datedebut'] = array(
@@ -96,11 +97,11 @@ class Candidats extends CI_Controller
                 'html' => 'HTML',
                 'js' => 'JavaScript'
             );
-            $data['niveau'] = array (
-              'debutant' => 'Débutant',
-              'intermediaire' => 'Interm&eacute;diaire',
-              'confirme' => 'Confirm&eacute;',
-              'expert' => 'Expert'
+            $data['niveau'] = array(
+                'debutant' => 'Débutant',
+                'intermediaire' => 'Interm&eacute;diaire',
+                'confirme' => 'Confirm&eacute;',
+                'expert' => 'Expert'
             );
         } elseif ($id == 5) {
             $data['langue'] = array(
@@ -108,7 +109,7 @@ class Candidats extends CI_Controller
                 'francais' => 'Français',
                 'espagnol' => 'Espagnol'
             );
-            $data['niveau'] = array (
+            $data['niveau'] = array(
                 'debutant' => 'Débutant',
                 'scolaire' => 'Scolaire',
                 'professionnel' => 'Professionnel',
@@ -135,12 +136,22 @@ class Candidats extends CI_Controller
         if (isset($id))
             $this->load->view('profil/newCVstep' . $id, $data);
 
-        $this->load->view('profil/dynamicform.js', $data);
+        $this->load->view('profil/dynamicform.html', $data);
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
 
 
+            if (isset($_POST['submitted'])) {
+                if ($this->form_validation-> run() === TRUE) {
+                    $this->form_validation->set_data($_POST);
+                    if (isset($id)) {
+                        if ($id == 1) {
+                            $this->load->model('Infos_model', '', TRUE);
+                            $this->Infos_model->insert_entry($this->input->post('age'), $this->input->post('sexe'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'), $this->input->post('portable'), $this->input->post('permis'), $this->input->post('vehicule'), $this->input->post('picture'), $this->input->post('bio'), $this->input->post('portfolio'), $this->input->post('more'));
+                        }
+                    }
+                }
+            }
+
     }
-
-
 }
