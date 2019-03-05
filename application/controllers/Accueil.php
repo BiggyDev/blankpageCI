@@ -41,37 +41,36 @@ class Accueil extends CI_Controller {
 
                 $this->form_validation->set_data($_POST);
 
-                $this->db->select('*');
-                $this->db->from('bp_candidats');
-                $this->db->where('email', $this->input->post('email'));
-                $user = $this->db->get()->result_array();
+                $user = $this->Auth_candidat->get_user($this->input->post('email'));
 
                 if (isset($user)) {
+
                     $password = $user[0]['password'];
-                    if(!password_verify($this->input->post('password'), $password)) {
-                        $this->form_validation->set_message('password', 'Mot de passe erroné');
-                    } else {
+
+                    if (password_verify($this->input->post('password'), $password)) {
 
                         $_SESSION['bp_candidats'] = array(
-                            'id'      => $user[0]['id'],
-                            'email'   => $user[0]['email'],
-                            'ip'      => $_SERVER['REMOTE_ADDR']
+                            'id' => $user[0]['id'],
+                            'email' => $user[0]['email'],
+                            'ip' => $_SERVER['REMOTE_ADDR']
                         );
 
                         $userdata = array(
-                            'name'     =>  $user[0]['name'],
-                            'email'    =>  $user[0]['email'],
+                            'name' => $user[0]['name'],
+                            'email' => $user[0]['email'],
                         );
 
                         $this->session->set_userdata($userdata);
 
                         // TODO: Rediriger vers connexion
                         redirect('candidats/index');
+
+                    } else {
+                        $this->session->set_flashdata('fail_password', 'Mot de passe erroné');
                     }
                 } else {
-                   echo '404';
+                    echo '404';
                 }
-
             }
         }
         $this->load->view('include/header', $data);

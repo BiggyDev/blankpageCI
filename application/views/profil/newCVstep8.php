@@ -30,49 +30,43 @@
 
         <div class="ui stacked segment">
             <div class="field">
-                <?= form_hidden('name', set_value('linkedin')); ?>
                 <div class="ui left icon input">
-                    <?= form_input('lien', set_value('lien'), 'placeholder="Linkedin"'); ?>
+                    <?= form_input('linkedin', set_value('linkedin'), 'placeholder="Linkedin"'); ?>
                     <i class="linkedin blue icon"></i>
                 </div>
             </div>
 
             <div class="field">
-                <?= form_hidden('name', set_value('facebook')); ?>
                 <div class="ui left icon input">
-                    <?= form_input('lien', set_value('lien'), 'placeholder="Facebook"'); ?>
+                    <?= form_input('facebook', set_value('facebook'), 'placeholder="Facebook"'); ?>
                     <i class="facebook blue icon"></i>
                 </div>
             </div>
 
             <div class="field">
-                <?= form_hidden('name', set_value('twitter')); ?>
                 <div class="ui left icon input">
-                    <?= form_input('lien', set_value('lien'), 'placeholder="Twitter"'); ?>
+                    <?= form_input('twitter', set_value('twitter'), 'placeholder="Twitter"'); ?>
                     <i class="twitter blue icon"></i>
                 </div>
             </div>
 
             <div class="field">
-                <?= form_hidden('name', set_value('dribbble')); ?>
                 <div class="ui left icon input">
-                    <?= form_input('lien', set_value('lien'), 'placeholder="Dribbble"'); ?>
+                    <?= form_input('dribbble', set_value('dribbble'), 'placeholder="Dribbble"'); ?>
                     <i class="dribbble orange icon"></i>
                 </div>
             </div>
 
             <div class="field">
-                <?= form_hidden('name', set_value('instagram')); ?>
                 <div class="ui left icon input">
-                    <?= form_input('lien', set_value('lien'), 'placeholder="Instagram"'); ?>
+                    <?= form_input('instagram', set_value('instagram'), 'placeholder="Instagram"'); ?>
                     <i class="instagram pink icon"></i>
                 </div>
             </div>
 
             <div class="field">
-                <?= form_hidden('name', set_value('twitch')); ?>
                 <div class="ui left icon input">
-                    <?= form_input('lien', set_value('lien'), 'placeholder="Twitch"'); ?>
+                    <?= form_input('twitch', set_value('twitch'), 'placeholder="Twitch"'); ?>
                     <i class="twitch purple icon"></i>
                 </div>
             </div>
