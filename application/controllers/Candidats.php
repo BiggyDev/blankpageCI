@@ -144,24 +144,289 @@ class Candidats extends CI_Controller
 
             $rules = array(
                 array(
+                    'field' => 'birthday',
+                    'label' => 'Date de naissance',
+                    'rules' => 'trim|numeric'
+                ),
+                array(
+                    'field' => 'gender',
+                    'label' => 'Sexe',
+                    'rules' => ''
+                ),
+                array(
+                    'field' => 'address',
+                    'label' => 'Adresse du candidat',
+                    'rules' => 'max_length[70]'
+                ),
+                array(
+                    'field' => 'postalcode',
+                    'label' => 'Code postal de la ville de résidence',
+                    'rules' => 'trim|numeric|min_length[5]'
+                ),
+                array(
+                    'field' => 'city',
+                    'label' => 'Ville de résidence',
+                    'rules' => 'max_length[70]'
+                ),
+                array(
+                    'field' => 'portable',
+                    'label' => 'T&eacute;l&eacute;phone',
+                    'rules' => 'trim|max_length[10]|numeric'
+                ),
+                array(
+                    'field' => 'permis',
+                    'label' => 'Permis de conduire',
+                    'rules' => ''
+                ),
+                array(
+                    'field' => 'vehicle',
+                    'label' => 'V&eacute;hicule personnel',
+                    'rules' => ''
+                ),
+                array(
+                    'field' => 'vehicle',
+                    'label' => 'V&eacute;hicule personnel',
+                    'rules' => ''
+                ),
+                array(
+                    'field' => 'picture',
+                    'label' => 'Photo',
+                    'rules' => ''
+                ),
+                array(
+                    'field' => 'bio',
+                    'label' => 'A propos du candidat',
+                    'rules' => 'max_length[255]'
+                ),
+                array(
+                    'field' => 'portfolio',
+                    'label' => 'Site / Blog / Portfolio',
+                    'rules' => 'max_length[255]'
+                ),
+                array(
+                    'field' => 'more',
+                    'label' => 'Autres',
+                    'rules' => 'max_length[255]'
+                )
+            );
+
+            $this->form_validation->set_rules($rules);
+        }
+
+        if (isset($_POST['submitted']) && $id == 2) {
+
+            $rules = array(
+                array(
+                    'field' => 'infos[0][ecole]',
+                    'label' => 'Ecole',
+                    'rules' => 'max_length[70]'
+                ),
+                array(
+                    'field' => 'infos[0][address]',
+                    'label' => 'Adresse',
+                    'rules' => 'trim|max_length[255]'
+                ),
+                array(
+                    'field' => 'infos[0][postalcode]',
+                    'label' => 'Code postal',
+                    'rules' => 'trim|numeric|min_length[5]'
+                ),
+                array(
+                    'field' => 'infos[0][city]',
+                    'label' => 'Ville',
+                    'rules' => 'max_length[70]'
+                ),
+                array(
+                    'field' => 'infos[0][diplome]',
+                    'label' => 'Dipl&ocirc;me',
+                    'rules' => 'max_length[100]'
+                ),
+                array(
+                    'field' => 'infos[0][datedebut]',
+                    'label' => 'Date de d&eacute;but',
+                    'rules' => 'trim'
+                ),
+                array(
+                    'field' => 'infos[0][duree]',
+                    'label' => 'Dur&eacute;e de la formation',
+                    'rules' => 'trim'
+                ),
+                array(
+                    'field' => 'infos[0][mention_commentaires]',
+                    'label' => 'Mention / Commentaires',
+                    'rules' => 'max_length[255]'
+                )
+            );
+
+            $this->form_validation->set_rules($rules);
+        }
+
+        if (isset($_POST['submitted']) && $id == 3) {
+
+            $rules = array(
+                array(
+                    'field' => 'infos[0][entrerpise]',
+                    'label' => 'Entreprise',
+                    'rules' => 'max_length[100]'
+                ),
+                array(
+                    'field' => 'infos[0][address]',
+                    'label' => 'Adresse de l\'entreprise',
+                    'rules' => 'max_length[70]'
+                ),
+                array(
+                    'field' => 'infos[0][postalcode]',
+                    'label' => 'Code postal',
+                    'rules' => 'trim|numeric|min_length[5]'
+                ),
+                array(
+                    'field' => 'infos[0][city]',
+                    'label' => 'Ville de l\'entreprise',
+                    'rules' => 'max_length[70]'
+                ),
+                array(
+                    'field' => 'infos[0][intitule]',
+                    'label' => 'Intitul&eacute; du poste',
+                    'rules' => 'max_length[50]'
+                ),
+                array(
+                    'field' => 'infos[0][date_debut]',
+                    'label' => 'Date de d&eacute;but',
+                    'rules' => 'trim'
+                ),
+                array(
+                    'field' => 'infos[0][duree]',
+                    'label' => 'Dur&eacute;e',
+                    'rules' => 'trim'
+                ),
+                array(
+                    'field' => 'infos[0][description]',
+                    'label' => 'Description du poste',
+                    'rules' => 'max_length[500]'
+                )
+            );
+
+            $this->form_validation->set_rules($rules);
+        }
+
+        if (isset($_POST['submitted']) && $id == 4) {
+
+            $rules = array(
+                array(
+                    'field' => 'name',
+                    'label' => 'Comp&eacute;tences du candidat',
+                    'rules' => ''
+                )
+            );
+
+            $this->form_validation->set_rules($rules);
+        }
+
+        if (isset($_POST['submitted']) && $id == 5) {
+
+            $rules = array(
+                array(
+                    'field' => 'infos[0][name]',
+                    'label' => 'Anglais',
+                    'rules' => ''
+                ),
+                array(
+                    'field' => 'infos[0][name]',
+                    'label' => 'Fran&ccedil;ais',
+                    'rules' => ''
+                ),
+                array(
+                    'field' => 'infos[0][niveau]',
+                    'label' => 'D&eacute;butant',
+                    'rules' => ''
+                ),
+                array(
+                    'field' => 'infos[0][niveau]',
+                    'label' => 'Scolaire',
+                    'rules' => ''
+                ),
+                array(
+                    'field' => 'infos[0][niveau]',
+                    'label' => 'Professionnel',
+                    'rules' => ''
+                ),
+                array(
+                    'field' => 'infos[0][niveau]',
+                    'label' => 'Langue maternelle',
+                    'rules' => ''
+                )
+            );
+
+            $this->form_validation->set_rules($rules);
+        }
+
+        if (isset($_POST['submitted']) && $id == 6) {
+
+            $rules = array(
+                array(
+                    'field' => 'infos[0][name]',
+                    'label' => 'Nom',
+                    'rules' => 'max_length[50]'
+                ),
+                array(
+                    'field' => 'infos[0][description]',
+                    'label' => 'Description',
+                    'rules' => 'max_length[50]'
+                ),
+                array(
+                    'field' => 'infos[0][datedebut]',
+                    'label' => 'Date de d&eacute;but',
+                    'rules' => 'trim'
+                ),
+                array(
+                    'field' => 'infos[0][duree]',
+                    'label' => 'Dur&eacute;e de validit&eacute;',
+                    'rules' => 'trim'
+                )
+            );
+
+            $this->form_validation->set_rules($rules);
+        }
+
+        if (isset($_POST['submitted']) && $id == 7) {
+
+            $rules = array(
+                array(
+                    'field' => 'name',
+                    'label' => 'Nom',
+                    'rules' => ''
+                )
+            );
+
+            $this->form_validation->set_rules($rules);
+        }
+
+        if (isset($_POST['submitted']) && $id == 8) {
+
+            $rules = array(
+                array(
                     'field' => 'name',
                     'label' => 'Nom & Pr&eacute;nom',
-                    'rules' => 'trim|required|min_length[4]|max_length[60]'
+                    'rules' => 'trim|'
+                )
+            );
+            // Changement prévu bdd (lien1 lien2 etc)
+
+            $this->form_validation->set_rules($rules);
+        }
+
+        if (isset($_POST['submitted']) && $id == 9) {
+
+            $rules = array(
+                array(
+                    'field' => 'name',
+                    'label' => 'Activit&eacute;',
+                    'rules' => 'max_length[50]'
                 ),
                 array(
-                    'field' => 'email',
-                    'label' => 'Adresse E-mail',
-                    'rules' => 'trim|required|min_length[6]|max_length[70]|valid_email'
-                ),
-                array(
-                    'field' => 'password',
-                    'label' => 'Mot de Passe',
-                    'rules' => 'trim|required|min_length[6]|max_length[200]'
-                ),
-                array(
-                    'field' => 'confirmpassword',
-                    'label' => 'Confirmation Mot de Passe',
-                    'rules' => 'trim|required|min_length[6]|max_length[200]|matches[password]'
+                    'field' => 'description',
+                    'label' => 'Description',
+                    'rules' => 'max_length[50]'
                 )
             );
 
@@ -171,12 +436,32 @@ class Candidats extends CI_Controller
 
                 $this->form_validation->set_data($_POST);
 
-                if (isset($id)) {
-                    if ($id == 1) {
-                        $this->load->model('Infos_model', '', TRUE);
-                        $this->Infos_model->insert_entry($this->input->post('age'), $this->input->post('sexe'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'), $this->input->post('portable'), $this->input->post('permis'), $this->input->post('vehicule'), $this->input->post('picture'), $this->input->post('bio'), $this->input->post('portfolio'), $this->input->post('more'));
-                    }
-                }
+                $this->load->model('Infos_model', '', TRUE);
+                $this->Infos_model->insert_entry($this->input->post('age'), $this->input->post('sexe'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'), $this->input->post('portable'), $this->input->post('permis'), $this->input->post('vehicule'), $this->input->post('picture'), $this->input->post('bio'), $this->input->post('portfolio'), $this->input->post('more'));
+
+                $this->load->model('Formation_model', '', TRUE);
+                $this->Infos_model->insert_entry($this->input->post('ecole'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'), $this->input->post('diplome'), $this->input->post('datedebut'), $this->input->post('duree'), $this->input->post('mention_commentaires'));
+
+                $this->load->model('Experiences_model', '', TRUE);
+                $this->Infos_model->insert_entry($this->input->post('entreprise'), $this->input->post('intitule'), $this->input->post('date_debut'), $this->input->post('duree'), $this->input->post('description'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'));
+
+                $this->load->model('Competencestech_model', '', TRUE);
+                $this->Infos_model->insert_entry($this->input->post('name'));
+
+                $this->load->model('Langues_model', '', TRUE);
+                $this->Infos_model->insert_entry($this->input->post('name'));
+
+                $this->load->model('Certification_model', '', TRUE);
+                $this->Infos_model->insert_entry($this->input->post('name'), $this->input->post('description'), $this->input->post('date'), $this->input->post('duree'));
+
+                $this->load->model('Savoiretre_model', '', TRUE);
+                $this->Infos_model->insert_entry($this->input->post('name'));
+
+                $this->load->model('Reseaux_model', '', TRUE);
+                $this->Infos_model->insert_entry($this->input->post('name'), $this->input->post('lien'));
+
+                $this->load->model('Interet_model', '', TRUE);
+                $this->Infos_model->insert_entry($this->input->post('name'), $this->input->post('description'));
             }
         }
 
@@ -192,6 +477,20 @@ class Candidats extends CI_Controller
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
     }
+
+/*
+        if (isset($_POST['submitted'])) {
+            if ($this->form_validation-> run() === TRUE) {
+                $this->form_validation->set_data($_POST);
+                if (isset($id)) {
+                    if ($id == 1) {
+                        $this->load->model('Infos_model', '', TRUE);
+                        $this->Infos_model->insert_entry($this->input->post('age'), $this->input->post('sexe'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'), $this->input->post('portable'), $this->input->post('permis'), $this->input->post('vehicule'), $this->input->post('picture'), $this->input->post('bio'), $this->input->post('portfolio'), $this->input->post('more'));
+                    }
+                }
+            }
+        }
+*/
 
     public function showCV()
     {
