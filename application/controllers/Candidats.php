@@ -48,18 +48,27 @@ class Candidats extends CI_Controller
     {
         $data['title'] = 'Blank Page - Nouveau CV';
 
+        if(isset($_POST['submitted']) && $id != 9) {
+            $nextid = $id + 1;
+            redirect('/candidats/addCV/' . $nextid);
+        } elseif (isset($_POST['notsubmitted']) && $id != 1)  {
+            $precid = $id - 1;
+            redirect('/candidats/addCV/' . $precid);
+        } elseif (isset($_POST['submitted']) && $id == 9) {
+            redirect('/candidats/showCV');
+        }
+
         if ($id == 1) {
             $data['birthday'] = array(
-                'type' => 'date',
+                'type'  => 'date',
                 'value' => 'birthday',
-                'name' => 'birthday',
+                'name'  => 'birthday',
             );
             $data['gender'] = array(
                 '' => 'Sexe',
                 'female' => 'Femme',
                 'male' => 'Homme'
             );
-
             $data['permis'] = array(
                 '' => 'Choisissez vos permis',
                 'am' => 'AM',
@@ -81,51 +90,94 @@ class Candidats extends CI_Controller
             );
         } elseif ($id == 2) {
             $data['datedebut'] = array(
-                'type' => 'date',
-                'name' => 'datedebut',
-                'value' => 'datedebut'
+                'type'      => 'date',
+                'name'      => 'infos[0][datedebut]',
+                'value'     => 'datedebut',
+                'data-name' => 'datedebut'
             );
         } elseif ($id == 3) {
             $data['date_debut'] = array(
-                'type' => 'date',
-                'name' => 'date_debut',
-                'value' => 'date_debut'
+                'type'      => 'date',
+                'name'      => 'infos[0][date_debut]',
+                'value'     => 'date_debut',
+                'data-name' => 'date_debut'
             );
         } elseif ($id == 4) {
             $data['competence'] = array(
-                'php' => 'PHP',
-                'html' => 'HTML',
-                'js' => 'JavaScript'
+                'php'   => 'PHP',
+                'html'  => 'HTML',
+                'js'    => 'JavaScript'
             );
-            $data['niveau'] = array(
-                'debutant' => 'Débutant',
-                'intermediaire' => 'Interm&eacute;diaire',
-                'confirme' => 'Confirm&eacute;',
-                'expert' => 'Expert'
+            $data['niveau'] = array (
+              'debutant'        => 'Débutant',
+              'intermediaire'   => 'Interm&eacute;diaire',
+              'confirme'        => 'Confirm&eacute;',
+              'expert'          => 'Expert'
             );
         } elseif ($id == 5) {
             $data['langue'] = array(
-                'anglais' => 'Anglais',
-                'francais' => 'Français',
-                'espagnol' => 'Espagnol'
+                'anglais'   => 'Anglais',
+                'francais'  => 'Français',
+                'espagnol'  => 'Espagnol'
             );
-            $data['niveau'] = array(
-                'debutant' => 'Débutant',
-                'scolaire' => 'Scolaire',
+            $data['niveau'] = array (
+                'debutant'      => 'Débutant',
+                'scolaire'      => 'Scolaire',
                 'professionnel' => 'Professionnel',
-                'maternelle' => 'Langue Maternelle'
+                'maternelle'    => 'Langue Maternelle'
             );
         } elseif ($id == 6) {
             $data['datedebut'] = array(
-                'type' => 'date',
-                'name' => 'datedebut',
-                'value' => 'datedebut'
+                'type'      => 'date',
+                'name'      => 'infos[0][datedebut]',
+                'value'     => 'datedebut',
+                'data-name' => 'datedebut'
             );
         } elseif ($id == 7) {
             $data['savoiretre'] = array(
-                'amical' => 'Amical',
-                'respectueux' => 'Respectueux'
+                'amical'        => 'Amical',
+                'respectueux'   => 'Respectueux'
             );
+        }
+
+        if (isset($_POST['submitted']) && $id == 1) {
+
+            $rules = array(
+                array(
+                    'field' => 'name',
+                    'label' => 'Nom & Pr&eacute;nom',
+                    'rules' => 'trim|required|min_length[4]|max_length[60]'
+                ),
+                array(
+                    'field' => 'email',
+                    'label' => 'Adresse E-mail',
+                    'rules' => 'trim|required|min_length[6]|max_length[70]|valid_email'
+                ),
+                array(
+                    'field' => 'password',
+                    'label' => 'Mot de Passe',
+                    'rules' => 'trim|required|min_length[6]|max_length[200]'
+                ),
+                array(
+                    'field' => 'confirmpassword',
+                    'label' => 'Confirmation Mot de Passe',
+                    'rules' => 'trim|required|min_length[6]|max_length[200]|matches[password]'
+                )
+            );
+
+            $this->form_validation->set_rules($rules);
+
+            if ($this->form_validation->run() === TRUE) {
+
+                $this->form_validation->set_data($_POST);
+
+                if (isset($id)) {
+                    if ($id == 1) {
+                        $this->load->model('Infos_model', '', TRUE);
+                        $this->Infos_model->insert_entry($this->input->post('age'), $this->input->post('sexe'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'), $this->input->post('portable'), $this->input->post('permis'), $this->input->post('vehicule'), $this->input->post('picture'), $this->input->post('bio'), $this->input->post('portfolio'), $this->input->post('more'));
+                    }
+                }
+            }
         }
 
         $_GET['id'] = $id;
@@ -139,19 +191,21 @@ class Candidats extends CI_Controller
         $this->load->view('profil/dynamicform.html', $data);
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
+    }
+
+    public function showCV()
+    {
+        $data['title'] = 'Blank Page - Récapitulatif';
 
 
-            if (isset($_POST['submitted'])) {
-                if ($this->form_validation-> run() === TRUE) {
-                    $this->form_validation->set_data($_POST);
-                    if (isset($id)) {
-                        if ($id == 1) {
-                            $this->load->model('Infos_model', '', TRUE);
-                            $this->Infos_model->insert_entry($this->input->post('age'), $this->input->post('sexe'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'), $this->input->post('portable'), $this->input->post('permis'), $this->input->post('vehicule'), $this->input->post('picture'), $this->input->post('bio'), $this->input->post('portfolio'), $this->input->post('more'));
-                        }
-                    }
-                }
-            }
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_menu_logged', $data);
+        $this->load->view('profil/newCVviewall', $data);
+        $this->load->view('profil/dynamicform.html', $data);
+        $this->load->view('include/footer_menu', $data);
+        $this->load->view('include/footer', $data);
 
     }
+
 }
+

@@ -77,16 +77,10 @@
                 </div>
             </div>
 
-
+            <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
             <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
         </div>
-
-        <?php if (isset($_POST['submitted'])) {
-            echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
-        } else {
-            echo '<div class="ui error message">' . validation_errors() . '</div>';
-        }; ?>
 
         <?= form_close(); ?>
         </div>
