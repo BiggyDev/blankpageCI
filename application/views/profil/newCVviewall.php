@@ -290,7 +290,7 @@
             </div>
         </div>
 
-        <?= anchor('candidats/insertCV', 'Valider ce CV', 'class="ui big teal button"'); ?>
+        <?= anchor('candidats/CVconfirm', 'Valider ce CV', 'class="ui big teal button"'); ?>
     </div>
 </div>
 

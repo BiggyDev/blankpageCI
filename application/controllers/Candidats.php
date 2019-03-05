@@ -529,7 +529,7 @@ class Candidats extends CI_Controller
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
         $this->email->from('blankpage.nfs@gmail.com', 'Blank Page');
-        $this->email->to($_SESSION['email']);
+        $this->email->to($_SESSION['bp_candidats']['email']);
         $this->email->reply_to('blankpage.nfs@gmail.com');
         $this->email->subject('✔ Confirmation de création de votre CV - Blank Page');
         $this->email->message($message);
