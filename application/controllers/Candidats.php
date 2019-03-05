@@ -406,12 +406,36 @@ class Candidats extends CI_Controller
 
             $rules = array(
                 array(
-                    'field' => 'name',
-                    'label' => 'Nom & Pr&eacute;nom',
+                    'field' => 'lien',
+                    'label' => 'Linkedin',
+                    'rules' => 'trim|'
+                ),
+                array(
+                    'field' => 'lien',
+                    'label' => 'Facebook',
+                    'rules' => 'trim|'
+                ),
+                array(
+                    'field' => 'lien',
+                    'label' => 'Twitter',
+                    'rules' => 'trim|'
+                ),
+                array(
+                    'field' => 'lien',
+                    'label' => 'Dribbble',
+                    'rules' => 'trim|'
+                ),
+                array(
+                    'field' => 'lien',
+                    'label' => 'Instagram',
+                    'rules' => 'trim|'
+                ),
+                array(
+                    'field' => 'lien',
+                    'label' => 'Twitch',
                     'rules' => 'trim|'
                 )
             );
-            // Changement prévu bdd (lien1 lien2 etc)
 
             $this->form_validation->set_rules($rules);
         }
@@ -420,12 +444,12 @@ class Candidats extends CI_Controller
 
             $rules = array(
                 array(
-                    'field' => 'name',
+                    'field' => 'infos[0][name]',
                     'label' => 'Activit&eacute;',
                     'rules' => 'max_length[50]'
                 ),
                 array(
-                    'field' => 'description',
+                    'field' => 'infos[0][description]',
                     'label' => 'Description',
                     'rules' => 'max_length[50]'
                 )
@@ -438,31 +462,31 @@ class Candidats extends CI_Controller
                 $this->form_validation->set_data($_POST);
 
                 $this->load->model('Infos_model', '', TRUE);
-                $this->Infos_model->insert_entry($this->input->post('age'), $this->input->post('sexe'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'), $this->input->post('portable'), $this->input->post('permis'), $this->input->post('vehicule'), $this->input->post('picture'), $this->input->post('bio'), $this->input->post('portfolio'), $this->input->post('more'));
+                $this->Infos_model->insert_entry($this->input->post('birthday'), $this->input->post('gender'), $this->input->post('address'), $this->input->post('postalcode'), $this->input->post('city'), $this->input->post('portable'), $this->input->post('permis'), $this->input->post('vehicle'), $this->input->post('picture'), $this->input->post('bio'), $this->input->post('portfolio'), $this->input->post('more'));
 
                 $this->load->model('Formation_model', '', TRUE);
-                $this->Infos_model->insert_entry($this->input->post('ecole'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'), $this->input->post('diplome'), $this->input->post('datedebut'), $this->input->post('duree'), $this->input->post('mention_commentaires'));
+                $this->Formation_model->insert_entry($this->input->post('infos[0][ecole]'), $this->input->post('infos[0][address]'), $this->input->post('infos[0][postalcode]'), $this->input->post('infos[0][city]'), $this->input->post('infos[0][diplome]'), $this->input->post('infos[0][datedebut]'), $this->input->post('infos[0][duree]'), $this->input->post('infos[0][mention_commentaires]'));
 
                 $this->load->model('Experiences_model', '', TRUE);
-                $this->Infos_model->insert_entry($this->input->post('entreprise'), $this->input->post('intitule'), $this->input->post('date_debut'), $this->input->post('duree'), $this->input->post('description'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'));
+                $this->Experiences_model->insert_entry($this->input->post('infos[0][entrerpise]'), $this->input->post('infos[0][intitule]'), $this->input->post('infos[0][date_debut]'), $this->input->post('infos[0][duree]'), $this->input->post('infos[0][description]'), $this->input->post('infos[0][address]'), $this->input->post('infos[0][codepostal]'), $this->input->post('infos[0][city]'));
 
                 $this->load->model('Competencestech_model', '', TRUE);
-                $this->Infos_model->insert_entry($this->input->post('name'));
+                $this->Competencestech_model->insert_entry($this->input->post('name'));
 
                 $this->load->model('Langues_model', '', TRUE);
-                $this->Infos_model->insert_entry($this->input->post('name'));
+                $this->Langues_model->insert_entry($this->input->post('infos[0][name]'), $this->input->post('infos[0][niveau]'));
 
                 $this->load->model('Certification_model', '', TRUE);
-                $this->Infos_model->insert_entry($this->input->post('name'), $this->input->post('description'), $this->input->post('date'), $this->input->post('duree'));
+                $this->Certification_model->insert_entry($this->input->post('infos[0][name]'), $this->input->post('infos[0][description]'), $this->input->post('infos[0][datedebut]'), $this->input->post('infos[0][duree]'));
 
                 $this->load->model('Savoiretre_model', '', TRUE);
-                $this->Infos_model->insert_entry($this->input->post('name'));
+                $this->Savoiretre_model->insert_entry($this->input->post('name'));
 
                 $this->load->model('Reseaux_model', '', TRUE);
-                $this->Infos_model->insert_entry($this->input->post('name'), $this->input->post('lien'));
+                $this->Reseaux_model->insert_entry($this->input->post('name'), $this->input->post('lien'));
 
                 $this->load->model('Interet_model', '', TRUE);
-                $this->Infos_model->insert_entry($this->input->post('name'), $this->input->post('description'));
+                $this->Interet_model->insert_entry($this->input->post('name'), $this->input->post('description'));
             }
         }
 
