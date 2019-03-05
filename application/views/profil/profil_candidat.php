@@ -79,7 +79,6 @@
     if(isset($_GET['lien'])){
 
         $link=$_GET['lien'];
-<<<<<<< HEAD
 
         if ($link == '1') {
 
@@ -113,7 +112,6 @@
                     }
                 }
             }
-=======
         if ($link == '1'){
             echo '
             
@@ -144,7 +142,6 @@
             
             ';
         }
->>>>>>> fe0ef1e1a42aab246e77b48e81221c24041adad7
         if ($link == '2'){
             echo '
 

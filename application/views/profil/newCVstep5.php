@@ -28,45 +28,76 @@
 
         <h1 class="title">Langues</h1>
 
-        <?= form_open('', 'class = "ui huge form"'); ?>
+        <?= form_open('', 'class = "ui huge form", id="addStep"'); ?>
 
-        <div class="source-item ui stacked segment">
+        <div class="source-item ui stacked segment" id="wrapper" data-index="0">
 
-            <div class="field">
-                <label>Langues</label>
-                <?= form_dropdown('name', $langue, '', 'class="ui fluid normal dropdown"'); ?>
+            <div class="inline fields">
+                <label for="language">Langues</label>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <?= form_radio('infos[0][' . 'name' . ']', 'anglais', FALSE, 'class="hidden", data-name="name"'); ?>
+                        <?= form_label('Anglais'); ?>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <?= form_radio('infos[0][' . 'name' . ']', 'français', FALSE, 'class="hidden", data-name="name"'); ?>
+                        <?= form_label('Français'); ?>
+                    </div>
+                </div>
             </div>
 
-            <div class="field">
-                <label>Niveau</label>
-                <?= form_dropdown('name', $niveau, '', 'class="ui fluid normal dropdown"'); ?>
+            <div class="inline fields">
+                <label for="language">Niveau</label>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <?= form_radio('infos[0][' . 'niveau' . ']', 'débutant', FALSE, 'class="hidden", data-name="niveau"'); ?>
+                        <?= form_label('Débutant'); ?>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <?= form_radio('infos[0][' . 'niveau' . ']', 'scolaire', FALSE, 'class="hidden", data-name="niveau"'); ?>
+                        <?= form_label('Scolaire'); ?>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <?= form_radio('infos[0][' . 'niveau' . ']', 'professionnel', FALSE, 'class="hidden", data-name="niveau"'); ?>
+                        <?= form_label('Professionnel'); ?>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <?= form_radio('infos[0][' . 'niveau' . ']', 'langue maternelle', FALSE, 'class="hidden", data-name="niveau"'); ?>
+                        <?= form_label('Langue Maternelle'); ?>
+                    </div>
+                </div>
             </div>
 
         </div>
+        </div>
 
-        <button class="ui teal big button" type="button" onclick="ajout(this);">Ajouter une langue</button>
+        <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
+
+        <button class="ui teal big button add-one" type="button">Ajouter une langue</button>
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-        <?php if (isset($_POST['submitted'])) {
-            echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
-        } else {
-            echo '<div class="ui error message">' . validation_errors() . '</div>';
-        };
+        <?= form_close(); ?>
 
-        form_close(); ?>
-        </div>
     </div>
 </div>
 
-    <script>
+<script>
 
     $(document)
         .ready(function() {
 
-            $('.ui.normal.dropdown')
-                .dropdown()
+            $('.ui.radio.checkbox')
+                .checkbox()
             ;
         })
     ;
-    </script>
+</script>

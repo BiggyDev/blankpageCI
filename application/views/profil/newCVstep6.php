@@ -26,21 +26,21 @@
         <div class="column">
         <h1 class="title">Certifications</h1>
 
-        <?= form_open('', 'class = "ui huge form"'); ?>
+        <?= form_open('', 'class = "ui huge form", id="addStep"'); ?>
 
-        <div class="source-item ui stacked segment">
+        <div class="source-item ui stacked segment" id="wrapper" data-index="0">
 
             <div class="field">
                 <label>Nom</label>
                 <div class="ui left input">
-                    <?= form_input('name', set_value('name'), 'placeholder="ex : TOEIC"'); ?>
+                    <?= form_input('infos[0][' . 'name' . ']', set_value('name'), 'placeholder="ex : TOEIC", data-name="name"'); ?>
                 </div>
             </div>
 
             <div class="field">
                 <label>Description</label>
                 <div class="ui left input">
-                    <?= form_textarea('description', set_value('description'), 'placeholder="Donnez des pr&eacute;cisions sur la certification"'); ?>
+                    <?= form_textarea('infos[0][' . 'description' . ']', set_value('description'), 'placeholder="Donnez des pr&eacute;cisions sur la certification", data-name="description"'); ?>
                 </div>
             </div>
 
@@ -52,23 +52,20 @@
             <div class="field">
                 <label>Dur&eacute;e de validité</label>
                 <div class="ui left input">
-                    <?= form_input('duree', set_value('duree'), 'placeholder="En ann&eacute;es"'); ?>
+                    <?= form_input('infos[0][' . 'duree' . ']', set_value('duree'), 'placeholder="En ann&eacute;es", data-name="duree"'); ?>
                 </div>
             </div>
 
         </div>
+        </div>
 
-        <button class="ui teal big button" type="button" onclick="ajout(this);">Ajouter une certification</button>
+        <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
+
+        <button class="ui teal big button add-one" type="button">Ajouter une certification</button>
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-        <?php if (isset($_POST['submitted'])) {
-            echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
-        } else {
-            echo '<div class="ui error message">' . validation_errors() . '</div>';
-        }; ?>
-
         <?= form_close(); ?>
-        </div>
+
     </div>
 </div>
