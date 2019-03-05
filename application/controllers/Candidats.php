@@ -48,6 +48,36 @@ class Candidats extends CI_Controller
     {
         $data['title'] = 'Blank Page - Nouveau CV';
 
+        switch($id){
+            case 1 :
+                $this->session->set_userdata("infos", $this->input->post());
+                break;
+            case 2:
+                $this->session->set_userdata("formations", $this->input->post());
+                break;
+            case 3:
+                $this->session->set_userdata("experiences", $this->input->post());
+                break;
+            case 4:
+                $this->session->set_userdata("competencestech", $this->input->post());
+                break;
+            case 5:
+                $this->session->set_userdata("langues", $this->input->post());
+                break;
+            case 6:
+                $this->session->set_userdata("certifications", $this->input->post());
+                break;
+            case 7:
+                $this->session->set_userdata("savoiretre", $this->input->post());
+                break;
+            case 8:
+                $this->session->set_userdata("reseaux", $this->input->post());
+                break;
+            case 9:
+                $this->session->set_userdata("interets", $this->input->post());
+                break;
+        }
+
         if(isset($_POST['submitted']) && $id != 9) {
             $nextid = $id + 1;
             redirect('/candidats/addCV/' . $nextid);
@@ -66,30 +96,27 @@ class Candidats extends CI_Controller
             );
             $data['gender'] = array(
                 '' => 'Sexe',
-                'female' => 'Femme',
-                'male' => 'Homme'
+                'Femme' => 'Femme',
+                'Homme' => 'Homme'
             );
             $data['permis'] = array(
                 '' => 'Choisissez vos permis',
-                'am' => 'AM',
-                'a1' => 'A1',
-                'a2' => 'A2',
-                'a' => 'A',
-                'b1' => 'B1',
-                'b' => 'B',
-                'c1' => 'C1',
-                'c' => 'C',
-                'd1' => 'D1',
-                'd' => 'D',
-                'be' => 'BE',
-                'c1e' => 'C1E',
-                'ce' => 'CE',
-                'd1e' => 'D1E',
-                'de' => 'DE'
-
+                'AM' => 'AM',
+                'A1' => 'A1',
+                'A2' => 'A2',
+                'A' => 'A',
+                'B1' => 'B1',
+                'B' => 'B',
+                'C1' => 'C1',
+                'C' => 'C',
+                'D1' => 'D1',
+                'D' => 'D',
+                'BR' => 'BE',
+                'C1E' => 'C1E',
+                'CE' => 'CE',
+                'D1E' => 'D1E',
+                'DE' => 'DE'
             );
-
-            $this->session->set_userdata($this->input->post());
         } elseif ($id == 2) {
             $data['datedebut'] = array(
                 'type'      => 'date',
@@ -97,7 +124,6 @@ class Candidats extends CI_Controller
                 'value'     => 'datedebut',
                 'data-name' => 'datedebut'
             );
-            $this->session->set_userdata($this->input->post());
         } elseif ($id == 3) {
             $data['date_debut'] = array(
                 'type'      => 'date',
@@ -105,22 +131,18 @@ class Candidats extends CI_Controller
                 'value'     => 'date_debut',
                 'data-name' => 'date_debut'
             );
-            $this->session->set_userdata($this->input->post());
         } elseif ($id == 4) {
             $data['competence'] = array(
-                'php'   => 'PHP',
-                'html'  => 'HTML',
-                'js'    => 'JavaScript'
+                'PHP'   => 'PHP',
+                'HTML'  => 'HTML',
+                'JavaScript'    => 'JavaScript'
             );
             $data['niveau'] = array (
-              'debutant'        => 'Débutant',
-              'intermediaire'   => 'Interm&eacute;diaire',
-              'confirme'        => 'Confirm&eacute;',
-              'expert'          => 'Expert'
+              'Débutant'        => 'Débutant',
+              'Interm&eacute;diaire'   => 'Interm&eacute;diaire',
+              'Confirm&eacute;'        => 'Confirm&eacute;',
+              'Expert'          => 'Expert'
             );
-            $this->session->set_userdata($this->input->post());
-        } elseif ($id == 5) {
-            $this->session->set_userdata($this->input->post());
         } elseif ($id == 6) {
             $data['datedebut'] = array(
                 'type'      => 'date',
@@ -128,17 +150,11 @@ class Candidats extends CI_Controller
                 'value'     => 'datedebut',
                 'data-name' => 'datedebut'
             );
-            $this->session->set_userdata($this->input->post());
         } elseif ($id == 7) {
             $data['savoiretre'] = array(
-                'amical'        => 'Amical',
-                'respectueux'   => 'Respectueux'
+                'Amical'        => 'Amical',
+                'Respectueux'   => 'Respectueux'
             );
-            $this->session->set_userdata($this->input->post());
-        } elseif ($id == 8) {
-            $this->session->set_userdata($this->input->post());
-        } elseif ($id == 9) {
-            $this->session->set_userdata($this->input->post());
         }
 
         if (isset($_POST['submitted']) && $id == 1) {
@@ -479,24 +495,11 @@ class Candidats extends CI_Controller
         $this->load->view('include/footer', $data);
     }
 
-/*
-        if (isset($_POST['submitted'])) {
-            if ($this->form_validation-> run() === TRUE) {
-                $this->form_validation->set_data($_POST);
-                if (isset($id)) {
-                    if ($id == 1) {
-                        $this->load->model('Infos_model', '', TRUE);
-                        $this->Infos_model->insert_entry($this->input->post('age'), $this->input->post('sexe'), $this->input->post('adresse'), $this->input->post('cp'), $this->input->post('ville'), $this->input->post('portable'), $this->input->post('permis'), $this->input->post('vehicule'), $this->input->post('picture'), $this->input->post('bio'), $this->input->post('portfolio'), $this->input->post('more'));
-                    }
-                }
-            }
-        }
-*/
-
     public function showCV()
     {
         $data['title'] = 'Blank Page - Récapitulatif';
 
+        $this->session->get_userdata();
 
         $this->load->view('include/header', $data);
         $this->load->view('include/header_menu_logged', $data);

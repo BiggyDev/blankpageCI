@@ -36,7 +36,7 @@
             <div class="field">
                 <label>Entreprise</label>
                 <div class="ui left input">
-                    <?= form_input('infos[0][' . 'entrerpise' . ']', set_value('entreprise'), 'placeholder ="ex : NFactory", data-name="entreprise"'); ?>
+                    <?= form_input('infos[0][' . 'entreprise' . ']', set_value('entreprise'), 'placeholder ="ex : NFactory", data-name="entreprise"'); ?>
                 </div>
             </div>
 
