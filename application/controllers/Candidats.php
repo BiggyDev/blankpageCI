@@ -88,6 +88,8 @@ class Candidats extends CI_Controller
                 'de' => 'DE'
 
             );
+
+            $this->session->set_userdata($this->input->post());
         } elseif ($id == 2) {
             $data['datedebut'] = array(
                 'type'      => 'date',
@@ -95,6 +97,7 @@ class Candidats extends CI_Controller
                 'value'     => 'datedebut',
                 'data-name' => 'datedebut'
             );
+            $this->session->set_userdata($this->input->post());
         } elseif ($id == 3) {
             $data['date_debut'] = array(
                 'type'      => 'date',
@@ -102,6 +105,7 @@ class Candidats extends CI_Controller
                 'value'     => 'date_debut',
                 'data-name' => 'date_debut'
             );
+            $this->session->set_userdata($this->input->post());
         } elseif ($id == 4) {
             $data['competence'] = array(
                 'php'   => 'PHP',
@@ -114,6 +118,9 @@ class Candidats extends CI_Controller
               'confirme'        => 'Confirm&eacute;',
               'expert'          => 'Expert'
             );
+            $this->session->set_userdata($this->input->post());
+        } elseif ($id == 5) {
+            $this->session->set_userdata($this->input->post());
         } elseif ($id == 6) {
             $data['datedebut'] = array(
                 'type'      => 'date',
@@ -121,11 +128,17 @@ class Candidats extends CI_Controller
                 'value'     => 'datedebut',
                 'data-name' => 'datedebut'
             );
+            $this->session->set_userdata($this->input->post());
         } elseif ($id == 7) {
             $data['savoiretre'] = array(
                 'amical'        => 'Amical',
                 'respectueux'   => 'Respectueux'
             );
+            $this->session->set_userdata($this->input->post());
+        } elseif ($id == 8) {
+            $this->session->set_userdata($this->input->post());
+        } elseif ($id == 9) {
+            $this->session->set_userdata($this->input->post());
         }
 
         if (isset($_POST['submitted']) && $id == 1) {

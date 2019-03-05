@@ -90,13 +90,6 @@
             </div>
 
             <div class="field">
-                <label>Photo</label>
-                <div class="ui left input">
-                    <?= form_upload('picture'); ?>
-                </div>
-            </div>
-
-            <div class="field">
                 <label>A propos de moi</label>
                 <div class="ui left input">
                     <?= form_textarea('bio', set_value('bio'), 'placeholder="Ecrivez un résumé sur vous, vos aspirations, ect..."'); ?>

@@ -21,6 +21,9 @@
         </div>
     </div>
 </div>
+
+<?php var_dump($this->session->userdata()); ?>
+
 <div class="ui attached segment">
     <div class="ui middle aligned center aligned margin50">
         <div class="column">

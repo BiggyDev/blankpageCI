@@ -22,6 +22,7 @@
                         <i class="lock icon"></i>
                         <?= form_password('password', set_value('password'), 'placeholder="Mot de Passe"'); ?>
                     </div>
+                    <?= $this->session->flashdata('fail_password'); ?>
                 </div>
 
                 <?= form_submit('submitted', 'Se connecter', 'class="ui teal big button""'); ?>

@@ -65,6 +65,8 @@ class Accueil extends CI_Controller {
                         // TODO: Rediriger vers connexion
                         redirect('candidats/index');
 
+                    } else {
+                        $this->session->set_flashdata('fail_password', 'Mot de passe erroné');
                     }
                 } else {
                     echo '404';
