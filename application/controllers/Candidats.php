@@ -114,18 +114,6 @@ class Candidats extends CI_Controller
               'confirme'        => 'Confirm&eacute;',
               'expert'          => 'Expert'
             );
-        } elseif ($id == 5) {
-            $data['langue'] = array(
-                'anglais'   => 'Anglais',
-                'francais'  => 'Français',
-                'espagnol'  => 'Espagnol'
-            );
-            $data['niveau'] = array (
-                'debutant'      => 'Débutant',
-                'scolaire'      => 'Scolaire',
-                'professionnel' => 'Professionnel',
-                'maternelle'    => 'Langue Maternelle'
-            );
         } elseif ($id == 6) {
             $data['datedebut'] = array(
                 'type'      => 'date',
@@ -205,6 +193,53 @@ class Candidats extends CI_Controller
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
 
+
+
+    }
+
+    public function sendMail()
+    {
+        $config = array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'blankpage.nfs@gmail.com',
+            'smtp_pass' => 'blankpage5',
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'wordwrap' => TRUE
+        );
+
+        $message = 'Nous vous confirmons que votre CV a bien &eacute;t&eacute; cr&eacute;&eacute; ! Vous pourrez le retrouver dans votre profil. Merci d\'avoir utilis&eacute; Blank Page.';
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+        $this->email->from('blankpage.nfs@gmail.com', 'Blank Page');
+        $this->email->to($_SESSION['email']);
+        $this->email->reply_to('blankpage.nfs@gmail.com');
+        $this->email->subject('✔ Confirmation de création de votre CV - Blank Page');
+        $this->email->message($message);
+        if(!$this->email->send())
+        {
+            show_error($this->email->print_debugger());
+        }
+
+        if (site_url('localhost/blankpageCI/candidats/sendMail', 'http')) {
+            // TODO : Rediriger vers profil
+            redirect('candidats/profile');
+        }
+    }
+
+    public function CVconfirm()
+    {
+        $data['title'] = 'Blank Page - Confirmation d\'ajout du CV';
+
+        $this->sendMail();
+
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_menu_logged', $data);
+        $this->load->view('profil/confirmationAjoutCV', $data);
+        $this->load->view('include/footer_menu', $data);
+        $this->load->view('include/footer', $data);
     }
 
 }

@@ -46,6 +46,18 @@
                         <?= form_label('Français'); ?>
                     </div>
                 </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <?= form_radio('infos[0][' . 'name' . ']', 'espagnol', FALSE, 'class="hidden", data-name="name"'); ?>
+                        <?= form_label('Espagnol'); ?>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <?= form_radio('infos[0][' . 'name' . ']', 'allemand', FALSE, 'class="hidden", data-name="name"'); ?>
+                        <?= form_label('Allemand'); ?>
+                    </div>
+                </div>
             </div>
 
             <div class="inline fields">
