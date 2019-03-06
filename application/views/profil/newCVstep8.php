@@ -80,3 +80,72 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    $(document)
+        .ready(function() {
+
+            $('.ui.form')
+                .form({
+                    fields: {
+                        lien: {
+                            identifier: 'lien',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        },
+                        lien: {
+                            identifier: 'lien',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        },
+                        lien: {
+                            identifier: 'lien',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        },
+                        lien: {
+                            identifier: 'lien',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        },
+                        lien: {
+                            identifier: 'lien',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        },
+                        lien: {
+                            identifier: 'lien',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        }
+                    }
+                })
+            ;
+        })
+    ;
+</script>

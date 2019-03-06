@@ -110,6 +110,13 @@
             $('.ui.radio.checkbox')
                 .checkbox()
             ;
+
+            $('.ui.form')
+                .form({
+                    fields: {
+
+                })
+            ;
         })
     ;
 </script>

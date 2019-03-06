@@ -77,14 +77,7 @@
                 <label for="vehicle">Véhicule personnel</label>
                 <div class="field">
                     <div class="ui radio checkbox">
-                        <?= form_radio('vehicle', 'yes', FALSE, 'class="hidden"'); ?>
-                        <?= form_label('Oui'); ?>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="ui radio checkbox">
                         <?= form_radio('vehicle', 'no', FALSE, 'class="hidden"'); ?>
-                        <?= form_label('Non'); ?>
                     </div>
                 </div>
             </div>
@@ -144,61 +137,87 @@
             $('.ui.form')
                 .form({
                     fields: {
-                        name: {
+                        birthday: {
                             identifier: 'birthday',
                             rules: [
                                 {
-                                    type   : 'date',
-                                    prompt : 'Please enter your birthday'
+                                    type   : 'integer',
+                                    prompt : 'Comment avez vous réussi à écrire des lettres ici ?'
                                 }
                             ]
                         },
-                        skills: {
-                            identifier: 'skills',
+                        address: {
+                            identifier: 'address',
                             rules: [
                                 {
-                                    type   : 'minCount[2]',
-                                    prompt : 'Please select at least two skills'
+                                    type   : 'maxLength[70]',
+                                    prompt : 'Votre adresse est trop longue.'
                                 }
                             ]
                         },
-                        gender: {
-                            identifier: 'gender',
+                        postalcode: {
+                            identifier: 'postalcode',
                             rules: [
                                 {
-                                    type   : 'empty',
-                                    prompt : 'Please select a gender'
-                                }
-                            ]
-                        },
-                        username: {
-                            identifier: 'username',
-                            rules: [
-                                {
-                                    type   : 'empty',
-                                    prompt : 'Please enter a username'
-                                }
-                            ]
-                        },
-                        password: {
-                            identifier: 'password',
-                            rules: [
-                                {
-                                    type   : 'empty',
-                                    prompt : 'Please enter a password'
+                                    type   : 'maxLength[5]',
+                                    prompt : 'Veulliez entrer 5 caractères maximum.'
                                 },
                                 {
-                                    type   : 'minLength[6]',
-                                    prompt : 'Your password must be at least {ruleValue} characters'
+                                    type   : 'number',
+                                    prompt : 'Veulliez entrer un nombre.'
+                                },
+                                {
+                                    type   : 'minLength[0]',
+                                    prompt : 'A'
                                 }
                             ]
                         },
-                        terms: {
-                            identifier: 'terms',
+                        city: {
+                            identifier: 'city',
                             rules: [
                                 {
-                                    type   : 'checked',
-                                    prompt : 'You must agree to the terms and conditions'
+                                    type   : 'maxLength[70]',
+                                    prompt : 'Le nom de votre ville est trop long'
+                                }
+                            ]
+                        },
+                        portable: {
+                            identifier: 'portable',
+                            rules: [
+                                {
+                                    type   : 'maxLength[10]',
+                                    prompt : 'Votre numéro de téléphone est trop long.'
+                                },
+                                {
+                                    type   : 'number',
+                                    prompt : 'Votre numéro de téléphone doit être composé de chiffres.'
+                                }
+                            ]
+                        },
+                        bio: {
+                            identifier: 'bio',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre texte est trop long.'
+                                }
+                            ]
+                        },
+                        portfolio: {
+                            identifier: 'portfolio',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        },
+                        more: {
+                            identifier: 'more',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre texte est trop long.'
                                 }
                             ]
                         }

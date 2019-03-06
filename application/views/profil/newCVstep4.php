@@ -60,6 +60,7 @@
                 .dropdown({
                     maxSelections: 6
                 })
+            ;
 
             $('#niveau')
                 .dropdown()
@@ -67,6 +68,14 @@
 
             $('.ui.radio.checkbox')
                 .checkbox()
+            ;
+
+            $('.ui.form')
+                .form({
+                    fields: {
+
+                    }
+                })
             ;
         })
     ;

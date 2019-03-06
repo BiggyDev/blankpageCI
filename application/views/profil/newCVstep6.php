@@ -69,3 +69,49 @@
 
     </div>
 </div>
+
+<script>
+
+    $(document)
+        .ready(function() {
+
+            $('.ui.form')
+                .form({
+                    fields: {
+                        name: {
+                            identifier: 'name',
+                            rules: [
+                                {
+                                    type   : 'maxLength[50]',
+                                    prompt : 'Le nom de la certification est trop long.'
+                                }
+                            ]
+                        },
+                        description: {
+                            identifier: 'description',
+                            rules: [
+                                {
+                                    type   : 'maxLength[50]',
+                                    prompt : 'Votre texte est trop long.'
+                                }
+                            ]
+                        },
+                        duree: {
+                            identifier: 'duree',
+                            rules: [
+                                {
+                                    type   : 'integer',
+                                    prompt : 'Vous devez renseigner un nombre ou un chiffre.'
+                                }
+                                {
+                                    type   : 'maxLength[11]',
+                                    prompt : 'Ce nombre est beaucoup trop long.'
+                                }
+                            ]
+                        }
+                    }
+                })
+            ;
+        })
+    ;
+</script>

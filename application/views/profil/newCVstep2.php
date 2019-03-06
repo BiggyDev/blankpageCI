@@ -99,3 +99,90 @@
 
     </div>
 </div>
+
+<script>
+
+    $(document)
+        .ready(function() {
+
+            $('.ui.form')
+                .form({
+                    fields: {
+                        ecole: {
+                            identifier: 'infos[0][ecole]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[70]',
+                                    prompt : 'Le nom de votre école est trop long.'
+                                }
+                            ]
+                        },
+                        address: {
+                            identifier: 'infos[0][address]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[70]',
+                                    prompt : 'Votre adresse est trop longue.'
+                                }
+                            ]
+                        },
+                        postalcode: {
+                            identifier: 'infos[0][postalcode]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[5]',
+                                    prompt : 'Veulliez entrer 5 caractères maximum.'
+                                },
+                                {
+                                    type   : 'number',
+                                    prompt : 'Veulliez entrer un nombre.'
+                                }
+                            ]
+                        },
+                        city: {
+                            identifier: 'infos[0][city]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[70]',
+                                    prompt : 'Le nom de votre ville est trop long'
+                                }
+                            ]
+                        },
+                        diplome: {
+                            identifier: 'infos[0][diplome]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[100]',
+                                    prompt : 'Le nom de votre diplôme est trop long.'
+                                }
+                            ]
+                        },
+                        duree: {
+                            identifier: 'infos[0][duree]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[11]',
+                                    prompt : 'Le nombre est trop long.'
+                                },
+                                {
+                                    type   : 'number',
+                                    prompt : 'Vous devez renseigner un nombre.'
+                                }
+                            ]
+                        },
+                        mention_commentaires: {
+                            identifier: 'infos[0][mention_commentaires]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre texte est trop long.'
+                                }
+                            ]
+                        }
+                    }
+                })
+            ;
+        })
+    ;
+
+</script>
