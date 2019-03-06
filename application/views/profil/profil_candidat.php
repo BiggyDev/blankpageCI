@@ -55,22 +55,17 @@
 
     if (isset($user)) {
         ?>
-                    <div onclick="changeColor('cv-red')">
-                        <i class="add icon"></i>Rouge
-                    </div>
-                    <div onclick="changeColor('cv-blue')">
-                        <i class="add icon"></i>Bleu
-                    </div>
+        <button class="ui black button" onclick="changeColor('cv-1')">Template 1</button>
+        <button class="ui red button" onclick="changeColor('cv-2')">Template 2</button>
+        <button class="ui blue button" onclick="changeColor('cv-3')">Template 3</button>
 
-            <div id="cv-Client">
+            <div id="cv-1">
                 <div class="page-wrap">
-                    <div id="contact-info" class="vcard">
+                    <div id="contact-info" class="nomCandidat">
                         <?php if (!empty($user['candidats'][0]['name'])){ echo '<h2 class="important" class="nomOnCV">'.$user['candidats'][0]['name'].'</h2>';} ?>
                     </div>
 
-                    <div id="objective">
-                            <?php if (!empty($user['infos'][0]['bio'])){ echo '<span>'.$user['infos'][0]['bio'].'</span>';} ?>
-                    </div>
+                            <?php if (!empty($user['infos'][0]['bio'])){ echo '<p class="bio">'.$user['infos'][0]['bio'].'</p>';} ?>
 
                     <div class="clear"></div>
 
@@ -242,15 +237,16 @@
                             foreach ($user['reseaux'] as $key => $value){
                                 if ($compteur == 0){
                                     if (!empty($user['candidats'][0]['email']) and !empty($user['infos'][0]['portable'])){
-                                        echo '<h2 class="important"><a class="email" href="mailto:'.$user['candidats'][0]['email'].'">'.$user['candidats'][0]['email'].'</a></h2><strong>'.$user['infos'][0]['portable'].'</strong>';
+                                        echo '<h2 class="important"><a class="email" href="mailto:'.$user['candidats'][0]['email'].'">'.$user['candidats'][0]['email'].'</a></h2><strong>Téléphone : '.$user['infos'][0]['portable'].'</strong>';
                                     }
                                     else if (!empty($user['candidats'][0]['email'])){
                                         echo '<h2 class="important"><a class="email" href="mailto:'.$user['candidats'][0]['email'].'">'.$user['candidats'][0]['email'].'</a></h2>';
                                     }
                                     else if (!empty($user['infos'][0]['portable'])){
-                                        echo '<h2 class="important">'.$user['infos'][0]['portable'].'</h2><br/>';
+                                        echo '<h2 class="important">Téléphone : '.$user['infos'][0]['portable'].'</h2><br/>';
                                     }
-                                    echo '<ul><li>Linkedin : '.$value['linkedin'].'</li><li>Facebook : '.$value['facebook'].'</li><li>Twitter : '.$value['twitter'].'</li><li>Dribbble : '.$value['dribbble'].'</li><li>Instagram : '.$value['instagram'].'</li><li>Twitch : '.$value['twitch'].'</li></ul>';
+                                    echo '<ul>';
+                                    <li>Linkedin : '.$value['linkedin'].'</li><li>Facebook : '.$value['facebook'].'</li><li>Twitter : '.$value['twitter'].'</li><li>Dribbble : '.$value['dribbble'].'</li><li>Instagram : '.$value['instagram'].'</li><li>Twitch : '.$value['twitch'].'</li></ul>';
                                 }
                                 $compteur++;
                             } ?>
@@ -268,6 +264,10 @@
 
 <script>
     function changeColor(newId) {
-        document.getElementById('cv-Client').id = newId;
+        var tempo = document.querySelectorAll('div[id^="cv-"]');
+        var tempo = tempo[0].id;
+        if (document.getElementById(tempo) !== null || document.getElementById(tempo) !== undefined){
+            document.getElementById(tempo).id = newId;
+        }
     }
 </script>
