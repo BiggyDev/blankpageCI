@@ -42,6 +42,7 @@
                 Vous n'êtes pas inscrit(e)?
             </div>
             <?= anchor('Accueil/inscription', 'Inscription', 'class="ui button"'); ?>
+            <?= anchor('Accueil/index', 'Accueil', 'class="ui button"'); ?>
         </div>
 
     </div>

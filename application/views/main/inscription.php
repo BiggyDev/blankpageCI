@@ -55,6 +55,7 @@
                 Déjà inscrit(e)?
             </div>
             <?= anchor('Accueil/login', 'Se Connecter', 'class="ui button"'); ?>
+            <?= anchor('Accueil/index', 'Accueil', 'class="ui button"'); ?>
         </div>
 
 
