@@ -144,7 +144,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[70]',
-                                    prompt : 'Votre adresse est trop longue.'
+                                    prompt : 'Votre adresse est trop longue (70 caractères maximum).'
                                 }
                             ]
                         },
@@ -153,15 +153,11 @@
                             rules: [
                                 {
                                     type   : 'maxLength[5]',
-                                    prompt : 'Veulliez entrer 5 caractères maximum.'
+                                    prompt : 'Veulliez un code postal à 5 chiffres maximum.'
                                 },
                                 {
                                     type   : 'number',
-                                    prompt : 'Veulliez entrer un nombre.'
-                                },
-                                {
-                                    type   : 'minLength[0]',
-                                    prompt : 'A'
+                                    prompt : 'Veulliez entrer un code postal sous forme de nombre.'
                                 }
                             ]
                         },
@@ -170,7 +166,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[70]',
-                                    prompt : 'Le nom de votre ville est trop long'
+                                    prompt : 'Le nom de votre ville est trop long (70 caractères maximum).'
                                 }
                             ]
                         },
@@ -179,7 +175,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[10]',
-                                    prompt : 'Votre numéro de téléphone est trop long.'
+                                    prompt : 'Votre numéro de téléphone est trop long (10 caractères maximum).'
                                 },
                                 {
                                     type   : 'number',
@@ -192,7 +188,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[255]',
-                                    prompt : 'Votre texte est trop long.'
+                                    prompt : 'Votre texte est trop long (255 caractères maximum).'
                                 }
                             ]
                         },
@@ -201,7 +197,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[255]',
-                                    prompt : 'Votre lien est trop long.'
+                                    prompt : 'Votre lien est trop long (255 caractères maximum).'
                                 }
                             ]
                         },
@@ -210,7 +206,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[255]',
-                                    prompt : 'Votre texte est trop long.'
+                                    prompt : 'Votre texte est trop long (255 caractères maximum).'
                                 }
                             ]
                         }

@@ -95,6 +95,8 @@
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
+        <div class="ui error message"></div>
+
         <?= form_close(); ?>
 
     </div>
@@ -113,7 +115,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[100]',
-                                    prompt : 'Le nom de l\'entreprise est trop long.'
+                                    prompt : 'Le nom de l\'entreprise est trop long (100 caractères maximum).'
                                 }
                             ]
                         },
@@ -122,7 +124,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[70]',
-                                    prompt : 'Votre adresse est trop longue.'
+                                    prompt : 'Votre adresse est trop longue (70 caractères maximum).'
                                 }
                             ]
                         },
@@ -144,7 +146,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[50]',
-                                    prompt : 'Le nom de votre ville est trop long'
+                                    prompt : 'Le nom de votre ville est trop long (50 caractères maximum).'
                                 }
                             ]
                         },
@@ -153,7 +155,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[50]',
-                                    prompt : 'Le nom de votre diplôme est trop long.'
+                                    prompt : 'Le nom de votre diplôme est trop long (50 caractères maximum).'
                                 }
                             ]
                         },
@@ -162,7 +164,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[11]',
-                                    prompt : 'Le nombre est trop long.'
+                                    prompt : 'Le nombre est trop long (11 caractères maximum).'
                                 },
                                 {
                                     type   : 'number',
@@ -175,7 +177,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[500]',
-                                    prompt : 'Votre texte est trop long.'
+                                    prompt : 'Votre texte est trop long (500 caractères maximum).'
                                 }
                             ]
                         }

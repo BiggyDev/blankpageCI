@@ -97,6 +97,8 @@
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
+        <div class="ui error message"></div>
+
         <?= form_close(); ?>
 
     </div>

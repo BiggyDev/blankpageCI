@@ -65,6 +65,8 @@
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
+        <div class="ui error message"></div>
+
         <?= form_close(); ?>
 
     </div>
@@ -83,7 +85,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[50]',
-                                    prompt : 'Le nom de la certification est trop long.'
+                                    prompt : 'Le nom de la certification est trop long (50 caractères maximum).'
                                 }
                             ]
                         },
@@ -92,7 +94,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[50]',
-                                    prompt : 'Votre texte est trop long.'
+                                    prompt : 'Votre texte est trop long (50 caractères maximum).'
                                 }
                             ]
                         },
