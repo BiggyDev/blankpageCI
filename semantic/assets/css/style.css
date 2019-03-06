@@ -202,6 +202,10 @@ dd.clear {
     margin: 0;
     height: 15px;
 }
+
+#cv-1 .page-wrap{
+    background-color: rgba(250, 250, 250, 0.5);
+}
 #cv-1 #nomOnCV {
     width:30%;
     padding:10px;
@@ -209,6 +213,8 @@ dd.clear {
     text-align: center;
     text-transform: uppercase;
     font-size: 2em;
+    box-shadow: 0px 1px 3px 0px black;
+    border-radius: 5px;
 }
 #cv-1 .bio {
     text-align: center;
@@ -220,25 +226,30 @@ dd.clear {
     color:#007CFF;
 }
 #cv-1 ul{
-    border-bottom:1px solid #FF8300;
     padding:10px;
 }
 #cv-1 li{
     list-style-type:square;
     color:#007CFF;
+    text-transform: capitalize;
 }
 #cv-1 .important, #cv-1 strong{
     color:#FF8300;
+    border-bottom:1px solid #FF8300;
 }
 #cv-1 dt{
     color:#007CFF;
 }
+#cv-1 .email{
+    text-decoration: none;
+    border: none;
+    color:#FF8300;
+}
+#cv-1 .email:hover{
+    text-decoration: underline;
+}
 
 #cv-2>* {
 
-}
-
-#cv-3 #nomOnCV {
-background-color: red;
 }
 /*======================================================================================================================*/

@@ -245,7 +245,12 @@
                                     }
                                     echo '<ul>';
                                     if (!empty($value['linkedin'])){echo '<li>Linkedin : '.$value['linkedin'].'</li>';}
-                                    echo '<li>Facebook : '.$value['facebook'].'</li><li>Twitter : '.$value['twitter'].'</li><li>Dribbble : '.$value['dribbble'].'</li><li>Instagram : '.$value['instagram'].'</li><li>Twitch : '.$value['twitch'].'</li></ul>';
+                                    if (!empty($value['facebook'])){ echo '<li>Facebook : '.$value['facebook'].'</li>';}
+                                    if (!empty($value['twitter'])){ echo '<li>Twitter : '.$value['twitter'].'</li>';}
+                                    if (!empty($value['dribbble'])){ echo '<li>Dribbble : '.$value['dribbble'].'</li>';}
+                                    if (!empty($value['instagram'])){ echo '<li>Instagram : '.$value['instagram'].'</li>';}
+                                    if (!empty($value['twitch'])){ echo '<li>Twitch : '.$value['twitch'].'</li>';}
+                                    echo '</ul>';
                                 }
                                 $compteur++;
                             } ?>
