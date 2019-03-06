@@ -74,9 +74,80 @@
             <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
             <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
+            <div class="ui error message"></div>
+
         </div>
 
         <?= form_close(); ?>
         </div>
     </div>
 </div>
+
+<script>
+
+    $(document)
+        .ready(function() {
+
+            $('.ui.form')
+                .form({
+                    fields: {
+                        lien: {
+                            identifier: 'lien',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        },
+                        lien: {
+                            identifier: 'lien',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        },
+                        lien: {
+                            identifier: 'lien',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        },
+                        lien: {
+                            identifier: 'lien',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        },
+                        lien: {
+                            identifier: 'lien',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        },
+                        lien: {
+                            identifier: 'lien',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        }
+                    }
+                })
+            ;
+        })
+    ;
+</script>

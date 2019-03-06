@@ -51,111 +51,222 @@
     $this->db->where('id_candidats', $_SESSION['bp_candidats']['id']);
     $user['savoiretre'] = $this->db->get()->result_array();
 
-    ?>
-    <h2 class="ui inverted teal block center aligned header">M E S<br/>C V</h2>
-    <?php
+    echo '<h2 class="ui inverted teal block center aligned header">M E S<br/>C V</h2>';
 
     if (isset($user)) {
         ?>
-                <a href="#noir">
-                    <div class="cv-noir">
-                        <i class="add icon"></i>Template N°1
-                    </div>
-                </a>
-                <a href="#couleur">
-                    <div class="cv-couleur">
-                        <i class="add icon"></i>Template N°2
-                    </div>
-                </a>
+        <button class="ui black button" onclick="changeColor('cv-1')">Template 1</button>
+        <button class="ui red button" onclick="changeColor('cv-2')">Template 2</button>
+        <button class="ui blue button" onclick="changeColor('cv-3')">Template 3</button>
 
+            <div id="cv-1">
                 <div class="page-wrap">
-                    <div id="contact-info" class="vcard">
-                        <h2 class="important">C'thulhu</h2>
-                        <p>
-                            Cell: <span class="tel">555-666-7777</span><br />
-                            Email: <a class="email" href="mailto:greatoldone@lovecraft.com">greatoldone@lovecraft.com</a>
-                        </p>
-                    </div>
+                        <?php if (!empty($user['candidats'][0]['name'])){ echo '<h2 class="important" id="nomOnCV">'.$user['candidats'][0]['name'].'</h2>';} ?>
 
-                    <div id="objective">
-                        <p>
-                            I am an outgoing and energetic (ask anybody) young professional, seeking a
-                            career that fits my professional skills, personality, and murderous tendencies.
-                            My squid-like head is a masterful problem solver and inspires fear in who gaze upon it.
-                            I can bring world domination to your organization.
-                        </p>
-                    </div>
+                            <?php if (!empty($user['infos'][0]['bio'])){ echo '<p class="bio">'.$user['infos'][0]['bio'].'</p>';} ?>
 
                     <div class="clear"></div>
 
                     <dl>
                         <dd class="clear"></dd>
-                        <dt>Education</dt>
+                        <dt>Études</dt>
                         <dd>
-                            <h2 class="important">Withering Madness University - Planet Vhoorl</h2>
-                            <p><strong>Major:</strong> Public Relations<br />
-                                <strong>Minor:</strong> Scale Tending</p>
+                            <?php $compteur = 0;
+                            foreach ($user['formation'] as $key => $value){
+                                if ($compteur == 0){
+                                    if (!empty($value['diplome'])){echo '<h2 class="important">'.$value['diplome'].'</h2>';}
+                                    echo '<ul>';
+                                    if (!empty($value['ecole'])){echo '<li>'.$value['ecole'].'</li>';}
+                                    if (!empty($value['ville'])){echo '<li>'.$value['ville'].'</li>';}
+                                    if (!empty($value['mention_commentaires'])){echo '<li>'.$value['mention_commentaires'].'</li>';}
+                                    echo '</ul>';
+                                }
+                                else {
+                                    if (!empty($value['diplome'])){echo '<strong>'.$value['diplome'].'</strong>';}
+                                    echo '<ul>';
+                                    if (!empty($value['ecole'])){echo '<li>'.$value['ecole'].'</li>';}
+                                    if (!empty($value['ville'])){echo '<li>'.$value['ville'].'</li>';}
+                                    if (!empty($value['mention_commentaires'])){echo '<li>'.$value['mention_commentaires'].'</li>';}
+                                    echo '</ul>';
+                                }
+                                $compteur++;
+                            } ?>
                         </dd>
 
                         <dd class="clear"></dd>
 
-                        <dt>Skills</dt>
+                        <dt>Compétences</dt>
                         <dd>
-                            <h2 class="important">Office skills</h2>
-                            <p>Office and records management, database administration, event organization, customer support, travel coordination</p>
 
-                            <h2 class="important">Computer skills</h2>
-                            <p>Microsoft productivity software (Word, Excel, etc), Adobe Creative Suite, Windows</p>
+                            <p>
+                                <?php $compteur = 0;
+                                foreach ($user['competencestech'] as $key => $value){
+                                    $compteur++;
+
+                                    if (!empty($value['name'])) {
+                                        if ($compteur == 1) {
+                                            echo '<h2 class="important">' . $value['name'] . '</h2>';
+                                        } else if ($compteur > 2) {
+                                            if ($compteur % 5 == 0) {
+                                                echo '<br/>' . $value['name'];
+                                            } else {
+                                                echo ' | ' . $value['name'];
+                                            }
+                                        } else {
+                                            echo $value['name'];
+                                        }
+                                    }
+                                } ?>
+                            </p>
                         </dd>
 
                         <dd class="clear"></dd>
 
-                        <dt>Experience</dt>
+                        <dt>Vie professionnelle</dt>
                         <dd>
-                            <h2 class="important">Doomsday Cult <span>Leader/Overlord - Baton Rogue, LA - 1926-2010</span></h2>
-                            <ul>
-                                <li>Inspired and won highest peasant death competition among servants</li>
-                                <li>Helped coordinate managers to grow cult following</li>
-                                <li>Provided untimely deaths to all who opposed</li>
-                            </ul>
-
-                            <h2 class="important">The Watering Hole <span>Bartender/Server - Milwaukee, WI - 2009</span></h2>
-                            <ul>
-                                <li>Worked on grass-roots promotional campaigns</li>
-                                <li>Reduced theft and property damage percentages</li>
-                                <li>Janitorial work, Laundry</li>
-                            </ul>
+                            <?php $compteur = 0;
+                            foreach ($user['experiences'] as $key => $value){
+                                if ($compteur == 0){
+                                    if (!empty($value['intitule'])){echo '<h2 class="important">'.$value['intitule'].'</h2>';}
+                                    echo '<ul>';
+                                    if (!empty($value['entreprise'])){echo '<li>'.$value['entreprise'].'</li>';}
+                                    if (!empty($value['description'])){echo '<li>'.$value['description'].'</li>';}
+                                    echo '</ul>';
+                                }
+                                else {
+                                    if (!empty($value['intitule'])){echo '<strong>'.$value['intitule'].'</strong>';}
+                                    echo '<ul>';
+                                    if (!empty($value['entreprise'])){echo '<li>'.$value['entreprise'].'</li>';}
+                                    if (!empty($value['description'])){echo '<li>'.$value['description'].'</li>';}
+                                    echo '</ul>';
+                                }
+                                $compteur++;
+                            } ?>
                         </dd>
 
                         <dd class="clear"></dd>
 
-                        <dt>Hobbies</dt>
-                        <dd>World Domination, Deep Sea Diving, Murder Most Foul</dd>
+                        <dt>Loisirs</dt>
+                        <dd>
+                            <?php $compteur = 0;
+                            foreach ($user['interet'] as $key => $value){
+                                if ($compteur == 0){
+                                    if (!empty($value['name'])){echo '<h2 class="important">'.$value['name'].'</h2>';}
+                                    echo '<ul>';
+                                    if (!empty($value['description'])){echo '<li>'.$value['description'].'</li>';}
+                                    echo '</ul>';
+                                }
+                                else {
+                                    if (!empty($value['name'])){echo '<strong>'.$value['name'].'</strong>';}
+                                    echo '<ul>';
+                                    if (!empty($value['description'])){echo '<li>'.$value['description'].'</li>';}
+                                    echo '</ul>';
+                                }
+                                $compteur++;
+                            } ?>
+                        </dd>
 
                         <dd class="clear"></dd>
 
-                        <dt>References</dt>
-                        <dd>Available on request</dd>
+                        <dt>Certifications</dt>
+                        <dd>
+                            <?php $compteur = 0;
+                            foreach ($user['certifications'] as $key => $value){
+                                if ($compteur == 0){
+                                    if (!empty($value['name'])){echo '<h2 class="important">'.$value['name'].'</h2>';}
+                                    echo '<ul>';
+                                    if (!empty($value['description'])){echo '<li>'.$value['description'].'</li>';}
+                                    echo '</ul>';
+                                }
+                                else {
+                                    if (!empty($value['name'])){echo '<strong>'.$value['name'].'</strong>';}
+                                    echo '<ul>';
+                                    if (!empty($value['description'])){echo '<li>'.$value['description'].'</li>';}
+                                    echo '</ul>';
+                                }
+                                $compteur++;
+                            } ?>
+                        </dd>
 
                         <dd class="clear"></dd>
+
+                        <dt>Langues</dt>
+                        <dd>
+                            <?php $compteur = 0;
+                            foreach ($user['langues'] as $key => $value){
+                                if ($compteur == 0){
+                                    if (!empty($value['name'])){echo '<h2 class="important">'.$value['name'].'</h2>';}
+                                    echo '<ul>';
+                                    if (!empty($value['niveau'])){echo '<li>'.$value['niveau'].'</li>';}
+                                    echo '</ul>';
+                                }
+                                else {
+                                    if (!empty($value['name'])){echo '<strong>'.$value['name'].'</strong>';}
+                                    echo '<ul>';
+                                    if (!empty($value['niveau'])){echo '<li>'.$value['niveau'].'</li>';}
+                                    echo '</ul>';
+                                }
+                                $compteur++;
+                            } ?>
+                        </dd>
+
+                        <dd class="clear"></dd>
+
+                        <dt>Savoir être</dt>
+                        <dd>
+                            <?php $compteur = 0;
+                            foreach ($user['savoiretre'] as $key => $value){
+
+                                if ($compteur == 0){
+                                    if (!empty($value['name'])){echo '<h2 class="important">'.$value['name'].'</h2>';}
+                                }
+                                else {
+                                    if (!empty($value['name'])){echo '<strong>'.$value['name'].'</strong><br/>';}
+                                }
+                                $compteur++;
+                            } ?>
+                        </dd>
+
+                        <dd class="clear"></dd>
+
+                        <dt>Contact</dt>
+                        <dd>
+                            <?php $compteur = 0;
+                            foreach ($user['reseaux'] as $key => $value){
+                                if ($compteur == 0){
+                                    if (!empty($user['candidats'][0]['email']) and !empty($user['infos'][0]['portable'])){
+                                        echo '<h2 class="important"><a class="email" href="mailto:'.$user['candidats'][0]['email'].'">'.$user['candidats'][0]['email'].'</a></h2><strong>Téléphone : '.$user['infos'][0]['portable'].'</strong>';
+                                    }
+                                    else if (!empty($user['candidats'][0]['email'])){
+                                        echo '<h2 class="important"><a class="email" href="mailto:'.$user['candidats'][0]['email'].'">'.$user['candidats'][0]['email'].'</a></h2>';
+                                    }
+                                    else if (!empty($user['infos'][0]['portable'])){
+                                        echo '<h2 class="important">Téléphone : '.$user['infos'][0]['portable'].'</h2><br/>';
+                                    }
+                                    echo '<ul>';
+                                    if (!empty($value['linkedin'])){echo '<li>Linkedin : '.$value['linkedin'].'</li>';}
+                                    echo '<li>Facebook : '.$value['facebook'].'</li><li>Twitter : '.$value['twitter'].'</li><li>Dribbble : '.$value['dribbble'].'</li><li>Instagram : '.$value['instagram'].'</li><li>Twitch : '.$value['twitch'].'</li></ul>';
+                                }
+                                $compteur++;
+                            } ?>
+                        </dd>
                     </dl>
 
                     <div class="clear"></div>
                 </div>
-                <?php
+            </div>
+    <?php
             }
 ?>
 
 </div>
 
 <script>
-    var header = document.getElementById("truc");
-    var btns = header.getElementsByClassName("item");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-        });
+    function changeColor(newId) {
+        var tempo = document.querySelectorAll('div[id^="cv-"]');
+        var tempo = tempo[0].id;
+        if (document.getElementById(tempo) !== null || document.getElementById(tempo) !== undefined){
+            document.getElementById(tempo).id = newId;
+        }
     }
 </script>

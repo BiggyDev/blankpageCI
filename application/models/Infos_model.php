@@ -33,14 +33,14 @@ class Infos_model extends CI_Model
 
     function get_one($id)
     {
-        $this->db->select("id, age, sexe, adresse, cp, ville, portable, permis, vehicule, picture, bio, portfolio, more, id_candidats")
+        $this->db->select("id, age, sexe, adresse, cp, ville, portable, permis, vehicule, bio, portfolio, more, id_candidats")
             ->from($this->table)
             ->where("id_candidats", $id);
 
         return $this->db->get();
     }
 
-    public function insert_entry($age, $sexe, $adresse, $cp, $ville, $portable, $permis, $vehicule, $picture, $bio, $portfolio, $more)
+    public function insert_entry($age, $sexe, $adresse, $cp, $ville, $portable, $permis, $vehicule, $bio, $portfolio, $more)
     {
         $infos = array(
 
@@ -52,7 +52,6 @@ class Infos_model extends CI_Model
             'portable'          => $portable,
             'permis'            => $permis,
             'vehicule'          => $vehicule,
-            'picture'           => $picture,
             'bio'               => $bio,
             'portfolio'         => $portfolio,
             'more'              => $more

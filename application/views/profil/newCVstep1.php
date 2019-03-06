@@ -76,15 +76,8 @@
             <div class="inline fields">
                 <label for="vehicle">Véhicule personnel</label>
                 <div class="field">
-                    <div class="ui radio checkbox">
-                        <?= form_radio('vehicle', 'yes', FALSE, 'class="hidden"'); ?>
-                        <?= form_label('Oui'); ?>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="ui radio checkbox">
-                        <?= form_radio('vehicle', 'no', FALSE, 'class="hidden"'); ?>
-                        <?= form_label('Non'); ?>
+                    <div class="ui slider checkbox">
+                        <?= form_checkbox('vehicle', '1', FALSE, 'class="hidden"'); ?>
                     </div>
                 </div>
             </div>
@@ -115,6 +108,8 @@
 
             <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
+            <div class="ui error message"></div>
+
         </div>
 
         <?= form_close(); ?>
@@ -137,68 +132,81 @@
                 .dropdown()
             ;
 
-            $('.ui.radio.checkbox')
+            $('.ui.slider.checkbox')
                 .checkbox()
             ;
 
             $('.ui.form')
                 .form({
                     fields: {
-                        name: {
-                            identifier: 'birthday',
+                        address: {
+                            identifier: 'address',
                             rules: [
                                 {
-                                    type   : 'date',
-                                    prompt : 'Please enter your birthday'
+                                    type   : 'maxLength[70]',
+                                    prompt : 'Votre adresse est trop longue (70 caractères maximum).'
                                 }
                             ]
                         },
-                        skills: {
-                            identifier: 'skills',
+                        postalcode: {
+                            identifier: 'postalcode',
                             rules: [
                                 {
-                                    type   : 'minCount[2]',
-                                    prompt : 'Please select at least two skills'
-                                }
-                            ]
-                        },
-                        gender: {
-                            identifier: 'gender',
-                            rules: [
-                                {
-                                    type   : 'empty',
-                                    prompt : 'Please select a gender'
-                                }
-                            ]
-                        },
-                        username: {
-                            identifier: 'username',
-                            rules: [
-                                {
-                                    type   : 'empty',
-                                    prompt : 'Please enter a username'
-                                }
-                            ]
-                        },
-                        password: {
-                            identifier: 'password',
-                            rules: [
-                                {
-                                    type   : 'empty',
-                                    prompt : 'Please enter a password'
+                                    type   : 'maxLength[5]',
+                                    prompt : 'Veulliez un code postal à 5 chiffres maximum.'
                                 },
                                 {
-                                    type   : 'minLength[6]',
-                                    prompt : 'Your password must be at least {ruleValue} characters'
+                                    type   : 'number',
+                                    prompt : 'Veulliez entrer un code postal sous forme de nombre.'
                                 }
                             ]
                         },
-                        terms: {
-                            identifier: 'terms',
+                        city: {
+                            identifier: 'city',
                             rules: [
                                 {
-                                    type   : 'checked',
-                                    prompt : 'You must agree to the terms and conditions'
+                                    type   : 'maxLength[70]',
+                                    prompt : 'Le nom de votre ville est trop long (70 caractères maximum).'
+                                }
+                            ]
+                        },
+                        portable: {
+                            identifier: 'portable',
+                            rules: [
+                                {
+                                    type   : 'maxLength[10]',
+                                    prompt : 'Votre numéro de téléphone est trop long (10 caractères maximum).'
+                                },
+                                {
+                                    type   : 'number',
+                                    prompt : 'Votre numéro de téléphone doit être composé de chiffres.'
+                                }
+                            ]
+                        },
+                        bio: {
+                            identifier: 'bio',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre texte est trop long (255 caractères maximum).'
+                                }
+                            ]
+                        },
+                        portfolio: {
+                            identifier: 'portfolio',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long (255 caractères maximum).'
+                                }
+                            ]
+                        },
+                        more: {
+                            identifier: 'more',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre texte est trop long (255 caractères maximum).'
                                 }
                             ]
                         }
