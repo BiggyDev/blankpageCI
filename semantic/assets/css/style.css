@@ -206,21 +206,37 @@ dd.clear {
     margin: 10px auto;
     text-align: center;
     text-transform: uppercase;
-    color:white;
-    background-color: black;
-    box-shadow: 1px 1px 1px 1px black;
+    font-size: 2em;
 }
 #cv-1 .bio {
     text-align: center;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 10px;
-    border:black 1px solid;
+    border-top:solid 1px #FF8300;
+    border-bottom:solid 1px #FF8300;
     width:75%;
+    color:#007CFF;
 }
+#cv-1 ul{
+    border-bottom:1px solid #FF8300;
+    padding:10px;
+}
+#cv-1 li{
+    list-style-type:square;
+    color:#007CFF;
+}
+#cv-1 .important, #cv-1 strong{
+    color:#FF8300;
+}
+#cv-1 dt{
+    color:#007CFF;
+}
+
 #cv-2>* {
 
 }
-#cv-3>* {
 
+#cv-3 #nomOnCV {
+background-color: red;
 }
 /*======================================================================================================================*/
