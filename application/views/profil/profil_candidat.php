@@ -61,9 +61,7 @@
 
             <div id="cv-1">
                 <div class="page-wrap">
-                    <div id="contact-info" class="nomCandidat">
-                        <?php if (!empty($user['candidats'][0]['name'])){ echo '<h2 class="important" class="nomOnCV">'.$user['candidats'][0]['name'].'</h2>';} ?>
-                    </div>
+                        <?php if (!empty($user['candidats'][0]['name'])){ echo '<h2 class="important" id="nomOnCV">'.$user['candidats'][0]['name'].'</h2>';} ?>
 
                             <?php if (!empty($user['infos'][0]['bio'])){ echo '<p class="bio">'.$user['infos'][0]['bio'].'</p>';} ?>
 

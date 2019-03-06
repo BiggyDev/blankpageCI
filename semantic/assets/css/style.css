@@ -200,7 +200,7 @@ dd.clear {
     margin: 0;
     height: 15px;
 }
-#cv-1 .nomCandidat {
+#cv-1 #nomOnCV {
     width:30%;
     padding:10px;
     margin: 10px auto;
