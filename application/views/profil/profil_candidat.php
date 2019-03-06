@@ -68,7 +68,7 @@
                     <div class="clear"></div>
 
                     <dl>
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
                         <dt>Études</dt>
                         <dd>
                             <?php $compteur = 0;
@@ -93,7 +93,7 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Compétences</dt>
                         <dd>
@@ -120,7 +120,7 @@
                             </p>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Vie professionnelle</dt>
                         <dd>
@@ -144,7 +144,7 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Loisirs</dt>
                         <dd>
@@ -166,7 +166,7 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Certifications</dt>
                         <dd>
@@ -188,7 +188,7 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Langues</dt>
                         <dd>
@@ -210,7 +210,7 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Savoir être</dt>
                         <dd>
@@ -227,7 +227,7 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Contact</dt>
                         <dd>
