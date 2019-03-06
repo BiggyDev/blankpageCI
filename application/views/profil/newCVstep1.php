@@ -76,8 +76,8 @@
             <div class="inline fields">
                 <label for="vehicle">Véhicule personnel</label>
                 <div class="field">
-                    <div class="ui radio checkbox">
-                        <?= form_radio('vehicle', 'no', FALSE, 'class="hidden"'); ?>
+                    <div class="ui slider checkbox">
+                        <?= form_checkbox('vehicle', '1', FALSE, 'class="hidden"'); ?>
                     </div>
                 </div>
             </div>
@@ -108,6 +108,8 @@
 
             <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
+            <div class="ui error message"></div>
+
         </div>
 
         <?= form_close(); ?>
@@ -130,22 +132,13 @@
                 .dropdown()
             ;
 
-            $('.ui.radio.checkbox')
+            $('.ui.slider.checkbox')
                 .checkbox()
             ;
 
             $('.ui.form')
                 .form({
                     fields: {
-                        birthday: {
-                            identifier: 'birthday',
-                            rules: [
-                                {
-                                    type   : 'integer',
-                                    prompt : 'Comment avez vous réussi à écrire des lettres ici ?'
-                                }
-                            ]
-                        },
                         address: {
                             identifier: 'address',
                             rules: [
