@@ -3,6 +3,7 @@
         <div class="column">
             <h1 class="title">Récapitulatif</h1>
 
+            <?php  if (isset($_SESSION['infos'])) { ?>
             <div class="ui stacked segment">
 
                 <h2 class="title">Infos Personnelles</h2>
@@ -64,6 +65,8 @@
                     </div>
                 </div>
             </div>
+            <?php }
+            if (isset($_SESSION['formations'])) { ?>
             <div class="ui stacked segment">
 
                 <h2 class="title">Formations</h2>
@@ -118,6 +121,8 @@
                 <?php } ?>
 
             </div>
+            <?php } ?>
+            <?php  if (isset($_SESSION['experiences'])) { ?>
             <div class="ui stacked segment">
 
                 <h2 class="title">Expériences professionnelles</h2>
@@ -170,6 +175,8 @@
                 <div class="ui divider"></div>
                 <?php } ?>
             </div>
+            <?php } ?>
+            <?php  if (isset($_SESSION['competencestech'])) { ?>
             <div class="ui stacked segment">
 
                 <h2 class="title">Compétences Techniques</h2>
@@ -179,6 +186,8 @@
                 </div>
 
             </div>
+            <?php }
+            if (isset($_SESSION['langues'])) { ?>
             <div class="ui stacked segment">
 
                 <h2 class="title">Langues</h2>
@@ -189,6 +198,8 @@
                 </div>
 
             </div>
+            <?php }
+            if (isset($_SESSION['certifications'])) { ?>
             <div class="ui stacked segment">
 
                 <h2 class="title">Certifications</h2>
@@ -221,6 +232,8 @@
                     <div class="ui divider"></div>
                 <?php } ?>
             </div>
+            <?php }
+            if (isset($_SESSION['savoiretre'])) { ?>
             <div class="ui stacked segment">
 
                 <h2 class="title">Savoir-être</h2>
@@ -230,6 +243,8 @@
                 </div>
 
             </div>
+            <?php }
+            if (isset($_SESSION['reseaux'])) { ?>
             <div class="ui stacked segment">
 
                 <h2 class="title">Réseaux Sociaux</h2>
@@ -266,6 +281,8 @@
                     </div>
                 </div>
             </div>
+            <?php }
+            if (isset($_SESSION['interets'])) { ?>
             <div class="ui stacked segment">
 
                 <h2 class="title">Centres d'intérêt</h2>
@@ -288,10 +305,55 @@
                     <div class="ui divider"></div>
                 <?php } ?>
             </div>
+            <?php } ?>
         </div>
 
-        <?= anchor('candidats/CVconfirm', 'Valider ce CV', 'class="ui big teal button"'); ?>
+        <?= form_open('', 'class="ui form"'); ?>
+        <div class="inline field">
+            <div class="ui checkbox">
+                <?= form_checkbox('terms'); ?>
+                <?= form_label('J\'accepte les Termes et Conditions'); ?>
+            </div>
+        </div>
+
+        <?= form_submit('submitted', 'Valider ce CV', 'class="ui big teal button"'); ?>
+
+        <div class="ui error message"></div>
+
+        <?php if (isset($_POST['submitted'])) {
+            redirect('candidats/CVconfirm');
+        } ?>
+
     </div>
 </div>
+
+<script>
+
+    $(document)
+        .ready(function () {
+
+            $('.ui.checkbox')
+                .checkbox()
+            ;
+
+            $('.ui.form')
+                .form({
+                    fields: {
+                        terms: {
+                            identifier: 'terms',
+                            rules: [
+                                {
+                                    type   : 'checked',
+                                    prompt : 'Vous devez accepter les termes et conditions'
+                                }
+                            ]
+                        }
+                    }
+                })
+            ;
+
+        })
+
+</script>
 
 

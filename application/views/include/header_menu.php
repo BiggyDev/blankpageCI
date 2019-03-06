@@ -1,5 +1,5 @@
 <div class="pusher">
-    <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui inverted vertical masthead center aligned segment background-image">
         <div class="ui container">
             <div class="ui large secondary inverted pointing menu">
                 <a class="toc item">
@@ -27,8 +27,8 @@
         </h1>
         <h2 class="marginB">Blankpage est un site permettant la création d'un CV complet et ergonomique</h2>
         <?php if (!isLogged())
-        echo anchor('Accueil/login', 'Créer mon CV', 'class = "ui inverted teal massive button"');
+        echo anchor('Accueil/login', 'Créer mon CV', 'class = "ui inverted massive button"');
               else
-        echo anchor('Candidats/index', 'Créer mon CV', 'class = "ui inverted teal massive button"');
+        echo anchor('Candidats/addCV/1', 'Créer mon CV', 'class = "ui inverted massive button"');
         ?>
     </div>

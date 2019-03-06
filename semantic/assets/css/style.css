@@ -2,6 +2,12 @@
     margin:0;
     padding:0;
 }
+.ui.inverted.segment.background-image
+{
+    background-image: url("../img/typewriter-801921_1280.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .content {
     font-size: 1.25em;
 }

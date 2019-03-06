@@ -531,9 +531,6 @@ class Candidats extends CI_Controller
         $this->load->view('profil/dynamicform.html', $data);
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
-
-
-
     }
 
     public function sendMail()
@@ -560,11 +557,6 @@ class Candidats extends CI_Controller
         if(!$this->email->send())
         {
             show_error($this->email->print_debugger());
-        }
-
-        if (site_url('localhost/blankpageCI/candidats/sendMail', 'http')) {
-            // TODO : Rediriger vers profil
-            redirect('candidats/profile');
         }
     }
 
