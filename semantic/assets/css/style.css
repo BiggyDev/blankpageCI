@@ -197,11 +197,6 @@ dd {
     border-left: 1px solid black;
     margin: 10px 0;
 }
-dd.clear {
-    float: none;
-    margin: 0;
-    height: 15px;
-}
 
 #cv-1 .page-wrap{
     background-color: rgba(250, 250, 250, 0.5);
@@ -225,6 +220,7 @@ dd.clear {
     border-bottom:solid 1px #FF8300;
     width:75%;
     color:#007CFF;
+    font-size: 1.1em;
 }
 #cv-1 ul{
     padding:10px;

@@ -216,14 +216,21 @@
                         <dd>
                             <?php $compteur = 0;
                             foreach ($user['savoiretre'] as $key => $value){
-
-                                if ($compteur == 0){
-                                    if (!empty($value['name'])){echo '<h2 class="important">'.$value['name'].'</h2>';}
-                                }
-                                else {
-                                    if (!empty($value['name'])){echo '<strong>'.$value['name'].'</strong><br/>';}
-                                }
                                 $compteur++;
+
+                                if (!empty($value['name'])) {
+                                    if ($compteur == 1) {
+                                        echo '<h2 class="important">' . $value['name'] . '</h2>';
+                                    } else if ($compteur > 2) {
+                                        if ($compteur % 5 == 0) {
+                                            echo '<br/>' . $value['name'];
+                                        } else {
+                                            echo ' | ' . $value['name'];
+                                        }
+                                    } else {
+                                        echo $value['name'];
+                                    }
+                                }
                             } ?>
                         </dd>
 
