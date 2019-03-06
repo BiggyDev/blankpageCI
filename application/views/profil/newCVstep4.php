@@ -40,6 +40,8 @@
             <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
             <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
+            <div class="ui error message"></div>
+
         </div>
 
         <?= form_close(); ?>
@@ -60,6 +62,7 @@
                 .dropdown({
                     maxSelections: 6
                 })
+            ;
 
             $('#niveau')
                 .dropdown()
@@ -67,6 +70,14 @@
 
             $('.ui.radio.checkbox')
                 .checkbox()
+            ;
+
+            $('.ui.form')
+                .form({
+                    fields: {
+
+                    }
+                })
             ;
         })
     ;

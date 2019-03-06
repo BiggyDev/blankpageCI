@@ -97,6 +97,8 @@
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
+        <div class="ui error message"></div>
+
         <?= form_close(); ?>
 
     </div>
@@ -109,6 +111,13 @@
 
             $('.ui.radio.checkbox')
                 .checkbox()
+            ;
+
+            $('.ui.form')
+                .form({
+                    fields: {
+
+                })
             ;
         })
     ;

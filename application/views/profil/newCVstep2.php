@@ -95,7 +95,96 @@
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
+        <div class="ui error message"></div>
+
         <?= form_close(); ?>
 
     </div>
 </div>
+
+<script>
+
+    $(document)
+        .ready(function() {
+
+            $('.ui.form')
+                .form({
+                    fields: {
+                        ecole: {
+                            identifier: 'infos[0][ecole]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[70]',
+                                    prompt : 'Le nom de votre école est trop long (70 caractères maximum).'
+                                }
+                            ]
+                        },
+                        address: {
+                            identifier: 'infos[0][address]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[70]',
+                                    prompt : 'Votre adresse est trop longue (70 caractères maximum).'
+                                }
+                            ]
+                        },
+                        postalcode: {
+                            identifier: 'infos[0][postalcode]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[5]',
+                                    prompt : 'Veulliez entrer 5 caractères maximum.'
+                                },
+                                {
+                                    type   : 'number',
+                                    prompt : 'Veulliez entrer un nombre.'
+                                }
+                            ]
+                        },
+                        city: {
+                            identifier: 'infos[0][city]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[70]',
+                                    prompt : 'Le nom de votre ville est trop long (70 caractères maximum).'
+                                }
+                            ]
+                        },
+                        diplome: {
+                            identifier: 'infos[0][diplome]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[100]',
+                                    prompt : 'Le nom de votre diplôme est trop long (100 caractères maximum).'
+                                }
+                            ]
+                        },
+                        duree: {
+                            identifier: 'infos[0][duree]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[11]',
+                                    prompt : 'Le nombre est trop long (11 caractères maximum).'
+                                },
+                                {
+                                    type   : 'number',
+                                    prompt : 'Vous devez renseigner un nombre.'
+                                }
+                            ]
+                        },
+                        mention_commentaires: {
+                            identifier: 'infos[0][mention_commentaires]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre texte est trop long (255 caractères maximum).'
+                                }
+                            ]
+                        }
+                    }
+                })
+            ;
+        })
+    ;
+
+</script>

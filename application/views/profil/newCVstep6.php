@@ -65,7 +65,55 @@
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
+        <div class="ui error message"></div>
+
         <?= form_close(); ?>
 
     </div>
 </div>
+
+<script>
+
+    $(document)
+        .ready(function() {
+
+            $('.ui.form')
+                .form({
+                    fields: {
+                        name: {
+                            identifier: 'name',
+                            rules: [
+                                {
+                                    type   : 'maxLength[50]',
+                                    prompt : 'Le nom de la certification est trop long (50 caractères maximum).'
+                                }
+                            ]
+                        },
+                        description: {
+                            identifier: 'description',
+                            rules: [
+                                {
+                                    type   : 'maxLength[50]',
+                                    prompt : 'Votre texte est trop long (50 caractères maximum).'
+                                }
+                            ]
+                        },
+                        duree: {
+                            identifier: 'duree',
+                            rules: [
+                                {
+                                    type   : 'integer',
+                                    prompt : 'Vous devez renseigner un nombre ou un chiffre.'
+                                }
+                                {
+                                    type   : 'maxLength[11]',
+                                    prompt : 'Ce nombre est beaucoup trop long.'
+                                }
+                            ]
+                        }
+                    }
+                })
+            ;
+        })
+    ;
+</script>
