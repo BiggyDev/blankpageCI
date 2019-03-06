@@ -246,7 +246,8 @@
                                         echo '<h2 class="important">Téléphone : '.$user['infos'][0]['portable'].'</h2><br/>';
                                     }
                                     echo '<ul>';
-                                    <li>Linkedin : '.$value['linkedin'].'</li><li>Facebook : '.$value['facebook'].'</li><li>Twitter : '.$value['twitter'].'</li><li>Dribbble : '.$value['dribbble'].'</li><li>Instagram : '.$value['instagram'].'</li><li>Twitch : '.$value['twitch'].'</li></ul>';
+                                    if (!empty($value['linkedin'])){}
+                                    echo '<li>Linkedin : '.$value['linkedin'].'</li><li>Facebook : '.$value['facebook'].'</li><li>Twitter : '.$value['twitter'].'</li><li>Dribbble : '.$value['dribbble'].'</li><li>Instagram : '.$value['instagram'].'</li><li>Twitch : '.$value['twitch'].'</li></ul>';
                                 }
                                 $compteur++;
                             } ?>
