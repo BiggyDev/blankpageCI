@@ -106,11 +106,13 @@
                 </div>
             </div>
 
-            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
-
             <div class="ui error message"></div>
 
         </div>
+
+        <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
+
+
 
         <?= form_close(); ?>
         </div>
@@ -153,11 +155,11 @@
                             rules: [
                                 {
                                     type   : 'maxLength[5]',
-                                    prompt : 'Veulliez un code postal à 5 chiffres maximum.'
+                                    prompt : 'Veuillez un code postal à 5 chiffres maximum.'
                                 },
                                 {
                                     type   : 'number',
-                                    prompt : 'Veulliez entrer un code postal sous forme de nombre.'
+                                    prompt : 'Veuillez entrer un code postal sous forme de nombre.'
                                 }
                             ]
                         },
@@ -175,7 +177,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[10]',
-                                    prompt : 'Votre numéro de téléphone est trop long (10 caractères maximum).'
+                                    prompt : 'Votre numéro de téléphone doit contenir 10 caractères.'
                                 },
                                 {
                                     type   : 'number',

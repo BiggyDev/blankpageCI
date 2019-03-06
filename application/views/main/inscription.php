@@ -38,6 +38,13 @@
                 </div>
             </div>
 
+            <div class="inline field">
+                <div class="ui checkbox">
+                    <?= form_checkbox('terms'); ?>
+                    <?= form_label('J\'accepte que Blank Page utilise mes données afin de les transmettre à des professionnels dans le but d\'une démarche de recrutement et de mise en relation'); ?>
+                </div>
+            </div>
+
             <?= form_submit('submitted', 'S\'inscrire', 'class="ui teal big button"'); ?>
 
         </div>
@@ -61,3 +68,32 @@
 
     </div>
 </div>
+
+<script>
+
+    $(document)
+        .ready(function () {
+
+            $('.ui.checkbox')
+                .checkbox()
+            ;
+
+            $('.ui.form')
+                .form({
+                    fields: {
+                        terms: {
+                            identifier: 'terms',
+                            rules: [
+                                {
+                                    type   : 'checked',
+                                    prompt : 'Vous devez cocher cette case pour accéder aux fonctionnalités du site.'
+                                }
+                            ]
+                        }
+                    }
+                })
+            ;
+
+        })
+
+</script>

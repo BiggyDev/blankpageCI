@@ -37,11 +37,12 @@
                 <?= form_multiselect('name', $savoiretre, '', 'class="ui fluid normal dropdown"'); ?>
             </div>
 
-            <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
-            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
+
             <div class="ui error message"></div>
 
         </div>
+            <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
+            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
         <?= form_close(); ?>
         </div>
@@ -69,13 +70,6 @@
                 .checkbox()
             ;
 
-            $('.ui.form')
-                .form({
-                    fields: {
-
-                    }
-                })
-            ;
         })
     ;
 </script>

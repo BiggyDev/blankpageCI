@@ -83,6 +83,8 @@
                     </div>
                 </div>
 
+                <div class="ui error message"></div>
+
             </div>
         </div>
 
@@ -93,7 +95,7 @@
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-        <div class="ui error message"></div>
+
 
         <?= form_close(); ?>
 
@@ -166,7 +168,7 @@
                                 },
                                 {
                                     type   : 'number',
-                                    prompt : 'Vous devez renseigner un nombre.'
+                                    prompt : 'Vous devez renseigner un nombre pour la durée.'
                                 }
                             ]
                         },
@@ -178,7 +180,7 @@
                                     prompt : 'Votre texte est trop long (255 caractères maximum).'
                                 }
                             ]
-                        }
+                        },
                     }
                 })
             ;

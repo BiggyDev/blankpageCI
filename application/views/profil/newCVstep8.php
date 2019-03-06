@@ -71,12 +71,11 @@
                 </div>
             </div>
 
-            <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
-            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
-
             <div class="ui error message"></div>
 
         </div>
+            <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
+            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
         <?= form_close(); ?>
         </div>
@@ -91,8 +90,8 @@
             $('.ui.form')
                 .form({
                     fields: {
-                        lien: {
-                            identifier: 'lien',
+                        linkedin: {
+                            identifier: 'linkedin',
                             rules: [
                                 {
                                     type   : 'maxLength[255]',
@@ -100,8 +99,8 @@
                                 }
                             ]
                         },
-                        lien: {
-                            identifier: 'lien',
+                        facebook: {
+                            identifier: 'facebook',
                             rules: [
                                 {
                                     type   : 'maxLength[255]',
@@ -109,8 +108,8 @@
                                 }
                             ]
                         },
-                        lien: {
-                            identifier: 'lien',
+                        twitter: {
+                            identifier: 'twitter',
                             rules: [
                                 {
                                     type   : 'maxLength[255]',
@@ -118,8 +117,8 @@
                                 }
                             ]
                         },
-                        lien: {
-                            identifier: 'lien',
+                        dribbble: {
+                            identifier: 'dribbble',
                             rules: [
                                 {
                                     type   : 'maxLength[255]',
@@ -127,8 +126,8 @@
                                 }
                             ]
                         },
-                        lien: {
-                            identifier: 'lien',
+                        instagram: {
+                            identifier: 'instagram',
                             rules: [
                                 {
                                     type   : 'maxLength[255]',
@@ -136,8 +135,8 @@
                                 }
                             ]
                         },
-                        lien: {
-                            identifier: 'lien',
+                        twitch: {
+                            identifier: 'twitch',
                             rules: [
                                 {
                                     type   : 'maxLength[255]',

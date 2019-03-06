@@ -246,6 +246,13 @@ class Candidats extends CI_Controller
         }
     }
 
+    public function sendMailredirect()
+    {
+       $this->sendMail();
+
+       redirect('candidats/profile');
+    }
+
     public function CVconfirm()
     {
         $data['title'] = 'Blank Page - Confirmation d\'ajout du CV';

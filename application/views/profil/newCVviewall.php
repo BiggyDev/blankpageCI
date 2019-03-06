@@ -90,7 +90,7 @@
                 </div>
             </div>
             <?php }
-            if (isset($_SESSION['formations'])) { ?>
+            if (isset($_SESSION['formations']['infos'])) { ?>
             <div class="ui stacked segment">
 
                 <h2 class="title">Formations</h2>

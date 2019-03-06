@@ -86,6 +86,8 @@
                 </div>
             </div>
 
+            <div class="ui error message"></div>
+
         </div>
         </div>
 
@@ -95,7 +97,7 @@
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-        <div class="ui error message"></div>
+
 
         <?= form_close(); ?>
 
@@ -133,11 +135,11 @@
                             rules: [
                                 {
                                     type   : 'maxLength[5]',
-                                    prompt : 'Veulliez entrer 5 caractères maximum.'
+                                    prompt : 'Veuillez entrer 5 caractères maximum.'
                                 },
                                 {
                                     type   : 'number',
-                                    prompt : 'Veulliez entrer un nombre.'
+                                    prompt : 'Veuillez entrer un nombre.'
                                 }
                             ]
                         },
@@ -177,7 +179,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[500]',
-                                    prompt : 'Votre texte est trop long (500 caractères maximum).'
+                                    prompt : 'Votre texte est trop long (255 caractères maximum).'
                                 }
                             ]
                         }

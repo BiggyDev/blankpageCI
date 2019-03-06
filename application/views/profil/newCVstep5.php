@@ -86,6 +86,8 @@
                         <?= form_label('Langue Maternelle'); ?>
                     </div>
                 </div>
+
+                <div class="ui error message"></div>
             </div>
 
         </div>
@@ -97,7 +99,7 @@
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-        <div class="ui error message"></div>
+
 
         <?= form_close(); ?>
 
@@ -113,12 +115,6 @@
                 .checkbox()
             ;
 
-            $('.ui.form')
-                .form({
-                    fields: {
-
-                })
-            ;
         })
     ;
 </script>
