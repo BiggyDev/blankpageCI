@@ -68,7 +68,7 @@
                     <div class="clear"></div>
 
                     <dl>
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
                         <dt>Études</dt>
                         <dd>
                             <?php $compteur = 0;
@@ -93,7 +93,7 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Compétences</dt>
                         <dd>
@@ -120,7 +120,7 @@
                             </p>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Vie professionnelle</dt>
                         <dd>
@@ -144,7 +144,7 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Loisirs</dt>
                         <dd>
@@ -166,7 +166,7 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Certifications</dt>
                         <dd>
@@ -188,7 +188,7 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Langues</dt>
                         <dd>
@@ -210,24 +210,31 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Savoir être</dt>
                         <dd>
                             <?php $compteur = 0;
                             foreach ($user['savoiretre'] as $key => $value){
-
-                                if ($compteur == 0){
-                                    if (!empty($value['name'])){echo '<h2 class="important">'.$value['name'].'</h2>';}
-                                }
-                                else {
-                                    if (!empty($value['name'])){echo '<strong>'.$value['name'].'</strong><br/>';}
-                                }
                                 $compteur++;
+
+                                if (!empty($value['name'])) {
+                                    if ($compteur == 1) {
+                                        echo '<h2 class="important">' . $value['name'] . '</h2>';
+                                    } else if ($compteur > 2) {
+                                        if ($compteur % 5 == 0) {
+                                            echo '<br/>' . $value['name'];
+                                        } else {
+                                            echo ' | ' . $value['name'];
+                                        }
+                                    } else {
+                                        echo $value['name'];
+                                    }
+                                }
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Contact</dt>
                         <dd>
@@ -244,8 +251,13 @@
                                         echo '<h2 class="important">Téléphone : '.$user['infos'][0]['portable'].'</h2><br/>';
                                     }
                                     echo '<ul>';
-                                    if (!empty($value['linkedin'])){}
-                                    echo '<li>Linkedin : '.$value['linkedin'].'</li><li>Facebook : '.$value['facebook'].'</li><li>Twitter : '.$value['twitter'].'</li><li>Dribbble : '.$value['dribbble'].'</li><li>Instagram : '.$value['instagram'].'</li><li>Twitch : '.$value['twitch'].'</li></ul>';
+                                    if (!empty($value['linkedin'])){echo '<li>Linkedin : '.$value['linkedin'].'</li>';}
+                                    if (!empty($value['facebook'])){ echo '<li>Facebook : '.$value['facebook'].'</li>';}
+                                    if (!empty($value['twitter'])){ echo '<li>Twitter : '.$value['twitter'].'</li>';}
+                                    if (!empty($value['dribbble'])){ echo '<li>Dribbble : '.$value['dribbble'].'</li>';}
+                                    if (!empty($value['instagram'])){ echo '<li>Instagram : '.$value['instagram'].'</li>';}
+                                    if (!empty($value['twitch'])){ echo '<li>Twitch : '.$value['twitch'].'</li>';}
+                                    echo '</ul>';
                                 }
                                 $compteur++;
                             } ?>
