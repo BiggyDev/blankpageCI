@@ -200,8 +200,9 @@ dd.clear {
     margin: 0;
     height: 15px;
 }
-#cv-noir {
+#cv-noir>* {
     display: block;
+    color:black;
 }
 #cv-red>* {
     display: block;
