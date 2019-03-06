@@ -220,7 +220,28 @@ dd.clear {
 #cv-2>* {
 
 }
-#cv-3>* {
-    
+#cv-3 #nomOnCV {
+    background-color: #D4E5EE;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 50px;
+    font-size: 2em;
+    border: black solid 1px;
+}
+
+#cv-3 .important {
+    color: #006093;
+}
+
+#cv-3 .bio {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.5em;
+    border-bottom: solid 3px #006093;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
 }
 /*======================================================================================================================*/
