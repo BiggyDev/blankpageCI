@@ -51,6 +51,8 @@
     $this->db->where('id_candidats', $_SESSION['bp_candidats']['id']);
     $user['savoiretre'] = $this->db->get()->result_array();
 
+    echo '<h2 class="ui inverted teal block center aligned header">M E S<br/>C V</h2>';
+
     if (isset($user)) {
         ?>
         <div class="buttonCV">
@@ -59,7 +61,9 @@
             <button class="ui grey button" onclick="changeColor('cv-3')">Template 3</button>
         </div>
 
-                <div class="page-wrap" id="cv-1">
+
+            <div id="cv-1">
+                <div class="page-wrap">
                         <?php if (!empty($user['candidats'][0]['name'])){ echo '<h2 class="important" id="nomOnCV">'.$user['candidats'][0]['name'].'</h2>';} ?>
 
                             <?php if (!empty($user['infos'][0]['bio'])){ echo '<p class="bio">'.$user['infos'][0]['bio'].'</p>';} ?>
@@ -247,37 +251,16 @@
 
                     <div class="clear"></div>
                 </div>
+            </div>
     <?php
             }
-            ?>
-
-    <button type="button" class="ui teal huge button" id="generateCV" onclick="createCode()">Générer CV</button>
-    <a style="display:none" href="" target="_blank" class="ui teal huge button" id="downloadCV" >Télécharger votre CV</a>
+    ?>
 </div>
 
 <script>
-    function createCode() {
-
-        var tempo = document.querySelectorAll('div[id^="cv-"]');
-        tempo = tempo[0].id;
-
-        var saveCV = document.getElementById('saveCV');
-        var generateCV = document.getElementById('downloadCV');
-
-        html2canvas(document.getElementById(tempo)).then(canvas => {
-            var base64image = canvas.toDataURL("image/jpeg");
-            console.log(base64image);
-            window.open("data:application/pdf;base64," + base64image);
-
-            generateCV.style.display = "none";
-            saveCV.href = base64image;
-            saveCV.style.display = "block";
-        });
-    }
-
     function changeColor(newId) {
         var tempo = document.querySelectorAll('div[id^="cv-"]');
-        tempo = tempo[0].id;
+         tempo = tempo[0].id;
         if (document.getElementById(tempo) !== null || document.getElementById(tempo) !== undefined){
             document.getElementById(tempo).id = newId;
         }

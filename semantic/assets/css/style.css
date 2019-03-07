@@ -145,9 +145,6 @@ body > .grid {
 .width100 {
     width: 100%;
 }
-#saveCV{
-    margin-bottom: 30px;
-}
 /*==================================================================================================*/
 .clear {
     clear: both;
@@ -233,6 +230,9 @@ dd {
     color:#007CFF;
     font-size: 1.1em;
 }
+#cv-1 ul{
+    padding:10px;
+}
 #cv-1 li{
     list-style-type:square;
     color:#007CFF;
@@ -245,18 +245,15 @@ dd {
 #cv-1 dt{
     color:#007CFF;
 }
-#cv-1 dd{
-    width: 600px;
-    float: right;
-    padding-left:10px;
-    border-left: 1px solid black;
-    margin: 10px 0;
-}
 #cv-1 .email{
     text-decoration: none;
     border: none;
     color:#FF8300;
 }
+#cv-1 .email:hover{
+    text-decoration: underline;
+}
+
 #cv-2 #nomOnCV {
     width:30%;
     padding:10px;
@@ -278,15 +275,15 @@ dd {
 }
 
 #cv-3 #nomOnCV {
-    background-color: powderblue;
+    background-color: #D4E5EE;
     text-align: center;
     width: 50%;
     margin: 0 auto;
     padding-top: 20px;
     padding-bottom: 20px;
-    box-shadow: 0px 1px 3px 0px black;
     border-radius: 10px;
     font-size: 2em;
+    border: black solid 1px;
 }
 #cv-3 .bio {
     text-align: center;
@@ -300,7 +297,9 @@ dd {
     color: #006093;
 }
 /*======================================================================================================================*/
+
 .buttonCV {
     margin: 0 auto;
+    margin-top: 10px;
     text-align: center;
 }

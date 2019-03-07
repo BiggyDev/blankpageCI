@@ -6,6 +6,7 @@ class Candidats extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->err_403();
     }
 
     public function index()
@@ -34,6 +35,9 @@ class Candidats extends CI_Controller
 
     public function profile()
     {
+
+        $this->err_403();
+
         $data['title'] = 'Blank Page - Mon profil';
 
 
@@ -263,5 +267,13 @@ class Candidats extends CI_Controller
         $this->load->view('include/footer', $data);
     }
 
+    public function err_403()
+    {
+        if (!isLogged()) {
+            redirect('errors/cli/error_404', 'location');
+        }
+    }
+
 }
+
 
