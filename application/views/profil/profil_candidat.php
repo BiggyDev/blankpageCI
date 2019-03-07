@@ -254,14 +254,14 @@
             </div>
     <?php
             }
-?>
-
+    ?>
+    <button class="ui teal button">Enregistrer PDF</button>
 </div>
 
 <script>
     function changeColor(newId) {
         var tempo = document.querySelectorAll('div[id^="cv-"]');
-        var tempo = tempo[0].id;
+         tempo = tempo[0].id;
         if (document.getElementById(tempo) !== null || document.getElementById(tempo) !== undefined){
             document.getElementById(tempo).id = newId;
         }
