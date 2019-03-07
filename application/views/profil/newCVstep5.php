@@ -95,8 +95,6 @@
 
         <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
 
-        <button class="ui teal big button add-one" type="button">Ajouter une langue</button>
-
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
 

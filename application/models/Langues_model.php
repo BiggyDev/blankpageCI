@@ -31,11 +31,12 @@ class Langues_model extends CI_Model
     }
 
 
-    public function insert_entry($name, $niveau)
+    public function insert_entry($name, $niveau, $id_candidat)
     {
         $langues = array(
             'name'                => $name,
-            'niveau'              => $niveau
+            'niveau'              => $niveau,
+            'id_candidats'        => $id_candidat
         );
 
         $this->db->insert('bp_langues', $langues);

@@ -40,7 +40,7 @@ class Infos_model extends CI_Model
         return $this->db->get();
     }
 
-    public function insert_entry($age, $sexe, $adresse, $cp, $ville, $portable, $permis, $vehicule, $bio, $portfolio, $more)
+    public function insert_entry($age, $sexe, $adresse, $cp, $ville, $portable, $permis, $vehicule, $bio, $portfolio, $more, $id_candidat)
     {
         $infos = array(
 
@@ -54,7 +54,8 @@ class Infos_model extends CI_Model
             'vehicule'          => $vehicule,
             'bio'               => $bio,
             'portfolio'         => $portfolio,
-            'more'              => $more
+            'more'              => $more,
+            'id_candidats'      => $id_candidat
         );
 
         $this->db->insert('bp_infos', $infos);

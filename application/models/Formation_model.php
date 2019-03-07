@@ -37,7 +37,7 @@ class Formation_model extends CI_Model
         return $this->db->get();
     }
 
-    public function insert_entry($ecole, $adresse, $cp, $ville, $diplome, $datedebut, $duree, $mention)
+    public function insert_entry($ecole, $adresse, $cp, $ville, $diplome, $datedebut, $duree, $mention, $id_candidat)
     {
         $formation = array(
 
@@ -48,7 +48,8 @@ class Formation_model extends CI_Model
             'diplome'                       => $diplome,
             'datedebut'                     => $datedebut,
             'duree'                         => $duree,
-            'mention_commentaires'          => $mention
+            'mention_commentaires'          => $mention,
+            'id_candidats'                  => $id_candidat
         );
 
         $this->db->insert('bp_formation', $formation);

@@ -30,12 +30,17 @@ class Reseaux_model extends CI_Model
         return $this->db->get();
     }
 
-    public function insert_entry($name, $lien)
+    public function insert_entry($linkedin, $facebook, $twitter, $dribbble, $instagram, $twitch, $id_candidat)
     {
         $reseaux = array(
 
-            'name'         => $name,
-            'lien'         => $lien
+            'linkedin'         => $linkedin,
+            'facebook'         => $facebook,
+            'twitter'          => $twitter,
+            'dribbble'         => $dribbble,
+            'instagram'        => $instagram,
+            'twitch'           => $twitch,
+            'id_candidats'     => $id_candidat
         );
 
         $this->db->insert('bp_reseaux', $reseaux);
