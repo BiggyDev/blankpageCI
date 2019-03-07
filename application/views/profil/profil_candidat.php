@@ -1,36 +1,6 @@
 <div>
 
 <?php
-if (!empty($_POST['code'])){
-
-    echo '<pre>';
-    print_r($_POST['code']);
-    echo '</pre>';
-
-    require_once('tcpdf.php');
-
-    $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-    $obj_pdf->SetCreator(PDF_CREATOR);
-    $obj_pdf->AddPage();
-    $obj_pdf->SetTitle("Rapport de l'analyse de votre fichier");
-    $obj_pdf->SetHeaderData('','',PDF_HEADER_TITLE,PDF_HEADER_STRING);
-    $obj_pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN,'',PDF_FONT_SIZE_MAIN));
-    $obj_pdf->setFooterFont(Array(PDF_FONT_NAME_DATA,'',PDF_FONT_SIZE_DATA));
-    $obj_pdf->setdefaultmonospacedFont('helvetica');
-    $obj_pdf->setFooterMargin(PDF_MARGIN_FOOTER);
-    $obj_pdf->setmargins(PDF_MARGIN_LEFT,'5',PDF_MARGIN_RIGHT);
-    $obj_pdf->SetPrintHeader(false);
-    $obj_pdf->SetPrintFooter(false);
-    $obj_pdf->setautopagebreak(TRUE,10);
-    $obj_pdf->setFont('helvetica','',12);
-
-    $content = $_POST['code'];
-
-    $obj_pdf->writeHTML($content);
-    ob_end_clean();
-    $obj_pdf->Output("test.pdf","D");
-}
-
     $this->db->select('name,email');
     $this->db->from('bp_candidats');
     $this->db->where('id', $_SESSION['bp_candidats']['id']);
@@ -89,9 +59,7 @@ if (!empty($_POST['code'])){
             <button class="ui grey button" onclick="changeColor('cv-3')">Template 3</button>
         </div>
 
-
-            <div id="cv-1">
-                <div class="page-wrap">
+                <div class="page-wrap" id="cv-1">
                         <?php if (!empty($user['candidats'][0]['name'])){ echo '<h2 class="important" id="nomOnCV">'.$user['candidats'][0]['name'].'</h2>';} ?>
 
                             <?php if (!empty($user['infos'][0]['bio'])){ echo '<p class="bio">'.$user['infos'][0]['bio'].'</p>';} ?>
@@ -279,25 +247,32 @@ if (!empty($_POST['code'])){
 
                     <div class="clear"></div>
                 </div>
-            </div>
     <?php
             }
             ?>
 
-    <?= form_open('', 'class = "buttonCV" onsubmit="createCode()"'); ?>
-    <?= form_hidden('code', 'pas de code'); ?>
-    <?= form_submit('submitted', 'Enregistrer CV', 'class="ui teal huge button" id="saveCV"'); ?>
-    <?= form_close(); ?>
+    <button type="button" class="ui teal huge button" id="generateCV" onclick="createCode()">Générer CV</button>
+    <a style="display:none" href="" target="_blank" class="ui teal huge button" id="downloadCV" >Télécharger votre CV</a>
 </div>
 
 <script>
     function createCode() {
+
         var tempo = document.querySelectorAll('div[id^="cv-"]');
         tempo = tempo[0].id;
-        var html = '<div id="'+tempo+'">'+document.getElementById(tempo).innerHTML+'</div>'; //html
-        var hidden = document.querySelectorAll('input[name="code"]');
-        hidden[0].value = html; //hidden
-        hidden = hidden[0];
+
+        var saveCV = document.getElementById('saveCV');
+        var generateCV = document.getElementById('downloadCV');
+
+        html2canvas(document.getElementById(tempo)).then(canvas => {
+            var base64image = canvas.toDataURL("image/jpeg");
+            console.log(base64image);
+            window.open("data:application/pdf;base64," + base64image);
+
+            generateCV.style.display = "none";
+            saveCV.href = base64image;
+            saveCV.style.display = "block";
+        });
     }
 
     function changeColor(newId) {
