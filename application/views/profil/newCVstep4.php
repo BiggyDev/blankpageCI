@@ -62,13 +62,14 @@
 
             <div class="field">
                 <label>Comp&eacute;tences</label>
-                <?= form_multiselect('name', $competence, '', 'class="ui fluid normal dropdown"'); ?>
+                <?= form_multiselect('name[]', $competence, '', 'class="ui fluid normal dropdown"'); ?>
             </div>
 
             <div class="ui error message"></div>
 
         </div>
         <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
+
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
         <?= form_close(); ?>
@@ -86,9 +87,7 @@
         .ready(function() {
 
             $('.ui.normal.dropdown')
-                .dropdown({
-                    maxSelections: 6
-                })
+                .dropdown()
             ;
 
             $('#niveau')

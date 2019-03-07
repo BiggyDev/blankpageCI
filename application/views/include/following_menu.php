@@ -9,16 +9,16 @@
         <div class="right menu">
             <div class="item">
                 <?php if(!isLogged()){
-                    echo anchor('Accueil/login', 'Connexion', 'class = "ui inverted button"');
+                    echo anchor('accueil/login', 'Connexion', 'class = "ui inverted button"');
                 } else {
-                    echo anchor('Candidats/profile', 'Mon CV', 'class = "ui inverted button"');
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "ui inverted button"');
                 } ?>
             </div>
             <div class="item">
                 <?php if(!isLogged()){
-                    echo anchor('Accueil/inscription', 'Inscription', 'class = "ui inverted button"');
+                    echo anchor('accueil/inscription', 'Inscription', 'class = "ui inverted button"');
                 } else {
-                    echo anchor('Candidats/disconnect', 'Déconnexion', 'class = "ui inverted button"');
+                    echo anchor('candidats/disconnect', 'Déconnexion', 'class = "ui inverted button"');
                 } ?>
             </div>
         </div>

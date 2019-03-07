@@ -237,9 +237,11 @@
 
                 <h2 class="title">Compétences Techniques</h2>
 
+                <?php foreach ($_SESSION['competencestech']['name'] as $data_index) { ?>
                 <div class="field">
-                    <span class="font-weight-bold"><?= $_SESSION['competencestech']['name']; ?></span>
+                    <span class="font-weight-bold"><?= $data_index; ?></span>
                 </div>
+                <?php } ?>
 
             </div>
             <?php } ?>
@@ -260,7 +262,7 @@
 
                 <h2 class="title">Certifications</h2>
 
-                <?php foreach ($_SESSION['certifications']['infos'] as $data_index) {; ?>
+                <?php foreach ($_SESSION['certifications']['infos'] as $data_index) { ?>
 
                     <div class="fields">
 
@@ -364,7 +366,7 @@
 
                 <h2 class="title">Centres d'intérêt</h2>
 
-                <?php foreach ($_SESSION['interets']['infos'] as $data_index) {; ?>
+                <?php foreach ($_SESSION['interets']['infos'] as $data_index) { ?>
 
                     <div class="fields">
 

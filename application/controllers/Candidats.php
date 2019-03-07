@@ -154,15 +154,34 @@ class Candidats extends CI_Controller
             );
         } elseif ($id == 4) {
             $data['competence'] = array(
-                'PHP'   => 'PHP',
-                'HTML'  => 'HTML',
-                'JavaScript'    => 'JavaScript'
+                'PHP'           => 'PHP',
+                'HTML'          => 'HTML',
+                'JavaScript'    => 'JavaScript',
+                'CSS'           => 'CSS',
+                'Symfony'       => 'Symfony',
+                'Angular'       => 'Angular',
+                'React'         => 'React',
+                'Electron'      => 'Electron',
+                'WordPress'     => 'WordPress'
+            );
+            $data['niveau'] = array(
+                'Débutant' => 'Débutant',
+                'Interm&eacute;diaire' => 'Interm&eacute;diaire',
+                'Confirm&eacute;' => 'Confirm&eacute;',
+                'Expert' => 'Expert'
+            );
+        } elseif ($id == 5) {
+            $data['name'] = array(
+                'Anglais'   => 'Anglais',
+                'Français'  => 'Français',
+                'Espagnol'  => 'Espagnol',
+                'Allemand'  => 'Allemand'
             );
             $data['niveau'] = array (
-              'Débutant'        => 'Débutant',
-              'Interm&eacute;diaire'   => 'Interm&eacute;diaire',
-              'Confirm&eacute;'        => 'Confirm&eacute;',
-              'Expert'          => 'Expert'
+                'Débutant'              => 'Débutant',
+                'Scolaire'              => 'Scolaire',
+                'Professionnel'         => 'Professionnel',
+                'Langue Maternelle'     => 'Langue Maternelle'
             );
         } elseif ($id == 6) {
             $data['datedebut'] = array(
@@ -199,53 +218,55 @@ class Candidats extends CI_Controller
 
         if (isset($_POST['submitted'])) {
 
-            if(isset($_SESSION['infos'])){
+            if(!empty($_SESSION['infos'])){
                 $this->load->model('Infos_model', '', TRUE);
                 $this->Infos_model->insert_entry($_SESSION['infos']['age'], $_SESSION['infos']['gender'], $_SESSION['infos']['address'], $_SESSION['infos']['postalcode'], $_SESSION['infos']['city'], $_SESSION['infos']['portable'], $_SESSION['infos']['permis'], $_SESSION['infos']['vehicle'], $_SESSION['infos']['bio'], $_SESSION['infos']['portfolio'], $_SESSION['infos']['more'], $_SESSION['bp_candidats']['id']);
             }
 
-            if(isset($_SESSION['formations']['infos'])) {
+            if(!empty($_SESSION['formations']['infos'])) {
                 foreach ($_SESSION['formations']['infos'] as $data_index) {
                     $this->load->model('Formation_model', '', TRUE);
                     $this->Formation_model->insert_entry($data_index['ecole'], $data_index['address'], $data_index['postalcode'], $data_index['city'], $data_index['diplome'], $data_index['datedebut'], $data_index['duree'], $data_index['mention_commentaires'], $_SESSION['bp_candidats']['id']);
                 }
             }
 
-            if(isset($_SESSION['experiences']['infos'])) {
+            if(!empty($_SESSION['experiences']['infos'])) {
                 foreach ($_SESSION['experiences']['infos'] as $data_index) {
                     $this->load->model('Experiences_model', '', TRUE);
                     $this->Experiences_model->insert_entry($data_index['entreprise'], $data_index['intitule'], $data_index['date_debut'], $data_index['duree'], $data_index['description'], $data_index['address'], $data_index['postalcode'], $data_index['city'], $_SESSION['bp_candidats']['id']);
                 }
             }
 
-            if(isset($_SESSION['competencestech'])) {
-                $this->load->model('Competencestech_model', '', TRUE);
-                $this->Competencestech_model->insert_entry($_SESSION['competencestech']['name'], $_SESSION['bp_candidats']['id']);
+            if(!empty($_SESSION['competencestech'])) {
+                foreach ($_SESSION['competencestech']['name'] as $data_index) {
+                    $this->load->model('Competencestech_model', '', TRUE);
+                    $this->Competencestech_model->insert_entry($data_index, $_SESSION['bp_candidats']['id']);
+                }
             }
 
-            if(isset($_SESSION['langues'])) {
+            if(!empty($_SESSION['langues'])) {
                 $this->load->model('Langues_model', '', TRUE);
                 $this->Langues_model->insert_entry($_SESSION['langues']['infos'][0]['name'], $_SESSION['langues']['infos'][0]['niveau'], $_SESSION['bp_candidats']['id']);
             }
 
-            if(isset($_SESSION['certifications']['infos'])) {
+            if(!empty($_SESSION['certifications']['infos'])) {
                 foreach ($_SESSION['certifications']['infos'] as $data_index) {
                     $this->load->model('Certification_model', '', TRUE);
                     $this->Certification_model->insert_entry($data_index['name'], $data_index['description'], $data_index['datedebut'], $data_index['duree'], $_SESSION['bp_candidats']['id']);
                 }
             }
 
-            if(isset($_SESSION['savoiretre'])) {
+            if(!empty($_SESSION['savoiretre'])) {
                 $this->load->model('Savoiretre_model', '', TRUE);
                 $this->Savoiretre_model->insert_entry($_SESSION['savoiretre']['name'], $_SESSION['bp_candidats']['id']);
             }
 
-            if(isset($_SESSION['reseaux'])) {
+            if(!empty($_SESSION['reseaux'])) {
                 $this->load->model('Reseaux_model', '', TRUE);
                 $this->Reseaux_model->insert_entry($_SESSION['reseaux']['linkedin'], $_SESSION['reseaux']['facebook'], $_SESSION['reseaux']['twitter'], $_SESSION['reseaux']['dribbble'], $_SESSION['reseaux']['instagram'], $_SESSION['reseaux']['twitch'], $_SESSION['bp_candidats']['id']);
             }
 
-            if(isset($_SESSION['interets']['infos'])) {
+            if(!empty($_SESSION['interets']['infos'])) {
                 foreach ($_SESSION['interets']['infos'] as $data_index) {
                     $this->load->model('Interet_model', '', TRUE);
                     $this->Interet_model->insert_entry($data_index['name'], $data_index['description'], $_SESSION['bp_candidats']['id']);

@@ -6,10 +6,10 @@
 <a class="item" href="#métier">Métier</a>
 <a class="item" href="#accessibilité">Accessibilité</a>
     <?php if(!isLogged()){
-        echo anchor('Accueil/login', 'Connexion', 'class = "item"');
-        echo anchor('Accueil/inscription', 'Inscription', 'class = "item"');
+        echo anchor('accueil/login', 'Connexion', 'class = "item"');
+        echo anchor('accueil/inscription', 'Inscription', 'class = "item"');
     } else {
-        echo anchor('Candidats/profile', 'Mon Profil', 'class = "item"');
-        echo anchor('Candidats/disconnect', 'Déconnexion', 'class = "item"');
+        echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
+        echo anchor('candidats/disconnect', 'Déconnexion', 'class = "item"');
     } ?>
 </div>
