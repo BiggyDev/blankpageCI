@@ -1,35 +1,51 @@
 <div>
 
 <?php
+if (!empty($_POST['code'])){// Include the main TCPDF library (search for installation path).
+    echo $_POST['code'];
+    require_once('tcpdf.php');
 
-if (!empty($_POST['code'])){
-    require_once('examples/tcpdf_include.php');
-
+// create new PDF document
     $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
+// set document information
     $pdf->SetCreator(PDF_CREATOR);
-    $pdf->SetAuthor($_SESSION['bp_candidats']['name']);
-    $pdf->SetTitle('CV de '.$_SESSION['bp_candidats']['name']);
-    $pdf->SetSubject('CV de '.$_SESSION['bp_candidats']['name']);
-    $pdf->SetKeywords('CV,'.$_SESSION['bp_candidats']['name'] ); //valeur titre,sujet etc
+    $pdf->SetAuthor('Nicola Asuni');
+    $pdf->SetTitle('TCPDF Example 061');
+    $pdf->SetSubject('TCPDF Tutorial');
+    $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
+// set default header data
+    $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 061', PDF_HEADER_STRING);
+
+// set header and footer fonts
+    $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
     $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
-    $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED); //police par défault
 
-    $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT); //margin
+// set default monospaced font
+    $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
-    $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM); //séparateur page
+// set margins
+    $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+    $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+    $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
-    $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO); //taille image
+// set auto page breaks
+    $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 
-    $pdf->SetFont('dejavusans', '', 10); //police
+// set image scale factor
+    $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
-    $pdf->AddPage(); //créer page
+// set font
+    $pdf->SetFont('helvetica', '', 10);
 
-    $pdf->writeHTML($html, $ln=true, $fill=false, $reseth=false, $cell=false, $align='');
+// add a page
+    $pdf->AddPage();
 
+// define some HTML content with style
     $html = $_POST['code'];
 
+// output the HTML content
     $pdf->writeHTML($html, true, false, true, false, '');
 
 }
@@ -291,7 +307,7 @@ if (!empty($_POST['code'])){
 
     <?= form_open('', 'class = "buttonCV" onsubmit="createCode()"'); ?>
     <?= form_hidden('code', 'pas de code'); ?>
-    <?= form_submit('submitted', 'Enregistrer CV', 'class="ui teal huge button"'); ?>
+    <?= form_submit('submitted', 'Enregistrer CV', 'class="ui teal huge button" id="saveCV"'); ?>
     <?= form_close(); ?>
 </div>
 
@@ -305,12 +321,12 @@ if (!empty($_POST['code'])){
         css += '.clear {clear: both;}.page-wrap {width: 800px;margin: 40px auto 60px;padding: 15px;border: 2px black solid;}.important {font-size: 20px;margin: 0 0 6px 0;position: relative;}.important span {position: absolute;bottom: 0; right: 0;font-style: italic;font-size: 16px;color: #999;font-weight: normal;}.email {color: #999;text-decoration: none;border-bottom: 1px dotted #999;}.email:hover {border-bottom-style: solid;color: black;}ul {margin: 0 0 32px 17px;}#objective {width: 500px;float: left;}#objective p {font-style: italic;color: #666;}dt {font-style: italic;font-weight: bold;font-size: 18px;text-align: right;padding: 0 26px 0 0;width: 150px;float: left;padding-top: 20px;}dd {width: 600px;float: right;padding-left:10px;border-left: 1px solid black;margin: 10px 0;}#cv-1 .page-wrap{background-color: rgba(250, 250, 250, 0.5);}#cv-1 #nomOnCV {width:30%;padding:10px;margin: 0px auto 15px auto;text-align: center;text-transform: capitalize;font-size: 2em;box-shadow: 0px 1px 3px 0px black;border: none;border-radius: 5px;}#cv-1 .bio {text-align: center;margin: 10px auto;padding: 10px;border-top:solid 1px #FF8300;border-bottom:solid 1px #FF8300;border-radius: 10px;width:75%;color:#007CFF;font-size: 1.1em;}#cv-1 li{list-style-type:square;color:#007CFF;}#cv-1 .important, #cv-1 strong{color:#FF8300;border-bottom:1px solid #FF8300;text-transform: capitalize;}#cv-1 dt{color:#007CFF;}#cv-1 dd{width: 600px;float: right;padding-left:10px;border-left: 1px solid black;margin: 10px 0;}#cv-1 .email{text-decoration: none;border: none;color:#FF8300;}#cv-1 .email:hover{text-decoration: underline;}#cv-2 #nomOnCV {width:30%;padding:10px;margin: 0px auto 15px auto;text-align: center;text-transform: capitalize;font-size: 2em;border-left: 1px solid black;border-right: 1px solid black;}#cv-2 .bio {text-align: center;margin: 10px auto;padding: 10px;border-top:solid 1px black;border-bottom:solid 1px black;width:75%;font-size: 1.1em;}#cv-3 #nomOnCV {background-color: #D4E5EE;text-align: center;width: 50%;margin: 0 auto;padding-top: 20px;padding-bottom: 20px;border-radius: 10px;font-size: 2em;border: black solid 1px;}#cv-3 .bio {text-align: center;margin-top: 30px;font-size: 1.5em;border-bottom: solid 3px #006093;margin-bottom: 30px;padding-bottom: 30px;}#cv-3 .important {color: #006093;}';
         css += '</style>'; //css
 
-        var code = html+css; //code
+        var code = css+'\n'+html; //code
 
         var hidden = document.querySelectorAll('input[name="code"]');
-        console.log(hidden);
         hidden[0].value = code; //hidden
         hidden = hidden[0];
+        console.log(hidden);
     }
 
     function changeColor(newId) {

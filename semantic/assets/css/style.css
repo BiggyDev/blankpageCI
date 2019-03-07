@@ -145,7 +145,11 @@ body > .grid {
 .width100 {
     width: 100%;
 }
+#saveCV{
+    margin-bottom: 30px;
+}
 /*==================================================================================================*/
+/*
 .clear {
     clear: both;
 }
@@ -279,15 +283,15 @@ dd {
 }
 
 #cv-3 #nomOnCV {
-    background-color: #D4E5EE;
+    background-color: powderblue;
     text-align: center;
     width: 50%;
     margin: 0 auto;
     padding-top: 20px;
     padding-bottom: 20px;
+    box-shadow: 0px 1px 3px 0px black;
     border-radius: 10px;
     font-size: 2em;
-    border: black solid 1px;
 }
 #cv-3 .bio {
     text-align: center;
@@ -300,8 +304,8 @@ dd {
 #cv-3 .important {
     color: #006093;
 }
+*/
 /*======================================================================================================================*/
-
 .buttonCV {
     margin: 0 auto;
     text-align: center;
