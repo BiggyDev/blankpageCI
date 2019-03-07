@@ -5,8 +5,8 @@
                 <a class="toc item">
                     <i class="sidebar icon"></i>
                 </a>
-                <?= anchor('', 'Accueil', 'class = "active item"'); ?>
-                <a class="item" href="#CV">Mes CV</a>
+                <?= anchor('', 'Accueil', 'class = "item"'); ?>
+                <a class="active item" href="#CV">Mes CV</a>
                 <div class="right item">
                     <?php if(!isLogged()){
                         echo anchor('Accueil/login', 'Connexion', 'class = "ui inverted button"');

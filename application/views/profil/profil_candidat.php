@@ -55,9 +55,12 @@
 
     if (isset($user)) {
         ?>
-        <button class="ui black button" onclick="changeColor('cv-1')">Template 1</button>
-        <button class="ui red button" onclick="changeColor('cv-2')">Template 2</button>
-        <button class="ui blue button" onclick="changeColor('cv-3')">Template 3</button>
+        <div class="buttonCV">
+            <button class="ui grey button" onclick="changeColor('cv-1')">Template 1</button>
+            <button class="ui grey button" onclick="changeColor('cv-2')">Template 2</button>
+            <button class="ui grey button" onclick="changeColor('cv-3')">Template 3</button>
+        </div>
+
 
             <div id="cv-1">
                 <div class="page-wrap">
@@ -73,22 +76,12 @@
                         <dd>
                             <?php $compteur = 0;
                             foreach ($user['formation'] as $key => $value){
-                                if ($compteur == 0){
                                     if (!empty($value['diplome'])){echo '<h2 class="important">'.$value['diplome'].'</h2>';}
                                     echo '<ul>';
                                     if (!empty($value['ecole'])){echo '<li>'.$value['ecole'].'</li>';}
                                     if (!empty($value['ville'])){echo '<li>'.$value['ville'].'</li>';}
                                     if (!empty($value['mention_commentaires'])){echo '<li>'.$value['mention_commentaires'].'</li>';}
                                     echo '</ul>';
-                                }
-                                else {
-                                    if (!empty($value['diplome'])){echo '<strong>'.$value['diplome'].'</strong>';}
-                                    echo '<ul>';
-                                    if (!empty($value['ecole'])){echo '<li>'.$value['ecole'].'</li>';}
-                                    if (!empty($value['ville'])){echo '<li>'.$value['ville'].'</li>';}
-                                    if (!empty($value['mention_commentaires'])){echo '<li>'.$value['mention_commentaires'].'</li>';}
-                                    echo '</ul>';
-                                }
                                 $compteur++;
                             } ?>
                         </dd>
@@ -194,18 +187,10 @@
                         <dd>
                             <?php $compteur = 0;
                             foreach ($user['langues'] as $key => $value){
-                                if ($compteur == 0){
                                     if (!empty($value['name'])){echo '<h2 class="important">'.$value['name'].'</h2>';}
                                     echo '<ul>';
                                     if (!empty($value['niveau'])){echo '<li>'.$value['niveau'].'</li>';}
                                     echo '</ul>';
-                                }
-                                else {
-                                    if (!empty($value['name'])){echo '<strong>'.$value['name'].'</strong>';}
-                                    echo '<ul>';
-                                    if (!empty($value['niveau'])){echo '<li>'.$value['niveau'].'</li>';}
-                                    echo '</ul>';
-                                }
                                 $compteur++;
                             } ?>
                         </dd>
