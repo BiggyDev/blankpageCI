@@ -230,9 +230,6 @@ dd {
     color:#007CFF;
     font-size: 1.1em;
 }
-#cv-1 ul{
-    padding:10px;
-}
 #cv-1 li{
     list-style-type:square;
     color:#007CFF;
@@ -244,6 +241,13 @@ dd {
 }
 #cv-1 dt{
     color:#007CFF;
+}
+#cv-1 dd{
+    width: 600px;
+    float: right;
+    padding-left:10px;
+    border-left: 1px solid black;
+    margin: 10px 0;
 }
 #cv-1 .email{
     text-decoration: none;
