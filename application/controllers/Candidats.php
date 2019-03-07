@@ -44,6 +44,32 @@ class Candidats extends CI_Controller
         $this->load->view('include/footer', $data);
     }
 
+    public function monCV()
+    {
+        $data['title'] = 'Blank Page - Mon CV';
+
+        $this->load->model('Auth_candidat', '', TRUE);
+
+        $user['infos']              = $this->Auth_candidat->get_cv_infos($_SESSION['bp_candidats']['id']);
+        $user['formation']          = $this->Auth_candidat->get_cv_formations($_SESSION['bp_candidats']['id']);
+        $user['experiences']        = $this->Auth_candidat->get_cv_experiences($_SESSION['bp_candidats']['id']);
+        $user['candidats']          = $this->Auth_candidat->get_cv_candidats($_SESSION['bp_candidats']['id']);
+        $user['certifications']     = $this->Auth_candidat->get_cv_certifications($_SESSION['bp_candidats']['id']);
+        $user['competencestech']    = $this->Auth_candidat->get_cv_competencestech($_SESSION['bp_candidats']['id']);
+        $user['interet']            = $this->Auth_candidat->get_cv_interets($_SESSION['bp_candidats']['id']);
+        $user['langues']            = $this->Auth_candidat->get_cv_langues($_SESSION['bp_candidats']['id']);
+        $user['reseaux']            = $this->Auth_candidat->get_cv_reseaux($_SESSION['bp_candidats']['id']);
+        $user['savoiretre']         = $this->Auth_candidat->get_cv_savoiretre($_SESSION['bp_candidats']['id']);
+
+        $data['user'] = $user;
+
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_menu_logged', $data);
+        $this->load->view('profil/cv_candidat', $data);
+        $this->load->view('include/footer_menu', $data);
+        $this->load->view('include/footer', $data);
+    }
+
     public function addCV($id)
     {
         $data['title'] = 'Blank Page - Nouveau CV';
@@ -280,6 +306,111 @@ class Candidats extends CI_Controller
         $this->load->view('profil/confirmationAjoutCV', $data);
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
+    }
+
+    public function modifEmail()
+    {
+        $data['title'] = 'Blank Page - Modification d\'adresse e-mail';
+
+        if (isset($_POST['submitted'])) {
+
+            $this->form_validation->set_rules('newmail', 'Nouvelle adresse e-mail', 'trim|required|valid_email');
+            $this->form_validation->set_rules('password', 'Mot de passe', 'trim|required');
+
+            if ($this->form_validation->run() === TRUE) {
+
+                $this->form_validation->set_data($_POST);
+
+                $user = $this->Auth_candidat->get_user($_SESSION['bp_candidats']['email']);
+
+                $password = $user[0]['password'];
+
+                if (password_verify($this->input->post('password'), $password)) {
+
+                    $this->Auth_candidat->update_email($this->input->post('newmail'));
+
+                    $this->disconnect();
+
+                } else {
+                    $this->session->set_flashdata('fail_password', 'Mot de passe erroné');
+                }
+
+            }
+        }
+
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_menu_logged', $data);
+        $this->load->view('profil/modifEmail', $data);
+        $this->load->view('include/footer_menu', $data);
+        $this->load->view('include/footer', $data);
+    }
+
+    public function modifPassword()
+    {
+        $data['title'] = 'Blank Page - Modification du mot de passe';
+
+        if (isset($_POST['submitted'])) {
+
+            $rules = array(
+                array(
+                    'field' => 'oldpassword',
+                    'label' => 'Ancien Mot de Passe',
+                    'rules' => 'trim|required'
+                ),
+                array(
+                    'field' => 'newpassword',
+                    'label' => 'Nouveau Mot de Passe',
+                    'rules' => 'trim|required|min_length[6]|max_length[200]'
+                ),
+                array(
+                    'field' => 'password2',
+                    'label' => 'Confirmation Nouveau Mot de Passe',
+                    'rules' => 'trim|required|min_length[6]|max_length[200]|matches[newpassword]'
+                )
+            );
+
+            $this->form_validation->set_rules($rules);
+
+            if ($this->form_validation->run() === TRUE) {
+
+                $this->form_validation->set_data($_POST);
+
+                $user = $this->Auth_candidat->get_user($_SESSION['bp_candidats']['email']);
+
+                $password = $user[0]['password'];
+
+                if (password_verify($this->input->post('oldpassword'), $password)) {
+
+                    $token = $this->generateRandomString(255);
+                    $hash = password_hash($this->input->post('newpassword'), PASSWORD_DEFAULT);
+
+                    $this->Auth_candidat->update_password($hash, $token);
+
+                    $this->disconnect();
+
+                } else {
+                    $this->session->set_flashdata('fail_oldpassword', 'Ancien Mot de Passe erroné');
+                }
+
+            }
+        }
+
+        $this->load->view('include/header', $data);
+        $this->load->view('include/header_menu_logged', $data);
+        $this->load->view('profil/modifPassword', $data);
+        $this->load->view('include/footer_menu', $data);
+        $this->load->view('include/footer', $data);
+    }
+
+    private function generateRandomString($length)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 
 }
