@@ -9,7 +9,13 @@
                 <?php if (current_url() == 'http://localhost/blankpageCI/candidats/profile') {
                     echo anchor('candidats/profile', 'Mon profil', 'class = "active item"');
                     echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
-                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/monCV') {
+                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/modifEmail') {
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "active item"');
+                    echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
+                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/modifPassword') {
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "active item"');
+                    echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
+                } else {
                     echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
                     echo anchor('candidats/monCV', 'Mon CV', 'class = "active item"');
                 } ?>

@@ -28,7 +28,7 @@
                 }; ?>
 
             </div>
-
+            <?= anchor('candidats/profile', 'Retour', 'class="ui teal big button"'); ?>
             <?= form_submit('submitted', 'Valider', 'class="ui teal big button"'); ?>
 
             <?= form_close(); ?>
