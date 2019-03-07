@@ -89,11 +89,6 @@ class Candidats extends CI_Controller
         }
 
         if ($id == 1) {
-            $data['birthday'] = array(
-                'type'  => 'date',
-                'value' => 'birthday',
-                'name'  => 'birthday',
-            );
             $data['gender'] = array(
                 '' => 'Sexe',
                 'Femme' => 'Femme',
@@ -188,7 +183,7 @@ class Candidats extends CI_Controller
 
             foreach ($_SESSION['experiences']['infos'] as $data_index) {
                 $this->load->model('Experiences_model', '', TRUE);
-                $this->Experiences_model->insert_entry($data_index['entrerpise'], $data_index['intitule'], $data_index['date_debut'], $data_index['duree'], $data_index['description'], $data_index['address'], $data_index['postalcode'], $data_index['city'], $_SESSION['bp_candidats']['id']);
+                $this->Experiences_model->insert_entry($data_index['entreprise'], $data_index['intitule'], $data_index['date_debut'], $data_index['duree'], $data_index['description'], $data_index['address'], $data_index['postalcode'], $data_index['city'], $_SESSION['bp_candidats']['id']);
             }
 
             $this->load->model('Competencestech_model', '', TRUE);

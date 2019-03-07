@@ -385,11 +385,6 @@
             <?php } ?>
         </div>
 
-        <?php echo '<pre>';
-                var_dump($_SESSION);
-                echo '</pre>';
-                ?>
-
         <?= form_open('', 'class="ui form"'); ?>
         <div class="inline field">
             <div class="ui checkbox">

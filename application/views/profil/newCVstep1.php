@@ -31,9 +31,9 @@
         <div class="ui stacked segment">
 
             <div class="field">
-                <label>Date de naissance</label>
+                <label>Age</label>
                 <div class="ui left input">
-                    <?= form_input($birthday); ?>
+                    <?= form_input('age', set_value('age'), 'placeholder="18"'); ?>
                 </div>
             </div>
 
@@ -141,6 +141,19 @@
             $('.ui.form')
                 .form({
                     fields: {
+                        age: {
+                            identifier: 'age',
+                            rules: [
+                                {
+                                    type   : 'number',
+                                    prompt : 'Votre age doit être un nombre.'
+                                },
+                                {
+                                    type   : 'maxLength[3]',
+                                    prompt : 'Vous ne pouvez pas vivre plus de 999 ans, désolé.'
+                                }
+                            ]
+                        },
                         address: {
                             identifier: 'address',
                             rules: [
