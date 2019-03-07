@@ -1,23 +1,51 @@
-<div class="ui three top attached steps">
-    <div class="step">
-        <i class="truck icon"></i>
+<div class="ui ordered attached steps width100">
+    <div class="completed step">
         <div class="content">
-            <div class="title">Informations</div>
-            <div class="description">Parlez nous de vous</div>
+            <div class="title">Informations </br>
+                personnelles</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Formations</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Expériences</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Compétences </br>
+                techniques</div>
         </div>
     </div>
     <div class="active step">
-        <i class="payment icon"></i>
         <div class="content">
-            <div class="title">Formations</div>
-            <div class="description">Entrez vos diff&eacute;rents dipl&ocirc;mes</div>
+            <div class="title">Langues</div>
         </div>
     </div>
     <div class="disabled step">
-        <i class="info icon"></i>
         <div class="content">
-            <div class="title">Exp&eacute;riences</div>
-            <div class="description">Vos exp&eacute;riences professionnelles</div>
+            <div class="title">Certifications</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Savoir-être</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Réseaux </br>
+                sociaux</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Centres </br>
+                d'intêret</div>
         </div>
     </div>
 </div>
@@ -86,6 +114,8 @@
                         <?= form_label('Langue Maternelle'); ?>
                     </div>
                 </div>
+
+                <div class="ui error message"></div>
             </div>
 
         </div>
@@ -93,11 +123,9 @@
 
         <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
 
-        <button class="ui teal big button add-one" type="button">Ajouter une langue</button>
-
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-        <div class="ui error message"></div>
+
 
         <?= form_close(); ?>
 
@@ -113,12 +141,6 @@
                 .checkbox()
             ;
 
-            $('.ui.form')
-                .form({
-                    fields: {
-
-                })
-            ;
         })
     ;
 </script>

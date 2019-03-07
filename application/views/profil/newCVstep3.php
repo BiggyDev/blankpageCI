@@ -1,23 +1,51 @@
-<div class="ui three top attached steps">
-    <div class="step">
-        <i class="truck icon"></i>
+<div class="ui ordered attached steps width100">
+    <div class="completed step">
         <div class="content">
-            <div class="title">Informations</div>
-            <div class="description">Parlez nous de vous</div>
+            <div class="title">Informations </br>
+                personnelles</div>
         </div>
     </div>
-    <div class="step">
-        <i class="payment icon"></i>
+    <div class="completed step">
         <div class="content">
             <div class="title">Formations</div>
-            <div class="description">Entrez vos diff&eacute;rents dipl&ocirc;mes</div>
         </div>
     </div>
     <div class="active step">
-        <i class="info icon"></i>
         <div class="content">
-            <div class="title">Exp&eacute;riences</div>
-            <div class="description">Vos exp&eacute;riences professionnelles</div>
+            <div class="title">Expériences</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Compétences </br>
+                techniques</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Langues</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Certifications</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Savoir-être</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Réseaux </br>
+                sociaux</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Centres </br>
+                d'intêret</div>
         </div>
     </div>
 </div>
@@ -36,7 +64,7 @@
             <div class="field">
                 <label>Entreprise</label>
                 <div class="ui left input">
-                    <?= form_input('infos[0][' . 'entrerpise' . ']', set_value('entreprise'), 'placeholder ="ex : NFactory", data-name="entreprise"'); ?>
+                    <?= form_input('infos[0][' . 'entreprise' . ']', set_value('entreprise'), 'placeholder ="ex : NFactory", data-name="entreprise"'); ?>
                 </div>
             </div>
 
@@ -86,6 +114,8 @@
                 </div>
             </div>
 
+            <div class="ui error message"></div>
+
         </div>
         </div>
 
@@ -95,7 +125,7 @@
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-        <div class="ui error message"></div>
+
 
         <?= form_close(); ?>
 
@@ -133,11 +163,11 @@
                             rules: [
                                 {
                                     type   : 'maxLength[5]',
-                                    prompt : 'Veulliez entrer 5 caractères maximum.'
+                                    prompt : 'Veuillez entrer 5 caractères maximum.'
                                 },
                                 {
                                     type   : 'number',
-                                    prompt : 'Veulliez entrer un nombre.'
+                                    prompt : 'Veuillez entrer un nombre.'
                                 }
                             ]
                         },
@@ -177,7 +207,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[500]',
-                                    prompt : 'Votre texte est trop long (500 caractères maximum).'
+                                    prompt : 'Votre texte est trop long (255 caractères maximum).'
                                 }
                             ]
                         }

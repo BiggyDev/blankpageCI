@@ -1,26 +1,56 @@
-<div class="ui three top attached steps">
+
+<div class="ui ordered attached steps width100">
     <div class="active step">
-        <i class="truck icon"></i>
         <div class="content">
-            <div class="title">Infos personnelles</div>
-            <div class="description">Dîtes nous qui vous êtes</div>
+            <div class="title">Informations </br>
+                personnelles</div>
         </div>
     </div>
     <div class="disabled step">
-        <i class="payment icon"></i>
         <div class="content">
             <div class="title">Formations</div>
-            <div class="description">Quels sont vos diplômes ?</div>
         </div>
     </div>
     <div class="disabled step">
-        <i class="info icon"></i>
         <div class="content">
-            <div class="title">Exp&eacute;riences</div>
-            <div class="description">Vos exp&eacute;riences professionnelles</div>
+            <div class="title">Expériences</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Compétences </br>
+                techniques</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Langues</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Certifications</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Savoir-être</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Réseaux </br>
+                sociaux</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Centres </br>
+                d'intêret</div>
         </div>
     </div>
 </div>
+
 <div class="ui attached segment">
     <div class="ui middle aligned center aligned margin50">
         <div class="column">
@@ -31,9 +61,9 @@
         <div class="ui stacked segment">
 
             <div class="field">
-                <label>Date de naissance</label>
+                <label>Age</label>
                 <div class="ui left input">
-                    <?= form_input($birthday); ?>
+                    <?= form_input('age', set_value('age'), 'placeholder="18"'); ?>
                 </div>
             </div>
 
@@ -106,11 +136,13 @@
                 </div>
             </div>
 
-            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
-
             <div class="ui error message"></div>
 
         </div>
+
+        <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
+
+
 
         <?= form_close(); ?>
         </div>
@@ -139,6 +171,19 @@
             $('.ui.form')
                 .form({
                     fields: {
+                        age: {
+                            identifier: 'age',
+                            rules: [
+                                {
+                                    type   : 'number',
+                                    prompt : 'Votre age doit être un nombre.'
+                                },
+                                {
+                                    type   : 'maxLength[3]',
+                                    prompt : 'Vous ne pouvez pas vivre plus de 999 ans, désolé.'
+                                }
+                            ]
+                        },
                         address: {
                             identifier: 'address',
                             rules: [
@@ -153,11 +198,11 @@
                             rules: [
                                 {
                                     type   : 'maxLength[5]',
-                                    prompt : 'Veulliez un code postal à 5 chiffres maximum.'
+                                    prompt : 'Veuillez un code postal à 5 chiffres maximum.'
                                 },
                                 {
                                     type   : 'number',
-                                    prompt : 'Veulliez entrer un code postal sous forme de nombre.'
+                                    prompt : 'Veuillez entrer un code postal sous forme de nombre.'
                                 }
                             ]
                         },
@@ -175,7 +220,7 @@
                             rules: [
                                 {
                                     type   : 'maxLength[10]',
-                                    prompt : 'Votre numéro de téléphone est trop long (10 caractères maximum).'
+                                    prompt : 'Votre numéro de téléphone doit contenir 10 caractères.'
                                 },
                                 {
                                     type   : 'number',

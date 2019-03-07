@@ -30,12 +30,13 @@ class Interet_model extends CI_Model
         return $this->db->get();
     }
 
-    public function insert_entry($name, $description)
+    public function insert_entry($name, $description, $id_candidat)
     {
         $interets = array(
 
             'name'                => $name,
-            'description'         => $description
+            'description'         => $description,
+            'id_candidats'        => $id_candidat
         );
 
         $this->db->insert('bp_interet', $interets);

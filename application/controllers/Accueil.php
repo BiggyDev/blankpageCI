@@ -43,7 +43,7 @@ class Accueil extends CI_Controller {
 
                 $user = $this->Auth_candidat->get_user($this->input->post('email'));
 
-                if (isset($user)) {
+                if (!empty($user)) {
 
                     $password = $user[0]['password'];
 
@@ -52,15 +52,9 @@ class Accueil extends CI_Controller {
                         $_SESSION['bp_candidats'] = array(
                             'id' => $user[0]['id'],
                             'email' => $user[0]['email'],
+                            'name' => $user[0]['name'],
                             'ip' => $_SERVER['REMOTE_ADDR']
                         );
-
-                        $userdata = array(
-                            'name' => $user[0]['name'],
-                            'email' => $user[0]['email'],
-                        );
-
-                        $this->session->set_userdata($userdata);
 
                         // TODO: Rediriger vers connexion
                         redirect('candidats/index');
@@ -69,7 +63,7 @@ class Accueil extends CI_Controller {
                         $this->session->set_flashdata('fail_password', 'Mot de passe erroné');
                     }
                 } else {
-                    echo '404';
+                    $this->session->set_flashdata('fail_email', 'Cette adresse e-mail n\'existe pas');
                 }
             }
         }

@@ -22,7 +22,7 @@
                         <i class="lock icon"></i>
                         <?= form_password('password', set_value('password'), 'placeholder="Mot de Passe"'); ?>
                     </div>
-                    <?= $this->session->flashdata('fail_password'); ?>
+
                 </div>
 
                 <?= form_submit('submitted', 'Se connecter', 'class="ui teal big button""'); ?>
@@ -30,7 +30,7 @@
             </div>
 
             <?php if (isset($_POST['submitted'])) {
-                echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
+                echo '<div class="ui error message" style="display:block;">' . validation_errors() . $this->session->flashdata('fail_password') . $this->session->flashdata('fail_email') . '</div>';
             } else {
                 echo '<div class="ui error message">' . validation_errors() . '</div>';
             }; ?>
@@ -42,6 +42,7 @@
                 Vous n'êtes pas inscrit(e)?
             </div>
             <?= anchor('Accueil/inscription', 'Inscription', 'class="ui button"'); ?>
+            <?= anchor('Accueil/index', 'Accueil', 'class="ui button"'); ?>
         </div>
 
     </div>

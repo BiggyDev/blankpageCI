@@ -29,11 +29,12 @@ class Savoiretre_model extends CI_Model
         return $this->db->get();
     }
 
-    public function insert_entry($name)
+    public function insert_entry($name, $id_candidat)
     {
         $savoiretre = array(
 
             'name'                => $name,
+            'id_candidats'        => $id_candidat
         );
 
         $this->db->insert('bp_savoiretre', $savoiretre);

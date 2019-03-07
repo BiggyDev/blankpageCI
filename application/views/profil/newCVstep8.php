@@ -1,23 +1,51 @@
-<div class="ui three top attached steps">
-    <div class="active step">
-        <i class="truck icon"></i>
+<div class="ui ordered attached steps width100">
+    <div class="completed step">
         <div class="content">
-            <div class="title">Infos personnelles</div>
-            <div class="description">Dîtes nous qui vous êtes</div>
+            <div class="title">Informations </br>
+                personnelles</div>
         </div>
     </div>
-    <div class="disabled step">
-        <i class="payment icon"></i>
+    <div class="completed step">
         <div class="content">
             <div class="title">Formations</div>
-            <div class="description">Quels sont vos diplômes ?</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Expériences</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Compétences </br>
+                techniques</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Langues</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Certifications</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Savoir-être</div>
+        </div>
+    </div>
+    <div class="active step">
+        <div class="content">
+            <div class="title">Réseaux </br>
+                sociaux</div>
         </div>
     </div>
     <div class="disabled step">
-        <i class="info icon"></i>
         <div class="content">
-            <div class="title">Exp&eacute;riences</div>
-            <div class="description">Vos exp&eacute;riences professionnelles</div>
+            <div class="title">Centres </br>
+                d'intêret</div>
         </div>
     </div>
 </div>
@@ -71,12 +99,11 @@
                 </div>
             </div>
 
-            <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
-            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
-
             <div class="ui error message"></div>
 
         </div>
+            <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
+            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
         <?= form_close(); ?>
         </div>
@@ -91,8 +118,8 @@
             $('.ui.form')
                 .form({
                     fields: {
-                        lien: {
-                            identifier: 'lien',
+                        linkedin: {
+                            identifier: 'linkedin',
                             rules: [
                                 {
                                     type   : 'maxLength[255]',
@@ -100,8 +127,8 @@
                                 }
                             ]
                         },
-                        lien: {
-                            identifier: 'lien',
+                        facebook: {
+                            identifier: 'facebook',
                             rules: [
                                 {
                                     type   : 'maxLength[255]',
@@ -109,8 +136,8 @@
                                 }
                             ]
                         },
-                        lien: {
-                            identifier: 'lien',
+                        twitter: {
+                            identifier: 'twitter',
                             rules: [
                                 {
                                     type   : 'maxLength[255]',
@@ -118,8 +145,8 @@
                                 }
                             ]
                         },
-                        lien: {
-                            identifier: 'lien',
+                        dribbble: {
+                            identifier: 'dribbble',
                             rules: [
                                 {
                                     type   : 'maxLength[255]',
@@ -127,8 +154,8 @@
                                 }
                             ]
                         },
-                        lien: {
-                            identifier: 'lien',
+                        instagram: {
+                            identifier: 'instagram',
                             rules: [
                                 {
                                     type   : 'maxLength[255]',
@@ -136,8 +163,8 @@
                                 }
                             ]
                         },
-                        lien: {
-                            identifier: 'lien',
+                        twitch: {
+                            identifier: 'twitch',
                             rules: [
                                 {
                                     type   : 'maxLength[255]',

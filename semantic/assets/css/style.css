@@ -2,6 +2,12 @@
     margin:0;
     padding:0;
 }
+.ui.inverted.segment.background-image
+{
+    background-image: url("../img/espresso-4010576_1280.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .content {
     font-size: 1.25em;
 }
@@ -135,6 +141,9 @@ body > .grid {
 .margin50 {
     margin: 0 auto;
     width: 850px;
+}
+.width100 {
+    width: 100%;
 }
 /*==================================================================================================*/
 .clear {
