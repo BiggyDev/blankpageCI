@@ -9,6 +9,7 @@
 
         <!-- Site Properties -->
         <title><?= $title; ?></title>
+        <link rel="icon" type="image/x-icon" href="<?= base_url('semantic/assets/img/favicon.ico'); ?>">
         <link rel="stylesheet" type="text/css" href="<?= base_url('semantic/dist/semantic.min.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?= base_url('semantic/dist/components/reset.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?= base_url('semantic/dist/components/site.css'); ?>">

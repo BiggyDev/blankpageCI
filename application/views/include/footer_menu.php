@@ -17,7 +17,7 @@
                             echo anchor('Candidats/profile', 'Mon Profil', 'class = "item"');
                             echo anchor('Candidats/disconnect', 'Déconnexion', 'class = "item"');
                         } ?>
-                        <a href="https://www.cnil.fr/fr/rgpd-de-quoi-parle-t-on" class="item">RGPD</a>
+                        <a href="https://www.cnil.fr/fr/rgpd-de-quoi-parle-t-on" class="item" target="_blank">RGPD</a>
                     </div>
                 </div>
                 <div class="five wide column">
