@@ -43,7 +43,7 @@ class Accueil extends CI_Controller {
 
                 $user = $this->Auth_candidat->get_user($this->input->post('email'));
 
-                if (isset($user)) {
+                if (!empty($user)) {
 
                     $password = $user[0]['password'];
 
@@ -63,7 +63,7 @@ class Accueil extends CI_Controller {
                         $this->session->set_flashdata('fail_password', 'Mot de passe erroné');
                     }
                 } else {
-                    echo '404';
+                    $this->session->set_flashdata('fail_email', 'Cette adresse e-mail n\'existe pas');
                 }
             }
         }

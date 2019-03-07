@@ -4,7 +4,7 @@
 }
 .ui.inverted.segment.background-image
 {
-    background-image: url("../img/typewriter-801921_1280.png");
+    background-image: url("../img/espresso-4010576_1280.jpg");
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -143,6 +143,10 @@ body > .grid {
     width: 850px;
 }
 
+.width100 {
+    width: 100%;
+}
+
 /*==================================================================================================*/
 .clear {
     clear: both;
@@ -194,25 +198,28 @@ dt {
     padding: 0 26px 0 0;
     width: 150px;
     float: left;
-    height: 100px;
-    border-right: 1px solid #999;
+    padding-top: 20px;
 }
 dd {
     width: 600px;
     float: right;
+    padding-left:10px;
+    border-left: 1px solid black;
+    margin: 10px 0;
 }
-dd.clear {
-    float: none;
-    margin: 0;
-    height: 15px;
+#cv-1 .page-wrap{
+    background-color: rgba(250, 250, 250, 0.5);
 }
 #cv-1 #nomOnCV {
     width:30%;
     padding:10px;
-    margin: 10px auto;
+    margin: 0px auto 15px auto;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 2em;
+    box-shadow: 0px 1px 3px 0px black;
+    border: none;
+    border-radius: 5px;
 }
 #cv-1 .bio {
     text-align: center;
@@ -220,11 +227,12 @@ dd.clear {
     padding: 10px;
     border-top:solid 1px #FF8300;
     border-bottom:solid 1px #FF8300;
+    border-radius: 10px;
     width:75%;
     color:#007CFF;
+    font-size: 1.1em;
 }
 #cv-1 ul{
-    border-bottom:1px solid #FF8300;
     padding:10px;
 }
 #cv-1 li{
@@ -233,16 +241,66 @@ dd.clear {
 }
 #cv-1 .important, #cv-1 strong{
     color:#FF8300;
+    border-bottom:1px solid #FF8300;
+    text-transform: capitalize;
 }
 #cv-1 dt{
     color:#007CFF;
 }
+#cv-1 .email{
+    text-decoration: none;
+    border: none;
+    color:#FF8300;
+}
+#cv-1 .email:hover{
+    text-decoration: underline;
+}
 
-#cv-2>* {
-
+#cv-2 #nomOnCV {
+    width:30%;
+    padding:10px;
+    margin: 0px auto 15px auto;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 2em;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+#cv-2 .bio {
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px;
+    border-top:solid 1px black;
+    border-bottom:solid 1px black;
+    width:75%;
+    font-size: 1.1em;
 }
 
 #cv-3 #nomOnCV {
-background-color: red;
+    background-color: #D4E5EE;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    font-size: 2em;
+    border: black solid 1px;
+}
+#cv-3 .bio {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.5em;
+    border-bottom: solid 3px #006093;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+#cv-3 .important {
+    color: #006093;
+}
+
+.buttonCV{
+    margin: 0 auto;
+    text-align: center;
 }
 /*======================================================================================================================*/

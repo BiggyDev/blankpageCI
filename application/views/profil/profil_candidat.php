@@ -55,9 +55,12 @@
 
     if (isset($user)) {
         ?>
-        <button class="ui black button" onclick="changeColor('cv-1')">Template 1</button>
-        <button class="ui red button" onclick="changeColor('cv-2')">Template 2</button>
-        <button class="ui blue button" onclick="changeColor('cv-3')">Template 3</button>
+        <div class="buttonCV">
+            <button class="ui grey button" onclick="changeColor('cv-1')">Template 1</button>
+            <button class="ui grey button" onclick="changeColor('cv-2')">Template 2</button>
+            <button class="ui grey button" onclick="changeColor('cv-3')">Template 3</button>
+        </div>
+
 
             <div id="cv-1">
                 <div class="page-wrap">
@@ -68,32 +71,22 @@
                     <div class="clear"></div>
 
                     <dl>
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
                         <dt>Études</dt>
                         <dd>
                             <?php $compteur = 0;
                             foreach ($user['formation'] as $key => $value){
-                                if ($compteur == 0){
                                     if (!empty($value['diplome'])){echo '<h2 class="important">'.$value['diplome'].'</h2>';}
                                     echo '<ul>';
                                     if (!empty($value['ecole'])){echo '<li>'.$value['ecole'].'</li>';}
                                     if (!empty($value['ville'])){echo '<li>'.$value['ville'].'</li>';}
                                     if (!empty($value['mention_commentaires'])){echo '<li>'.$value['mention_commentaires'].'</li>';}
                                     echo '</ul>';
-                                }
-                                else {
-                                    if (!empty($value['diplome'])){echo '<strong>'.$value['diplome'].'</strong>';}
-                                    echo '<ul>';
-                                    if (!empty($value['ecole'])){echo '<li>'.$value['ecole'].'</li>';}
-                                    if (!empty($value['ville'])){echo '<li>'.$value['ville'].'</li>';}
-                                    if (!empty($value['mention_commentaires'])){echo '<li>'.$value['mention_commentaires'].'</li>';}
-                                    echo '</ul>';
-                                }
                                 $compteur++;
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Compétences</dt>
                         <dd>
@@ -120,7 +113,7 @@
                             </p>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Vie professionnelle</dt>
                         <dd>
@@ -144,7 +137,7 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Loisirs</dt>
                         <dd>
@@ -166,7 +159,7 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Certifications</dt>
                         <dd>
@@ -188,46 +181,45 @@
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Langues</dt>
                         <dd>
                             <?php $compteur = 0;
                             foreach ($user['langues'] as $key => $value){
-                                if ($compteur == 0){
                                     if (!empty($value['name'])){echo '<h2 class="important">'.$value['name'].'</h2>';}
                                     echo '<ul>';
                                     if (!empty($value['niveau'])){echo '<li>'.$value['niveau'].'</li>';}
                                     echo '</ul>';
-                                }
-                                else {
-                                    if (!empty($value['name'])){echo '<strong>'.$value['name'].'</strong>';}
-                                    echo '<ul>';
-                                    if (!empty($value['niveau'])){echo '<li>'.$value['niveau'].'</li>';}
-                                    echo '</ul>';
-                                }
                                 $compteur++;
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Savoir être</dt>
                         <dd>
                             <?php $compteur = 0;
                             foreach ($user['savoiretre'] as $key => $value){
-
-                                if ($compteur == 0){
-                                    if (!empty($value['name'])){echo '<h2 class="important">'.$value['name'].'</h2>';}
-                                }
-                                else {
-                                    if (!empty($value['name'])){echo '<strong>'.$value['name'].'</strong><br/>';}
-                                }
                                 $compteur++;
+
+                                if (!empty($value['name'])) {
+                                    if ($compteur == 1) {
+                                        echo '<h2 class="important">' . $value['name'] . '</h2>';
+                                    } else if ($compteur > 2) {
+                                        if ($compteur % 5 == 0) {
+                                            echo '<br/>' . $value['name'];
+                                        } else {
+                                            echo ' | ' . $value['name'];
+                                        }
+                                    } else {
+                                        echo $value['name'];
+                                    }
+                                }
                             } ?>
                         </dd>
 
-                        <dd class="clear"></dd>
+                        <div class="clear"></div>
 
                         <dt>Contact</dt>
                         <dd>
@@ -245,7 +237,12 @@
                                     }
                                     echo '<ul>';
                                     if (!empty($value['linkedin'])){echo '<li>Linkedin : '.$value['linkedin'].'</li>';}
-                                    echo '<li>Facebook : '.$value['facebook'].'</li><li>Twitter : '.$value['twitter'].'</li><li>Dribbble : '.$value['dribbble'].'</li><li>Instagram : '.$value['instagram'].'</li><li>Twitch : '.$value['twitch'].'</li></ul>';
+                                    if (!empty($value['facebook'])){ echo '<li>Facebook : '.$value['facebook'].'</li>';}
+                                    if (!empty($value['twitter'])){ echo '<li>Twitter : '.$value['twitter'].'</li>';}
+                                    if (!empty($value['dribbble'])){ echo '<li>Dribbble : '.$value['dribbble'].'</li>';}
+                                    if (!empty($value['instagram'])){ echo '<li>Instagram : '.$value['instagram'].'</li>';}
+                                    if (!empty($value['twitch'])){ echo '<li>Twitch : '.$value['twitch'].'</li>';}
+                                    echo '</ul>';
                                 }
                                 $compteur++;
                             } ?>
@@ -257,14 +254,14 @@
             </div>
     <?php
             }
-?>
-
+    ?>
+    <button class="ui teal button">Enregistrer PDF</button>
 </div>
 
 <script>
     function changeColor(newId) {
         var tempo = document.querySelectorAll('div[id^="cv-"]');
-        var tempo = tempo[0].id;
+         tempo = tempo[0].id;
         if (document.getElementById(tempo) !== null || document.getElementById(tempo) !== undefined){
             document.getElementById(tempo).id = newId;
         }

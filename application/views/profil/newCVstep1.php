@@ -1,26 +1,56 @@
-<div class="ui three top attached steps">
+
+<div class="ui ordered attached steps width100">
     <div class="active step">
-        <i class="truck icon"></i>
         <div class="content">
-            <div class="title">Infos personnelles</div>
-            <div class="description">Dîtes nous qui vous êtes</div>
+            <div class="title">Informations </br>
+                personnelles</div>
         </div>
     </div>
     <div class="disabled step">
-        <i class="payment icon"></i>
         <div class="content">
             <div class="title">Formations</div>
-            <div class="description">Quels sont vos diplômes ?</div>
         </div>
     </div>
     <div class="disabled step">
-        <i class="info icon"></i>
         <div class="content">
-            <div class="title">Exp&eacute;riences</div>
-            <div class="description">Vos exp&eacute;riences professionnelles</div>
+            <div class="title">Expériences</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Compétences </br>
+                techniques</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Langues</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Certifications</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Savoir-être</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Réseaux </br>
+                sociaux</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Centres </br>
+                d'intêret</div>
         </div>
     </div>
 </div>
+
 <div class="ui attached segment">
     <div class="ui middle aligned center aligned margin50">
         <div class="column">

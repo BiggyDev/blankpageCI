@@ -15,7 +15,7 @@
                         echo anchor('Accueil/login', 'Connexion', 'class = "ui inverted button"');
                         echo anchor('Accueil/inscription', 'Inscription', 'class = "ui inverted button"');
                     } else {
-                        echo anchor('Candidats/profile', 'Mon Profil', 'class = "ui inverted button"');
+                        echo anchor('Candidats/profile', 'Mon CV', 'class = "ui inverted button"');
                         echo anchor('Candidats/disconnect', 'Déconnexion', 'class = "ui inverted button"');
                     } ?>
                 </div>
