@@ -174,7 +174,7 @@ class Candidats extends CI_Controller
         if (isset($_POST['submitted'])) {
 
             $this->load->model('Infos_model', '', TRUE);
-            $this->Infos_model->insert_entry($_SESSION['infos']['birthday'], $_SESSION['infos']['gender'], $_SESSION['infos']['address'], $_SESSION['infos']['postalcode'], $_SESSION['infos']['city'], $_SESSION['infos']['portable'], $_SESSION['infos']['permis'], $_SESSION['infos']['vehicle'], $_SESSION['infos']['bio'], $_SESSION['infos']['portfolio'], $_SESSION['infos']['more'], $_SESSION['bp_candidats']['id']);
+            $this->Infos_model->insert_entry($_SESSION['infos']['age'], $_SESSION['infos']['gender'], $_SESSION['infos']['address'], $_SESSION['infos']['postalcode'], $_SESSION['infos']['city'], $_SESSION['infos']['portable'], $_SESSION['infos']['permis'], $_SESSION['infos']['vehicle'], $_SESSION['infos']['bio'], $_SESSION['infos']['portfolio'], $_SESSION['infos']['more'], $_SESSION['bp_candidats']['id']);
 
             foreach ($_SESSION['formations']['infos'] as $data_index) {
                 $this->load->model('Formation_model', '', TRUE);

@@ -9,10 +9,10 @@
                 <h2 class="title">Infos Personnelles</h2>
 
                 <div class="fields">
-                    <?php if (isset($_SESSION['infos']['birthday'])) { ?>
+                    <?php if (isset($_SESSION['infos']['age'])) { ?>
                     <h4>Date de naissance</h4>
                     <div class="field">
-                        <span class="text-info"><?= $_SESSION['infos']['birthday']; ?></span>
+                        <span class="text-info"><?= $_SESSION['infos']['age']; ?></span>
                     </div>
                     <?php } ?>
 
@@ -384,6 +384,10 @@
             </div>
             <?php } ?>
         </div>
+
+        <?php echo '<pre>';
+        var_dump($_SESSION);
+        echo '</pre>'; ?>
 
         <?= form_open('', 'class="ui form"'); ?>
         <div class="inline field">

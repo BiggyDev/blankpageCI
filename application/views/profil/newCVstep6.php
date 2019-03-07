@@ -84,6 +84,8 @@
                 </div>
             </div>
 
+            <div class="ui error message"></div>
+
         </div>
         </div>
 
@@ -92,8 +94,6 @@
         <button class="ui teal big button add-one" type="button">Ajouter une certification</button>
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
-
-        <div class="ui error message"></div>
 
         <?= form_close(); ?>
 
