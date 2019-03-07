@@ -255,7 +255,9 @@
     <?php
             }
     ?>
-    <button class="ui teal button">Enregistrer PDF</button>
+    <div class="buttonCV">
+        <button class="ui huge teal button" onclick="pdfCreator()">Enregistrer PDF</button>
+    </div>
 </div>
 
 <script>
@@ -264,6 +266,167 @@
          tempo = tempo[0].id;
         if (document.getElementById(tempo) !== null || document.getElementById(tempo) !== undefined){
             document.getElementById(tempo).id = newId;
+        }
+    }
+
+    function pdfCreator() {
+        var tempo = document.querySelectorAll('div[id^="cv-"]');
+        tempo = tempo[0].id; //html
+
+        var css = '.clear {\n' +
+            '    clear: both;\n' +
+            '}\n' +
+            '.page-wrap {\n' +
+            '    width: 800px;\n' +
+            '    margin: 40px auto 60px;\n' +
+            '    padding: 15px;\n' +
+            '    border: 2px black solid;\n' +
+            '}\n' +
+            '.important {\n' +
+            '    font-size: 20px;\n' +
+            '    margin: 0 0 6px 0;\n' +
+            '    position: relative;\n' +
+            '}\n' +
+            '.important span {\n' +
+            '    position: absolute;\n' +
+            '    bottom: 0; right: 0;\n' +
+            '    font-style: italic;\n' +
+            '    font-size: 16px;\n' +
+            '    color: #999;\n' +
+            '    font-weight: normal;\n' +
+            '}\n' +
+            '.email {\n' +
+            '    color: #999;\n' +
+            '    text-decoration: none;\n' +
+            '    border-bottom: 1px dotted #999;\n' +
+            '}\n' +
+            '.email:hover {\n' +
+            '    border-bottom-style: solid;\n' +
+            '    color: black;\n' +
+            '}\n' +
+            'ul {\n' +
+            '    margin: 0 0 32px 17px;\n' +
+            '}\n' +
+            '#objective {\n' +
+            '    width: 500px;\n' +
+            '    float: left;\n' +
+            '}\n' +
+            '#objective p {\n' +
+            '    font-style: italic;\n' +
+            '    color: #666;\n' +
+            '}\n' +
+            'dt {\n' +
+            '    font-style: italic;\n' +
+            '    font-weight: bold;\n' +
+            '    font-size: 18px;\n' +
+            '    text-align: right;\n' +
+            '    padding: 0 26px 0 0;\n' +
+            '    width: 150px;\n' +
+            '    float: left;\n' +
+            '    padding-top: 20px;\n' +
+            '}\n' +
+            'dd {\n' +
+            '    width: 600px;\n' +
+            '    float: right;\n' +
+            '    padding-left:10px;\n' +
+            '    border-left: 1px solid black;\n' +
+            '    margin: 10px 0;\n' +
+            '}\n' +
+            '#cv-1 .page-wrap{\n' +
+            '    background-color: rgba(250, 250, 250, 0.5);\n' +
+            '}\n' +
+            '#cv-1 #nomOnCV {\n' +
+            '    width:30%;\n' +
+            '    padding:10px;\n' +
+            '    margin: 0px auto 15px auto;\n' +
+            '    text-align: center;\n' +
+            '    text-transform: capitalize;\n' +
+            '    font-size: 2em;\n' +
+            '    box-shadow: 0px 1px 3px 0px black;\n' +
+            '    border: none;\n' +
+            '    border-radius: 5px;\n' +
+            '}\n' +
+            '#cv-1 .bio {\n' +
+            '    text-align: center;\n' +
+            '    margin: 10px auto;\n' +
+            '    padding: 10px;\n' +
+            '    border-top:solid 1px #FF8300;\n' +
+            '    border-bottom:solid 1px #FF8300;\n' +
+            '    border-radius: 10px;\n' +
+            '    width:75%;\n' +
+            '    color:#007CFF;\n' +
+            '    font-size: 1.1em;\n' +
+            '}\n' +
+            '#cv-1 ul{\n' +
+            '    padding:10px;\n' +
+            '}\n' +
+            '#cv-1 li{\n' +
+            '    list-style-type:square;\n' +
+            '    color:#007CFF;\n' +
+            '}\n' +
+            '#cv-1 .important, #cv-1 strong{\n' +
+            '    color:#FF8300;\n' +
+            '    border-bottom:1px solid #FF8300;\n' +
+            '    text-transform: capitalize;\n' +
+            '}\n' +
+            '#cv-1 dt{\n' +
+            '    color:#007CFF;\n' +
+            '}\n' +
+            '#cv-1 .email{\n' +
+            '    text-decoration: none;\n' +
+            '    border: none;\n' +
+            '    color:#FF8300;\n' +
+            '}\n' +
+            '#cv-1 .email:hover{\n' +
+            '    text-decoration: underline;\n' +
+            '}\n' +
+            '\n' +
+            '#cv-2 #nomOnCV {\n' +
+            '    width:30%;\n' +
+            '    padding:10px;\n' +
+            '    margin: 0px auto 15px auto;\n' +
+            '    text-align: center;\n' +
+            '    text-transform: capitalize;\n' +
+            '    font-size: 2em;\n' +
+            '    border-left: 1px solid black;\n' +
+            '    border-right: 1px solid black;\n' +
+            '}\n' +
+            '#cv-2 .bio {\n' +
+            '    text-align: center;\n' +
+            '    margin: 10px auto;\n' +
+            '    padding: 10px;\n' +
+            '    border-top:solid 1px black;\n' +
+            '    border-bottom:solid 1px black;\n' +
+            '    width:75%;\n' +
+            '    font-size: 1.1em;\n' +
+            '}\n' +
+            '\n' +
+            '#cv-3 #nomOnCV {\n' +
+            '    background-color: #D4E5EE;\n' +
+            '    text-align: center;\n' +
+            '    width: 50%;\n' +
+            '    margin: 0 auto;\n' +
+            '    padding-top: 20px;\n' +
+            '    padding-bottom: 20px;\n' +
+            '    border-radius: 10px;\n' +
+            '    font-size: 2em;\n' +
+            '    border: black solid 1px;\n' +
+            '}\n' +
+            '#cv-3 .bio {\n' +
+            '    text-align: center;\n' +
+            '    margin-top: 30px;\n' +
+            '    font-size: 1.5em;\n' +
+            '    border-bottom: solid 3px #006093;\n' +
+            '    margin-bottom: 30px;\n' +
+            '    padding-bottom: 30px;\n' +
+            '}\n' +
+            '#cv-3 .important {\n' +
+            '    color: #006093;\n' +
+            '}';
+
+        if (document.getElementById(tempo) !== null || document.getElementById(tempo) !== undefined){
+            var cv = '<div id="'+tempo+'">'+document.getElementById(tempo).innerHTML+'</div><style type="text/css">'+css+'</style>';
+            console.log(cv);
         }
     }
 </script>
