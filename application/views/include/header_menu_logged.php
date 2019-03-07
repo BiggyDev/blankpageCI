@@ -6,13 +6,13 @@
                     <i class="sidebar icon"></i>
                 </a>
                 <?= anchor('', 'Accueil', 'class = "item"'); ?>
-                <a class="active item" href="#CV">Mes CV</a>
+                <a class="active item">Mes CV</a>
                 <div class="right item">
                     <?php if(!isLogged()){
                         echo anchor('Accueil/login', 'Connexion', 'class = "ui inverted button"');
                         echo anchor('Accueil/inscription', 'Inscription', 'class = "ui inverted button"');
                     } else {
-                        echo anchor('Candidats/profile', 'Mon Profil', 'class = "ui inverted button"');
+                        echo anchor('Candidats/profile', 'Mon CV', 'class = "ui inverted button"');
                         echo anchor('Candidats/disconnect', 'Déconnexion', 'class = "ui inverted button"');
                     } ?>
                 </div>

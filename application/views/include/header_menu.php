@@ -15,7 +15,7 @@
                         echo anchor('Accueil/login', 'Connexion', 'class = "ui inverted button"');
                         echo anchor('Accueil/inscription', 'Inscription', 'class = "ui inverted button"');
                     } else {
-                        echo anchor('Candidats/profile', 'Mon Profil', 'class = "ui inverted button"');
+                        echo anchor('Candidats/profile', 'Mon CV', 'class = "ui inverted button"');
                         echo anchor('Candidats/disconnect', 'Déconnexion', 'class = "ui inverted button"');
                     } ?>
                 </div>
@@ -29,6 +29,6 @@
         <?php if (!isLogged())
         echo anchor('Accueil/login', 'Créer mon CV', 'class = "ui inverted teal massive button"');
               else
-        echo anchor('Candidats/index', 'Créer mon CV', 'class = "ui inverted teal massive button"');
+        echo anchor('Candidats/addCV/1', 'Créer mon CV', 'class = "ui inverted teal massive button"');
         ?>
     </div>
