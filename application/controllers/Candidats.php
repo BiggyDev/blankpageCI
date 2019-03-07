@@ -173,40 +173,59 @@ class Candidats extends CI_Controller
 
         if (isset($_POST['submitted'])) {
 
-            $this->load->model('Infos_model', '', TRUE);
-            $this->Infos_model->insert_entry($_SESSION['infos']['birthday'], $_SESSION['infos']['gender'], $_SESSION['infos']['address'], $_SESSION['infos']['postalcode'], $_SESSION['infos']['city'], $_SESSION['infos']['portable'], $_SESSION['infos']['permis'], $_SESSION['infos']['vehicle'], $_SESSION['infos']['bio'], $_SESSION['infos']['portfolio'], $_SESSION['infos']['more'], $_SESSION['bp_candidats']['id']);
-
-            foreach ($_SESSION['formations']['infos'] as $data_index) {
-                $this->load->model('Formation_model', '', TRUE);
-                $this->Formation_model->insert_entry($data_index['ecole'], $data_index['address'], $data_index['postalcode'], $data_index['city'], $data_index['diplome'], $data_index['datedebut'], $data_index['duree'], $data_index['mention_commentaires'], $_SESSION['bp_candidats']['id']);
+            if(isset($_SESSION['infos'])){
+                $this->load->model('Infos_model', '', TRUE);
+                $this->Infos_model->insert_entry($_SESSION['infos']['age'], $_SESSION['infos']['gender'], $_SESSION['infos']['address'], $_SESSION['infos']['postalcode'], $_SESSION['infos']['city'], $_SESSION['infos']['portable'], $_SESSION['infos']['permis'], $_SESSION['infos']['vehicle'], $_SESSION['infos']['bio'], $_SESSION['infos']['portfolio'], $_SESSION['infos']['more'], $_SESSION['bp_candidats']['id']);
             }
 
-            foreach ($_SESSION['experiences']['infos'] as $data_index) {
-                $this->load->model('Experiences_model', '', TRUE);
-                $this->Experiences_model->insert_entry($data_index['entreprise'], $data_index['intitule'], $data_index['date_debut'], $data_index['duree'], $data_index['description'], $data_index['address'], $data_index['postalcode'], $data_index['city'], $_SESSION['bp_candidats']['id']);
+            if(isset($_SESSION['formations']['infos'])) {
+                foreach ($_SESSION['formations']['infos'] as $data_index) {
+                    $this->load->model('Formation_model', '', TRUE);
+                    $this->Formation_model->insert_entry($data_index['ecole'], $data_index['address'], $data_index['postalcode'], $data_index['city'], $data_index['diplome'], $data_index['datedebut'], $data_index['duree'], $data_index['mention_commentaires'], $_SESSION['bp_candidats']['id']);
+                }
             }
 
-            $this->load->model('Competencestech_model', '', TRUE);
-            $this->Competencestech_model->insert_entry($_SESSION['competencestech']['name'], $_SESSION['bp_candidats']['id']);
-
-            $this->load->model('Langues_model', '', TRUE);
-            $this->Langues_model->insert_entry($_SESSION['langues']['infos'][0]['name'], $_SESSION['langues']['infos'][0]['niveau'], $_SESSION['bp_candidats']['id']);
-
-            foreach ($_SESSION['certifications']['infos'] as $data_index) {
-                $this->load->model('Certification_model', '', TRUE);
-                $this->Certification_model->insert_entry($data_index['name'], $data_index['description'], $data_index['datedebut'], $data_index['duree'], $_SESSION['bp_candidats']['id']);
+            if(isset($_SESSION['experiences']['infos'])) {
+                foreach ($_SESSION['experiences']['infos'] as $data_index) {
+                    $this->load->model('Experiences_model', '', TRUE);
+                    $this->Experiences_model->insert_entry($data_index['entreprise'], $data_index['intitule'], $data_index['date_debut'], $data_index['duree'], $data_index['description'], $data_index['address'], $data_index['postalcode'], $data_index['city'], $_SESSION['bp_candidats']['id']);
+                }
             }
 
-            $this->load->model('Savoiretre_model', '', TRUE);
-            $this->Savoiretre_model->insert_entry($_SESSION['savoiretre']['name'], $_SESSION['bp_candidats']['id']);
-
-            $this->load->model('Reseaux_model', '', TRUE);
-            $this->Reseaux_model->insert_entry($_SESSION['reseaux']['linkedin'], $_SESSION['reseaux']['facebook'], $_SESSION['reseaux']['twitter'], $_SESSION['reseaux']['dribbble'], $_SESSION['reseaux']['instagram'], $_SESSION['reseaux']['twitch'], $_SESSION['bp_candidats']['id']);
-
-            foreach ($_SESSION['interets']['infos'] as $data_index) {
-                $this->load->model('Interet_model', '', TRUE);
-                $this->Interet_model->insert_entry($data_index['name'], $data_index['description'], $_SESSION['bp_candidats']['id']);
+            if(isset($_SESSION['competencestech'])) {
+                $this->load->model('Competencestech_model', '', TRUE);
+                $this->Competencestech_model->insert_entry($_SESSION['competencestech']['name'], $_SESSION['bp_candidats']['id']);
             }
+
+            if(isset($_SESSION['langues'])) {
+                $this->load->model('Langues_model', '', TRUE);
+                $this->Langues_model->insert_entry($_SESSION['langues']['infos'][0]['name'], $_SESSION['langues']['infos'][0]['niveau'], $_SESSION['bp_candidats']['id']);
+            }
+
+            if(isset($_SESSION['certifications']['infos'])) {
+                foreach ($_SESSION['certifications']['infos'] as $data_index) {
+                    $this->load->model('Certification_model', '', TRUE);
+                    $this->Certification_model->insert_entry($data_index['name'], $data_index['description'], $data_index['datedebut'], $data_index['duree'], $_SESSION['bp_candidats']['id']);
+                }
+            }
+
+            if(isset($_SESSION['savoiretre'])) {
+                $this->load->model('Savoiretre_model', '', TRUE);
+                $this->Savoiretre_model->insert_entry($_SESSION['savoiretre']['name'], $_SESSION['bp_candidats']['id']);
+            }
+
+            if(isset($_SESSION['reseaux'])) {
+                $this->load->model('Reseaux_model', '', TRUE);
+                $this->Reseaux_model->insert_entry($_SESSION['reseaux']['linkedin'], $_SESSION['reseaux']['facebook'], $_SESSION['reseaux']['twitter'], $_SESSION['reseaux']['dribbble'], $_SESSION['reseaux']['instagram'], $_SESSION['reseaux']['twitch'], $_SESSION['bp_candidats']['id']);
+            }
+
+            if(isset($_SESSION['interets']['infos'])) {
+                foreach ($_SESSION['interets']['infos'] as $data_index) {
+                    $this->load->model('Interet_model', '', TRUE);
+                    $this->Interet_model->insert_entry($data_index['name'], $data_index['description'], $_SESSION['bp_candidats']['id']);
+                }
+            }
+
         }
         $this->load->view('include/header', $data);
         $this->load->view('include/header_menu_logged', $data);
