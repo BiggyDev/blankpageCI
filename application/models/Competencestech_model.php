@@ -29,6 +29,22 @@ class Competencestech_model extends CI_Model
         return $this->db->get();
     }
 
+    function get_if_php(){
+        $this->db->select("id_candidats")
+            ->from($this->table)
+            ->where('name','PHP');
+
+        return $this->db->get()->result_array();
+    }
+
+    function get_if_comp($arg){
+        $this->db->select('id_candidats')
+            ->from($this->table)
+            ->like('name', $arg);
+
+        return $this->db->get()->result_array();
+    }
+
     public function insert_entry($name)
     {
         $competencestech = array(

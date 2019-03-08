@@ -59,5 +59,6 @@ $route['default_controller'] = 'accueil/index';
 $route["api/v1/candidat"]["get"]           = "api/v1/candidat";
 $route["api/v1/candidat/(:num)"]["get"]    = "api/v1/candidat/view/$1";
 
-
-
+$route["api/v1/candidatfilter"]    = "api/v1/candidat/viewfilter";
+$route["api/v1/viewcom/(:any)"]    = "api/v1/candidat/viewcom/$1";
+$route["api/v1/viewcomp"] = "api/v1/candidat/viewcomp";

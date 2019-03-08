@@ -34,10 +34,6 @@ class Langues_model extends CI_Model
     }
 
 
-
-
-
-
     public function insert_entry($name, $niveau)
     {
         $langues = array(

@@ -16,7 +16,6 @@ class Infos_model extends CI_Model
     protected $portable;
     protected $permis;
     protected $vehicule;
-    protected $picture;
     protected $bio;
     protected $portfolio;
     protected $more;
@@ -31,14 +30,22 @@ class Infos_model extends CI_Model
         return $this->db->get($this->table);
     }
 
+    function get_if_permis(){
+        $this->db->select("id_candidats")
+            ->from($this->table)
+            ->where("permis is not null", null);
+        return $this->db->get()->result_array();
+    }
+
     function get_one($id)
     {
-        $this->db->select("id, age, sexe, adresse, cp, ville, portable, permis, vehicule, picture, bio, portfolio, more, id_candidats")
+        $this->db->select("id, age, sexe, adresse, cp, ville, portable, permis, vehicule,bio, portfolio, more, id_candidats")
             ->from($this->table)
             ->where("id_candidats", $id);
 
         return $this->db->get();
     }
+
 
     public function insert_entry($age, $sexe, $adresse, $cp, $ville, $portable, $permis, $vehicule, $picture, $bio, $portfolio, $more)
     {

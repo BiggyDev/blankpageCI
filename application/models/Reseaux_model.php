@@ -8,8 +8,12 @@
 
 class Reseaux_model extends CI_Model
 {
-    public $name;
-    public $lien;
+    public $linkedin;
+    public $facebook;
+    public $twitter;
+    public $dribbble;
+    public $instagram;
+    public $twitch;
 
     function __construct()
     {
@@ -23,7 +27,7 @@ class Reseaux_model extends CI_Model
 
     function get_one($id)
     {
-        $this->db->select("id, name, lien, id_candidats")
+        $this->db->select("id, linkedin, facebook, twitter, dribbble, instagram, twitch, id_candidats")
             ->from($this->table)
             ->where("id_candidats", $id);
 
