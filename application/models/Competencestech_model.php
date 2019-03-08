@@ -16,7 +16,8 @@ class Competencestech_model extends CI_Model
         $this->table = "bp_competencestech";
     }
 
-    function get_all(){
+    function get_all()
+    {
         return $this->db->get($this->table);
     }
 
@@ -29,7 +30,7 @@ class Competencestech_model extends CI_Model
         return $this->db->get();
     }
 
-    public function insert_entry($name, $id_candidat)
+    public function insert_entry($name, $id_candidat) //Insère les données saisies par l'utilisateur dans la table 'competencestech'
     {
         $competencestech = array(
             'name'                => $name,

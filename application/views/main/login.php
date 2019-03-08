@@ -27,6 +27,7 @@
 
                 <?= form_submit('submitted', 'Se connecter', 'class="ui teal big button""'); ?>
 
+                <?= anchor('accueil/forgotPassword', 'Mot de passe oublié ?', 'class="ui button"'); ?>
             </div>
 
             <?php if (isset($_POST['submitted'])) {

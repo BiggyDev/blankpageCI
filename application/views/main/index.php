@@ -21,30 +21,3 @@
         <h3>Sur toutes les plateformes</h3>
         <p>En dehors des entretients vous pouvez avoir une occasions de donner votre CV en main propre ou simplement un moyen de l'afficher, c'est une part a ne pas négliger dans la recherche d'un emploi et elle fait souvent la différence</p>
     </div>
-
-<!-- Menu fondu -->
-<script>
-    $(document)
-        .ready(function() {
-
-            // fix menu when passed
-            $('.masthead')
-                .visibility({
-                    once: false,
-                    onBottomPassed: function() {
-                        $('.fixed.menu').transition('fade in');
-                    },
-                    onBottomPassedReverse: function() {
-                        $('.fixed.menu').transition('fade out');
-                    }
-                })
-            ;
-
-            // create sidebar and attach to menu open
-            $('.ui.sidebar')
-                .sidebar('attach events', '.toc.item')
-            ;
-
-        })
-    ;
-</script>

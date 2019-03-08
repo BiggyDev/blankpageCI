@@ -17,7 +17,8 @@ class Reseaux_model extends CI_Model
         $this->table = "bp_reseaux";
     }
 
-    function get_all(){
+    function get_all()
+    {
         return $this->db->get($this->table);
     }
 
@@ -30,7 +31,7 @@ class Reseaux_model extends CI_Model
         return $this->db->get();
     }
 
-    public function insert_entry($linkedin, $facebook, $twitter, $dribbble, $instagram, $twitch, $id_candidat)
+    public function insert_entry($linkedin, $facebook, $twitter, $dribbble, $instagram, $twitch, $id_candidat) //Insère les données saisies par l'utilisateur dans la table 'reseaux'
     {
         $reseaux = array(
 

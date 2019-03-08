@@ -1,5 +1,5 @@
 <div class="ui attached segment">
-    <div class="ui middle aligned center aligned margin50">
+    <div class="ui middle aligned center aligned grid">
         <div class="column">
             <h1 class="title">Mes informations de connexion</h1>
 
@@ -36,3 +36,4 @@
         </div>
     </div>
 </div>
+

@@ -1,4 +1,4 @@
-<div class="ui ordered attached steps width100">
+<div class="ui ordered attached mini steps width100">
     <div class="completed step">
         <div class="content">
             <div class="title">Informations </br>
@@ -51,7 +51,8 @@
 </div>
 
 <div class="ui attached segment">
-    <div class="ui middle aligned center aligned margin50">
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
         <div class="column">
             <h1 class="title">Formations</h1>
 
@@ -120,13 +121,10 @@
 
         <button class="ui teal big button add-one" type="button">Ajouter une formation</button>
 
-
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-
-
         <?= form_close(); ?>
-
+        </div>
     </div>
 </div>
 

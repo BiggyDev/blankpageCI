@@ -27,7 +27,8 @@ class Infos_model extends CI_Model
         $this->table = "bp_infos";
     }
 
-    function get_all(){
+    function get_all()
+    {
         return $this->db->get($this->table);
     }
 
@@ -40,7 +41,7 @@ class Infos_model extends CI_Model
         return $this->db->get();
     }
 
-    public function insert_entry($age, $sexe, $adresse, $cp, $ville, $portable, $permis, $vehicule, $bio, $portfolio, $more, $id_candidat)
+    public function insert_entry($age, $sexe, $adresse, $cp, $ville, $portable, $permis, $vehicule, $bio, $portfolio, $more, $id_candidat) //Insère les données saisies par l'utilisateur dans la table 'infos'
     {
         $infos = array(
 

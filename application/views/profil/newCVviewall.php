@@ -1,5 +1,5 @@
 <div class="ui attached segment">
-    <div class="ui middle aligned center aligned margin50">
+    <div class="ui middle aligned center aligned grid">
         <div class="column">
             <h1 class="title">Récapitulatif</h1>
 
@@ -10,7 +10,7 @@
 
                 <div class="fields">
                     <?php if (isset($_SESSION['infos']['age'])) { ?>
-                    <h4>Date de naissance</h4>
+                    <h4>Age</h4>
                     <div class="field">
                         <span class="text-info"><?= $_SESSION['infos']['age']; ?></span>
                     </div>
@@ -53,16 +53,26 @@
                     <?php } ?>
 
                     <?php if (isset($_SESSION['infos']['permis'])) { ?>
-                    <h4>Permis</h4>
-                    <div class="field">
-                        <span class="text-info"><?= $_SESSION['infos']['permis']; ?></span>
-                    </div>
+                        <h4>Permis</h4>
+                            <div class="field">
+                                <?php foreach ($_SESSION['infos']['permis'] as $data_index) { ?>
+                                    <span class="text-info"><?= $data_index; ?></span><br/>
+                                <?php } ?>
+                            </div>
                     <?php } ?>
 
                     <?php if (isset($_SESSION['infos']['vehicle'])) { ?>
                     <h4>Véhicule personnel</h4>
                     <div class="field">
-                        <span class="text-info"><?= $_SESSION['infos']['vehicle']; ?></span>
+                        <span class="text-info">
+                            <?php if ($_SESSION['infos']['vehicle'] == 0)
+                            {
+                                echo 'Non';
+                            } else {
+                                echo 'Oui';
+                            }
+                            ?>
+                        </span>
                     </div>
                     <?php } ?>
 
@@ -385,23 +395,19 @@
                 <?php } ?>
             </div>
             <?php } ?>
-        </div>
-
-        <?php echo '<pre>';
-        var_dump($_SESSION);
-        echo '</pre>'; ?>
-
-        <?= form_open('', 'class="ui form"'); ?>
-        <div class="inline field">
-            <div class="ui checkbox">
-                <?= form_checkbox('terms'); ?>
-                <?= form_label('J\'accepte les Termes et Conditions'); ?>
+            <?= form_open('', 'class="ui form"'); ?>
+            <div class="inline field">
+                <div class="ui checkbox">
+                    <?= form_checkbox('terms'); ?>
+                    <?= form_label('J\'accepte les Termes et Conditions'); ?>
+                </div>
             </div>
+            <div class="ui error message"></div>
+
+            <?= form_submit('submitted', 'Valider ce CV', 'class="ui big teal button"'); ?>
         </div>
 
-        <?= form_submit('submitted', 'Valider ce CV', 'class="ui big teal button"'); ?>
 
-        <div class="ui error message"></div>
 
         <?php if (isset($_POST['submitted'])) {
             redirect('candidats/CVconfirm');

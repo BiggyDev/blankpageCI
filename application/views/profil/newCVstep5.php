@@ -1,4 +1,4 @@
-<div class="ui ordered attached steps width100">
+<div class="ui ordered attached mini steps width100">
     <div class="completed step">
         <div class="content">
             <div class="title">Informations </br>
@@ -51,39 +51,40 @@
 </div>
 
 <div class="ui attached segment">
-    <div class="ui middle aligned center aligned margin50">
+    <div class="ui middle aligned center aligned grid">
         <div class="column">
+            <div class="column">
 
-            <h1 class="title">Langues</h1>
+                <h1 class="title">Langues</h1>
 
-            <?= form_open('', 'class = "ui huge form", id="addStep"'); ?>
+                <?= form_open('', 'class = "ui huge form", id="addStep"'); ?>
 
-            <div class="source-item ui stacked segment" id="wrapper" data-index="0">
+                <div class="source-item ui stacked segment" id="wrapper" data-index="0">
 
-                <div class="field">
-                    <label>Langue</label>
-                    <?= form_dropdown('name', $name, '', 'class="ui fluid normal dropdown" id="name"' ); ?>
+                    <div class="field">
+                        <label>Langue</label>
+                        <?= form_dropdown('name', $name, '', 'class="ui fluid normal dropdown" id="name"' ); ?>
+                    </div>
+
+                    <div class="field">
+                        <label>Niveau</label>
+                        <?= form_dropdown('niveau', $niveau, '', 'class="ui fluid normal dropdown" id="niveau"'); ?>
+                    </div>
+
+                    <div class="ui error message"></div>
+
                 </div>
-
-                <div class="field">
-                    <label>Niveau</label>
-                    <?= form_dropdown('niveau', $niveau, '', 'class="ui fluid normal dropdown" id="niveau"'); ?>
-                </div>
-
-                <div class="ui error message"></div>
 
             </div>
 
+            <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
+
+            <button class="ui teal big button add-one" type="button">Ajouter une langue</button>
+
+            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
+
+            <?= form_close(); ?>
         </div>
-
-        <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
-
-        <button class="ui teal big button add-one" type="button">Ajouter une langue</button>
-
-        <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
-
-        <?= form_close(); ?>
-
     </div>
 </div>
 

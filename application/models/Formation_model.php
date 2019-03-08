@@ -24,7 +24,8 @@ class Formation_model extends CI_Model
         $this->table = "bp_formation";
     }
 
-    function get_all(){
+    function get_all()
+    {
         return $this->db->get($this->table);
     }
 
@@ -37,7 +38,7 @@ class Formation_model extends CI_Model
         return $this->db->get();
     }
 
-    public function insert_entry($ecole, $adresse, $cp, $ville, $diplome, $datedebut, $duree, $mention, $id_candidat)
+    public function insert_entry($ecole, $adresse, $cp, $ville, $diplome, $datedebut, $duree, $mention, $id_candidat) //Insère les données saisies par l'utilisateur dans la table 'formations'
     {
         $formation = array(
 

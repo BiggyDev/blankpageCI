@@ -1,5 +1,4 @@
-
-<div class="ui ordered attached steps width100">
+<div class="ui ordered attached mini steps width100">
     <div class="active step">
         <div class="content">
             <div class="title">Informations </br>
@@ -52,18 +51,18 @@
 </div>
 
 <div class="ui attached segment">
-    <div class="ui middle aligned center aligned margin50">
+    <div class="ui middle aligned center aligned grid">
         <div class="column">
         <h1 class="title">Infos Personnelles</h1>
 
         <?= form_open('', 'class = "ui huge form"'); ?>
 
-        <div class="ui stacked segment">
+        <div class="ui left stacked segment">
 
             <div class="field">
                 <label>Age</label>
                 <div class="ui left input">
-                    <?= form_input('age', set_value('age'), 'placeholder="18"'); ?>
+                    <?= form_input('age', set_value('age'), 'placeholder="En chiffres (Ex: 18)"'); ?>
                 </div>
             </div>
 
@@ -100,13 +99,14 @@
 
             <div class="field">
                 <label>Permis</label>
-                <?= form_multiselect('permis', $permis, '', 'class="ui fluid normal dropdown"'); ?>
+                <?= form_multiselect('permis[]', $permis, '', 'class="ui fluid normal dropdown"'); ?>
             </div>
 
-            <div class="inline fields">
+            <div class="field">
                 <label for="vehicle">Véhicule personnel</label>
                 <div class="field">
                     <div class="ui slider checkbox">
+                        <?= form_hidden('vehicle', '0'); ?>
                         <?= form_checkbox('vehicle', '1', FALSE, 'class="hidden"'); ?>
                     </div>
                 </div>
@@ -121,11 +121,8 @@
 
             <div class="field">
                 <label>Site / Blog / Portfolio</label>
-                <div class="ui labeled input">
-                    <div class="ui label">
-                        https://
-                    </div>
-                    <?= form_input('portfolio', set_value('portfolio'), 'placeholder="monsite.com"'); ?>
+                <div class="ui left input">
+                    <?= form_input('portfolio', set_value('portfolio'), 'placeholder="www.monsite.com"'); ?>
                 </div>
             </div>
 
@@ -141,8 +138,6 @@
         </div>
 
         <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
-
-
 
         <?= form_close(); ?>
         </div>

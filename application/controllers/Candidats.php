@@ -6,9 +6,10 @@ class Candidats extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->err_404();
     }
 
-    public function index()
+    public function index() //Charge la page d'accueil une fois connecté
     {
         $data['title'] = 'Blank Page - Mon compte';
 
@@ -21,7 +22,7 @@ class Candidats extends CI_Controller
         $this->load->view('include/footer', $data);
     }
 
-    public function disconnect()
+    public function disconnect() //Fonction de déconnection
     {
         if (isLogged()) {
             $this->session->sess_destroy();
@@ -32,19 +33,20 @@ class Candidats extends CI_Controller
 
     }
 
-    public function profile()
+    public function profile() //Charge la page profil du candidat
     {
         $data['title'] = 'Blank Page - Mon profil';
 
-
         $this->load->view('include/header', $data);
+        $this->load->view('include/following_menu', $data);
+        $this->load->view('include/sidebar_menu', $data);
         $this->load->view('include/header_menu_logged', $data);
         $this->load->view('profil/profil_candidat', $data);
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
     }
 
-    public function monCV()
+    public function monCV() //Charge le CV du candidat et les modèles liés aux données de son CV
     {
         $data['title'] = 'Blank Page - Mon CV';
 
@@ -64,13 +66,15 @@ class Candidats extends CI_Controller
         $data['user'] = $user;
 
         $this->load->view('include/header', $data);
+        $this->load->view('include/following_menu', $data);
+        $this->load->view('include/sidebar_menu', $data);
         $this->load->view('include/header_menu_logged', $data);
         $this->load->view('profil/cv_candidat', $data);
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
     }
 
-    public function addCV($id)
+    public function addCV($id) //Charge les formulaires d'ajout d'un CV, les modèles liés, et les différentes données présélectionnées
     {
         $data['title'] = 'Blank Page - Nouveau CV';
 
@@ -200,6 +204,8 @@ class Candidats extends CI_Controller
         $_GET['id'] = $id;
 
         $this->load->view('include/header', $data);
+        $this->load->view('include/following_menu', $data);
+        $this->load->view('include/sidebar_menu', $data);
         $this->load->view('include/header_menu_logged', $data);
 
         if (isset($id))
@@ -210,7 +216,7 @@ class Candidats extends CI_Controller
         $this->load->view('include/footer', $data);
     }
 
-    public function showCV()
+    public function showCV() //Charge le récapitulatif des données saisies par l'utilisateur lors de l'ajout d'un CV, et les modèles liés à l'insertion en BDD
     {
         $data['title'] = 'Blank Page - Récapitulatif';
 
@@ -275,6 +281,8 @@ class Candidats extends CI_Controller
 
         }
         $this->load->view('include/header', $data);
+        $this->load->view('include/following_menu', $data);
+        $this->load->view('include/sidebar_menu', $data);
         $this->load->view('include/header_menu_logged', $data);
         $this->load->view('profil/newCVviewall', $data);
         $this->load->view('profil/dynamicform.html', $data);
@@ -282,7 +290,7 @@ class Candidats extends CI_Controller
         $this->load->view('include/footer', $data);
     }
 
-    public function sendMail()
+    public function sendMail() //Fonction d'envoi du mail de confirmation d'ajout d'un CV
     {
         $config = array(
             'protocol' => 'smtp',
@@ -309,27 +317,29 @@ class Candidats extends CI_Controller
         }
     }
 
-    public function sendMailredirect()
+    public function sendMailredirect() //Fonction d'envoi de mail si l'utilisateur n'a pas reçu via la fonction ci-dessus
     {
        $this->sendMail();
 
        redirect('candidats/profile');
     }
 
-    public function CVconfirm()
+    public function CVconfirm() // Charge la page de confirmation d'ajout de la création du CV
     {
         $data['title'] = 'Blank Page - Confirmation d\'ajout du CV';
 
         $this->sendMail();
 
         $this->load->view('include/header', $data);
+        $this->load->view('include/following_menu', $data);
+        $this->load->view('include/sidebar_menu', $data);
         $this->load->view('include/header_menu_logged', $data);
         $this->load->view('profil/confirmationAjoutCV', $data);
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
     }
 
-    public function modifEmail()
+    public function modifEmail() //Fonction permettant de modifier son adresse e-mail
     {
         $data['title'] = 'Blank Page - Modification d\'adresse e-mail';
 
@@ -360,13 +370,15 @@ class Candidats extends CI_Controller
         }
 
         $this->load->view('include/header', $data);
+        $this->load->view('include/following_menu', $data);
+        $this->load->view('include/sidebar_menu', $data);
         $this->load->view('include/header_menu_logged', $data);
         $this->load->view('profil/modifEmail', $data);
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
     }
 
-    public function modifPassword()
+    public function modifPassword() //Fonction permettant de modifier son mot de passe
     {
         $data['title'] = 'Blank Page - Modification du mot de passe';
 
@@ -417,13 +429,15 @@ class Candidats extends CI_Controller
         }
 
         $this->load->view('include/header', $data);
+        $this->load->view('include/following_menu', $data);
+        $this->load->view('include/sidebar_menu', $data);
         $this->load->view('include/header_menu_logged', $data);
         $this->load->view('profil/modifPassword', $data);
         $this->load->view('include/footer_menu', $data);
         $this->load->view('include/footer', $data);
     }
 
-    private function generateRandomString($length)
+    private function generateRandomString($length) //Fonction permettant de générer un nouveau token
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -434,5 +448,13 @@ class Candidats extends CI_Controller
         return $randomString;
     }
 
+    public function err_404() //Fonction d'affichage d'une page 404
+    {
+        if (!isLogged()) {
+            redirect('errors/html/error_404', 'location');
+        }
+    }
+
 }
+
 

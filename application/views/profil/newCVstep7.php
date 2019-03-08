@@ -1,4 +1,4 @@
-<div class="ui ordered attached steps width100">
+<div class="ui ordered attached mini steps width100">
     <div class="completed step">
         <div class="content">
             <div class="title">Informations </br>
@@ -51,7 +51,7 @@
 </div>
 
 <div class="ui attached segment">
-    <div class="ui middle aligned center aligned margin50">
+    <div class="ui middle aligned center aligned grid">
         <div class="column">
 
         <h1 class="title">Savoir-être</h1>

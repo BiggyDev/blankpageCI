@@ -1,4 +1,4 @@
-<div class="ui ordered attached steps width100">
+<div class="ui ordered attached mini steps width100">
     <div class="completed step">
         <div class="content">
             <div class="title">Informations </br>
@@ -52,83 +52,84 @@
 
 
 <div class="ui attached segment">
-    <div class="ui middle aligned center aligned margin50">
+    <div class="ui middle aligned center aligned grid">
         <div class="column">
+            <div class="column">
 
-        <h1 class="title">Exp&eacute;riences</h1>
+            <h1 class="title">Exp&eacute;riences</h1>
 
-        <?= form_open('', 'class = "ui huge form", id="addStep"'); ?>
+            <?= form_open('', 'class = "ui huge form", id="addStep"'); ?>
 
-        <div class="source-item ui stacked segment" id="wrapper" data-index="0">
+            <div class="source-item ui stacked segment" id="wrapper" data-index="0">
 
-            <div class="field">
-                <label>Entreprise</label>
-                <div class="ui left input">
-                    <?= form_input('infos[0][' . 'entreprise' . ']', set_value('entreprise'), 'placeholder ="ex : NFactory", data-name="entreprise"'); ?>
+                <div class="field">
+                    <label>Entreprise</label>
+                    <div class="ui left input">
+                        <?= form_input('infos[0][' . 'entreprise' . ']', set_value('entreprise'), 'placeholder ="ex : NFactory", data-name="entreprise"'); ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="field">
-                <label>Adresse</label>
-                <div class="ui left input">
-                    <?= form_input('infos[0][' . 'address' . ']', set_value('address'), 'placeholder ="N° + Rue", data-name="address"'); ?>
+                <div class="field">
+                    <label>Adresse</label>
+                    <div class="ui left input">
+                        <?= form_input('infos[0][' . 'address' . ']', set_value('address'), 'placeholder ="N° + Rue", data-name="address"'); ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="field">
-                <div class="ui left input">
-                    <?= form_input('infos[0][' . 'postalcode' . ']', set_value('postalcode'), 'placeholder ="Code Postal", data-name="postalcode"'); ?>
+                <div class="field">
+                    <div class="ui left input">
+                        <?= form_input('infos[0][' . 'postalcode' . ']', set_value('postalcode'), 'placeholder ="Code Postal", data-name="postalcode"'); ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="field">
-                <div class="ui left input">
-                    <?= form_input('infos[0][' . 'city' . ']', set_value('city'), 'placeholder ="Ville", data-name="city"'); ?>
+                <div class="field">
+                    <div class="ui left input">
+                        <?= form_input('infos[0][' . 'city' . ']', set_value('city'), 'placeholder ="Ville", data-name="city"'); ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="field">
-                <label>Intitul&eacute; du poste</label>
-                <div class="ui left input">
-                    <?= form_input('infos[0][' . 'intitule' . ']', set_value('intitule'), 'placeholder ="D&eacute;veloppeur, technicien, chef de projet...", data-name="intitule"'); ?>
+                <div class="field">
+                    <label>Intitul&eacute; du poste</label>
+                    <div class="ui left input">
+                        <?= form_input('infos[0][' . 'intitule' . ']', set_value('intitule'), 'placeholder ="D&eacute;veloppeur, technicien, chef de projet...", data-name="intitule"'); ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="field">
-                <label>Date de d&eacute;but</label>
-                <?= form_input($date_debut); ?>
-            </div>
-
-
-            <div class="field">
-                <label>Dur&eacute;e</label>
-                <div class="ui left input">
-                    <?= form_input('infos[0][' . 'duree' . ']', set_value('duree'), 'placeholder="En mois et ann&eacute;e (1 an et 6 mois)", data-name="duree"'); ?>
+                <div class="field">
+                    <label>Date de d&eacute;but</label>
+                    <?= form_input($date_debut); ?>
                 </div>
-            </div>
 
-            <div class="field">
-                <label>Description du poste</label>
-                <div class="ui left input">
-                    <?= form_textarea('infos[0][' . 'description' . ']', set_value('description'), 'placeholder="D&eacute;crivez bri&egrave;vement votre exp&eacute;rience &agrave; ce poste", data-name="description"'); ?>
+
+                <div class="field">
+                    <label>Dur&eacute;e</label>
+                    <div class="ui left input">
+                        <?= form_input('infos[0][' . 'duree' . ']', set_value('duree'), 'placeholder="En mois et ann&eacute;e (1 an et 6 mois)", data-name="duree"'); ?>
+                    </div>
                 </div>
+
+                <div class="field">
+                    <label>Description du poste</label>
+                    <div class="ui left input">
+                        <?= form_textarea('infos[0][' . 'description' . ']', set_value('description'), 'placeholder="D&eacute;crivez bri&egrave;vement votre exp&eacute;rience &agrave; ce poste", data-name="description"'); ?>
+                    </div>
+                </div>
+
+                <div class="ui error message"></div>
+
+            </div>
             </div>
 
-            <div class="ui error message"></div>
+            <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
 
+            <button class="ui teal big button add-one" type="button">Ajouter une expérience</button>
+
+            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
+
+
+
+            <?= form_close(); ?>
         </div>
-        </div>
-
-        <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
-
-        <button class="ui teal big button add-one" type="button">Ajouter une expérience</button>
-
-        <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
-
-
-
-        <?= form_close(); ?>
-
     </div>
 </div>
 

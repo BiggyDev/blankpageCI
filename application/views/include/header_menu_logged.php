@@ -15,6 +15,39 @@
                 } elseif (current_url() == 'http://localhost/blankpageCI/candidats/modifPassword') {
                     echo anchor('candidats/profile', 'Mon profil', 'class = "active item"');
                     echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
+                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/addCV/1') {
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
+                    echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
+                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/addCV/2') {
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
+                    echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
+                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/addCV/3') {
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
+                    echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
+                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/addCV/4') {
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
+                    echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
+                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/addCV/5') {
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
+                    echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
+                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/addCV/6') {
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
+                    echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
+                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/addCV/7') {
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
+                    echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
+                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/addCV/8') {
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
+                    echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
+                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/addCV/9') {
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
+                    echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
+                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/showCV') {
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
+                    echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
+                } elseif (current_url() == 'http://localhost/blankpageCI/candidats/CVconfirm') {
+                    echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
+                    echo anchor('candidats/monCV', 'Mon CV', 'class = "item"');
                 } else {
                     echo anchor('candidats/profile', 'Mon profil', 'class = "item"');
                     echo anchor('candidats/monCV', 'Mon CV', 'class = "active item"');

@@ -17,7 +17,8 @@ class Langues_model extends CI_Model
         $this->table = "bp_langues";
     }
 
-    function get_all(){
+    function get_all()
+    {
         return $this->db->get($this->table);
     }
 
@@ -31,7 +32,7 @@ class Langues_model extends CI_Model
     }
 
 
-    public function insert_entry($name, $niveau, $id_candidat)
+    public function insert_entry($name, $niveau, $id_candidat) //Insère les données saisies par l'utilisateur dans la table 'langues'
     {
         $langues = array(
             'name'                => $name,
