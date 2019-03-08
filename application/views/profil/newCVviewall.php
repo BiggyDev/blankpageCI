@@ -55,9 +55,7 @@
                     <?php if (isset($_SESSION['infos']['permis'])) { ?>
                         <h4>Permis</h4>
                             <div class="field">
-                                <?php foreach ($_SESSION['infos']['permis'] as $data_index) { ?>
-                                    <span class="text-info"><?= $data_index; ?></span><br/>
-                                <?php } ?>
+                                    <span class="text-info"><?= $_SESSION['infos']['permis']; ?></span><br/>
                             </div>
                     <?php } ?>
 
@@ -255,19 +253,19 @@
 
             </div>
             <?php } ?>
-            <?php if (isset($_SESSION['langues']['infos'][0]['name']) && isset($_SESSION['langues']['infos'][0]['niveau'])) { ?>
+            <?php if (isset($_SESSION['langues'])) { ?>
             <div class="ui stacked segment">
 
                 <h2 class="title">Langues</h2>
 
                 <div class="field">
-                    <span class="font-weight-bold"><?= $_SESSION['langues']['infos'][0]['name']; ?> : </span>
-                    <span class="font-weight-bold"><?= $_SESSION['langues']['infos'][0]['niveau']; ?></span>
+                    <span class="font-weight-bold"><?= $_SESSION['langues']['name']; ?> : </span>
+                    <span class="font-weight-bold"><?= $_SESSION['langues']['niveau']; ?></span>
                 </div>
 
             </div>
             <?php } ?>
-            <?php if (isset($_SESSION['certifications'])) { ?>
+            <?php if (!empty($_SESSION['certifications'])) { ?>
             <div class="ui stacked segment">
 
                 <h2 class="title">Certifications</h2>

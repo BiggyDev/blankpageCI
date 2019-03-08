@@ -99,7 +99,7 @@
 
             <div class="field">
                 <label>Permis</label>
-                <?= form_multiselect('permis[]', $permis, '', 'class="ui fluid normal dropdown"'); ?>
+                <?= form_dropdown('permis', $permis, '', 'class="ui fluid normal dropdown"'); ?>
             </div>
 
             <div class="field">

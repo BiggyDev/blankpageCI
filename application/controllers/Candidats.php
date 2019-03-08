@@ -252,7 +252,7 @@ class Candidats extends CI_Controller
 
             if(!empty($_SESSION['langues'])) {
                 $this->load->model('Langues_model', '', TRUE);
-                $this->Langues_model->insert_entry($_SESSION['langues']['infos'][0]['name'], $_SESSION['langues']['infos'][0]['niveau'], $_SESSION['bp_candidats']['id']);
+                $this->Langues_model->insert_entry($_SESSION['langues']['name'], $_SESSION['langues']['niveau'], $_SESSION['bp_candidats']['id']);
             }
 
             if(!empty($_SESSION['certifications']['infos'])) {

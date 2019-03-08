@@ -166,12 +166,12 @@ class Candidat extends CI_Controller{
             }
             $i = 0;
             foreach ($reseaux->result_array() as $row) {
-                $result['savoir']["linkedin"] = $row['linkedin'];
-                $result['savoir']["facebook"] = $row['facebook'];
-                $result['savoir']["twitter"] = $row['twitter'];
-                $result['savoir']["dribble"] = $row['dribbble'];
-                $result['savoir']["instagram"] = $row['instagram'];
-                $result['savoir']["twitch"] = $row['twitch'];
+                $result['reseau']["linkedin"] = $row['linkedin'];
+                $result['reseau']["facebook"] = $row['facebook'];
+                $result['reseau']["twitter"] = $row['twitter'];
+                $result['reseau']["dribble"] = $row['dribbble'];
+                $result['reseau']["instagram"] = $row['instagram'];
+                $result['reseau']["twitch"] = $row['twitch'];
             }
             $i = 0;
             foreach ($savoir->result_array() as $row) {
