@@ -1,38 +1,68 @@
-<div class="ui three top attached steps">
+<div class="ui ordered attached mini steps width100">
     <div class="active step">
-        <i class="truck icon"></i>
         <div class="content">
-            <div class="title">Infos personnelles</div>
-            <div class="description">Dîtes nous qui vous êtes</div>
+            <div class="title">Informations </br>
+                personnelles</div>
         </div>
     </div>
     <div class="disabled step">
-        <i class="payment icon"></i>
         <div class="content">
             <div class="title">Formations</div>
-            <div class="description">Quels sont vos diplômes ?</div>
         </div>
     </div>
     <div class="disabled step">
-        <i class="info icon"></i>
         <div class="content">
-            <div class="title">Exp&eacute;riences</div>
-            <div class="description">Vos exp&eacute;riences professionnelles</div>
+            <div class="title">Expériences</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Compétences </br>
+                techniques</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Langues</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Certifications</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Savoir-être</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Réseaux </br>
+                sociaux</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Centres </br>
+                d'intêret</div>
         </div>
     </div>
 </div>
+
 <div class="ui attached segment">
-    <div class="column margin50">
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
         <h1 class="title">Infos Personnelles</h1>
 
         <?= form_open('', 'class = "ui huge form"'); ?>
 
-        <div class="ui stacked segment">
+        <div class="ui left stacked segment">
 
             <div class="field">
-                <label>Date de naissance</label>
+                <label>Age</label>
                 <div class="ui left input">
-                    <?= form_input($birthday); ?>
+                    <?= form_input('age', set_value('age'), 'placeholder="En chiffres (Ex: 18)"'); ?>
                 </div>
             </div>
 
@@ -69,29 +99,16 @@
 
             <div class="field">
                 <label>Permis</label>
-                <?= form_multiselect('permis', $permis, '', 'class="ui fluid normal dropdown"'); ?>
-            </div>
-
-            <div class="inline fields">
-                <label for="vehicle">Véhicule personnel</label>
-                <div class="field">
-                    <div class="ui radio checkbox">
-                        <?= form_radio('vehicle', 'yes', FALSE, 'class="hidden"'); ?>
-                        <?= form_label('Oui'); ?>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="ui radio checkbox">
-                        <?= form_radio('vehicle', 'no', FALSE, 'class="hidden"'); ?>
-                        <?= form_label('Non'); ?>
-                    </div>
-                </div>
+                <?= form_multiselect('permis[]', $permis, '', 'class="ui fluid normal dropdown"'); ?>
             </div>
 
             <div class="field">
-                <label>Photo</label>
-                <div class="ui left input">
-                    <?= form_upload('picture'); ?>
+                <label for="vehicle">Véhicule personnel</label>
+                <div class="field">
+                    <div class="ui slider checkbox">
+                        <?= form_hidden('vehicle', '0'); ?>
+                        <?= form_checkbox('vehicle', '1', FALSE, 'class="hidden"'); ?>
+                    </div>
                 </div>
             </div>
 
@@ -104,11 +121,8 @@
 
             <div class="field">
                 <label>Site / Blog / Portfolio</label>
-                <div class="ui labeled input">
-                    <div class="ui label">
-                        https://
-                    </div>
-                    <?= form_input('portfolio', set_value('portfolio'), 'placeholder="monsite.com"'); ?>
+                <div class="ui left input">
+                    <?= form_input('portfolio', set_value('portfolio'), 'placeholder="www.monsite.com"'); ?>
                 </div>
             </div>
 
@@ -119,19 +133,17 @@
                 </div>
             </div>
 
-            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
+            <div class="ui error message"></div>
 
         </div>
 
-        <?php if (isset($_POST['submitted'])) {
-            echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
-        } else {
-            echo '<div class="ui error message">' . validation_errors() . '</div>';
-        }; ?>
+        <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
         <?= form_close(); ?>
+        </div>
     </div>
 </div>
+
 
 <script>
 
@@ -147,9 +159,101 @@
                 .dropdown()
             ;
 
-            $('.ui.radio.checkbox')
+            $('.ui.slider.checkbox')
                 .checkbox()
+            ;
+
+            $('.ui.form')
+                .form({
+                    fields: {
+                        age: {
+                            identifier: 'age',
+                            rules: [
+                                {
+                                    type   : 'number',
+                                    prompt : 'Votre age doit être un nombre.'
+                                },
+                                {
+                                    type   : 'maxLength[3]',
+                                    prompt : 'Vous ne pouvez pas vivre plus de 999 ans, désolé.'
+                                }
+                            ]
+                        },
+                        address: {
+                            identifier: 'address',
+                            rules: [
+                                {
+                                    type   : 'maxLength[70]',
+                                    prompt : 'Votre adresse est trop longue (70 caractères maximum).'
+                                }
+                            ]
+                        },
+                        postalcode: {
+                            identifier: 'postalcode',
+                            rules: [
+                                {
+                                    type   : 'maxLength[5]',
+                                    prompt : 'Veuillez un code postal à 5 chiffres maximum.'
+                                },
+                                {
+                                    type   : 'number',
+                                    prompt : 'Veuillez entrer un code postal sous forme de nombre.'
+                                }
+                            ]
+                        },
+                        city: {
+                            identifier: 'city',
+                            rules: [
+                                {
+                                    type   : 'maxLength[70]',
+                                    prompt : 'Le nom de votre ville est trop long (70 caractères maximum).'
+                                }
+                            ]
+                        },
+                        portable: {
+                            identifier: 'portable',
+                            rules: [
+                                {
+                                    type   : 'maxLength[10]',
+                                    prompt : 'Votre numéro de téléphone doit contenir 10 caractères.'
+                                },
+                                {
+                                    type   : 'number',
+                                    prompt : 'Votre numéro de téléphone doit être composé de chiffres.'
+                                }
+                            ]
+                        },
+                        bio: {
+                            identifier: 'bio',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre texte est trop long (255 caractères maximum).'
+                                }
+                            ]
+                        },
+                        portfolio: {
+                            identifier: 'portfolio',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long (255 caractères maximum).'
+                                }
+                            ]
+                        },
+                        more: {
+                            identifier: 'more',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre texte est trop long (255 caractères maximum).'
+                                }
+                            ]
+                        }
+                    }
+                })
             ;
         })
     ;
+    
 </script>

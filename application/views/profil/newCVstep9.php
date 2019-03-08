@@ -1,62 +1,124 @@
-<div class="ui three top attached steps">
-    <div class="active step">
-        <i class="truck icon"></i>
+<div class="ui ordered attached mini steps width100">
+    <div class="completed step">
         <div class="content">
-            <div class="title">Infos personnelles</div>
-            <div class="description">Dîtes nous qui vous êtes</div>
+            <div class="title">Informations </br>
+                personnelles</div>
         </div>
     </div>
-    <div class="disabled step">
-        <i class="payment icon"></i>
+    <div class="completed step">
         <div class="content">
             <div class="title">Formations</div>
-            <div class="description">Quels sont vos diplômes ?</div>
         </div>
     </div>
-    <div class="disabled step">
-        <i class="info icon"></i>
+    <div class="completed step">
         <div class="content">
-            <div class="title">Exp&eacute;riences</div>
-            <div class="description">Vos exp&eacute;riences professionnelles</div>
+            <div class="title">Expériences</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Compétences </br>
+                techniques</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Langues</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Certifications</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Savoir-être</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Réseaux </br>
+                sociaux</div>
+        </div>
+    </div>
+    <div class="active step">
+        <div class="content">
+            <div class="title">Centres </br>
+                d'intêret</div>
         </div>
     </div>
 </div>
 <div class="ui attached segment">
-    <div class="ui middle aligned center aligned margin50">
+    <div class="ui middle aligned center aligned grid">
         <div class="column">
-        <h1 class="title">Centres d'intêrets</h1>
+            <div class="column">
+                <h1 class="title">Centres d'intêret</h1>
 
-        <?= form_open('', 'class = "ui huge form"'); ?>
+                <?= form_open('', 'class = "ui huge form", id="addStep"'); ?>
 
-        <div class="source-item ui stacked segment">
+                <div class="source-item ui stacked segment" id="wrapper" data-index="0">
 
-            <div class="field">
-                <label>Activit&eacute;</label>
-                <div class="ui left input">
-                    <?= form_input('name', set_value('name'), 'placeholder="ex : Violon, Football, Pêche,..."'); ?>
+                    <div class="field">
+                        <label>Activit&eacute;</label>
+                        <div class="ui left input">
+                            <?= form_input('infos[0][' . 'name' . ']', set_value('name'), 'placeholder="ex : Violon, Football, Pêche,...", data-name="name"'); ?>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Description</label>
+                        <div class="ui left input">
+                            <?= form_textarea('infos[0][' . 'description' . ']', set_value('description'), 'placeholder="Quelles compétences avez-vous pu développer pendant la pratique de cette activité...", data-name="description"'); ?>
+                        </div>
+                    </div>
+
+                    <div class="ui error message"></div>
+
                 </div>
             </div>
 
-            <div class="field">
-                <label>Description</label>
-                <div class="ui left input">
-                    <?= form_textarea('description', set_value('description'), 'placeholder="Quelles compétences avez-vous pu développer pendant la pratique de cette activité..."'); ?>
-                </div>
-            </div>
+            <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
 
-        </div>
+            <button class="ui teal big button add-one" type="button">Ajouter un centre d'intérêt</button>
 
-        <button class="ui teal big button" type="button" onclick="ajout(this);">Ajouter un centre d'intérêt</button>
+            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-        <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-        <?php if (isset($_POST['submitted'])) {
-            echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
-        } else {
-            echo '<div class="ui error message">' . validation_errors() . '</div>';
-        }; ?>
-
-        <?= form_close(); ?>
+            <?= form_close(); ?>
         </div>
     </div>
 </div>
+
+<script>
+
+    $(document)
+        .ready(function() {
+
+            $('.ui.form')
+                .form({
+                    fields: {
+                        name: {
+                            identifier: 'name',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        },
+                        description: {
+                            identifier: 'description',
+                            rules: [
+                                {
+                                    type   : 'maxLength[255]',
+                                    prompt : 'Votre lien est trop long.'
+                                }
+                            ]
+                        }
+                    }
+                })
+            ;
+        })
+    ;
+</script>

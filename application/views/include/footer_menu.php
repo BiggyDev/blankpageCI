@@ -4,22 +4,32 @@
                 <div class="five wide column">
                     <h4 class="ui inverted header">À propos</h4>
                     <div class="ui inverted link list">
-                        <a href="#" class="item">Nous contacter</a>
-                        <a href="#" class="item">L'équipe</a>
+                        <a href="mailto:blankpage.nfs@gmail.com" class="item">Nous contacter</a>
                     </div>
                 </div>
                 <div class="five wide column">
                     <h4 class="ui inverted header">Services</h4>
                     <div class="ui inverted link list">
-                        <a href="#" class="item">Banana Pre-Order</a>
-                        <a href="#" class="item">DNA FAQ</a>
-                        <a href="#" class="item">How To Access</a>
-                        <a href="#" class="item">Favorite X-Men</a>
+                        <?php if(!isLogged()){
+                            echo anchor('Accueil/login', 'Connexion', 'class = "item"');
+                            echo anchor('Accueil/inscription', 'Inscription', 'class = "item"');
+                        } else {
+                            echo anchor('Candidats/profile', 'Mon Profil', 'class = "item"');
+                            echo anchor('Candidats/disconnect', 'Déconnexion', 'class = "item"');
+                        } ?>
+                        <a href="https://www.cnil.fr/fr/rgpd-de-quoi-parle-t-on" class="item" target="_blank">RGPD</a>
                     </div>
                 </div>
                 <div class="five wide column">
-                    <h4 class="ui inverted header">Footer Header</h4>
-                    <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+                    <h4 class="ui inverted header">Blank Page</h4>
+                    <p>Blankpage est un site permettant la création d'un CV complet et ergonomique.</p>
+                    <div class="ui inverted link list">
+                    <?php if (!isLogged())
+                        echo anchor('Accueil/login', 'Créer mon CV', 'class = "item"');
+                    else
+                        echo anchor('Candidats/addCV/1', 'Créer mon CV', 'class = "item"');
+                    ?>
+                    </div>
                 </div>
             </div>
         </div>

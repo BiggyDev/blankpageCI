@@ -1,6 +1,6 @@
 <?php
 
-function isLogged()
+function isLogged() //Fonction qui vérifie si l'utilisateur est connecté
 {
     $ci =&get_instance();
 

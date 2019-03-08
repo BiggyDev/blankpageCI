@@ -1,0 +1,41 @@
+<script>
+
+    $('.add-one').on('click', function() {
+        var _original = $('.source-item').first();
+        var _new 	  = _original.clone();
+        var _index 	  = parseInt($('#wrapper').attr('data-index')) + 1;
+
+        $(_new)
+            .insertAfter(_original)
+            .appendTo($('#addStep'))
+            .addClass("formation-wrapper-" + _index);
+
+        $(".formation-wrapper-" + _index + " input").each(function() {
+            $(this).attr('name', "infos[" + _index + "][" + $(this).attr('data-name') + "]" );
+        });
+
+        $(".formation-wrapper-" + _index + " textarea").each(function() {
+            $(this).attr('name', "infos[" + _index + "][" + $(this).attr('data-name') + "]" );
+        });
+
+        $(".formation-wrapper-" + _index + " select").each(function() {
+            $(this).attr('name', "infos[" + _index + "][" + $(this).attr('data-name') + "]" );
+        });
+
+        $('#wrapper').attr('data-index', _index);
+
+        let sup = document.createElement("input");
+        $(sup)
+            .val("Supprimer")
+            .attr("type", "button")
+            .addClass("ui teal big button");
+
+        // Ajout de l'événement onclick
+        sup.onclick = function onclick(){
+            $(this).parent().remove();
+        };
+
+        $(sup).appendTo(_new);
+    })
+
+</script>

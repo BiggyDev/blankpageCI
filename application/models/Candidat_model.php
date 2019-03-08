@@ -9,7 +9,8 @@ class Candidat_model extends CI_Model
         $this->table = "bp_candidats";
     }
 
-    function get_all(){
+    function get_all()
+    {
         return $this->db->get($this->table);
     }
 

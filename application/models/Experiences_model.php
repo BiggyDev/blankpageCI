@@ -23,7 +23,8 @@ class Experiences_model extends CI_Model
         $this->table = "bp_experiences";
     }
 
-    function get_all(){
+    function get_all()
+    {
         return $this->db->get($this->table);
     }
 
@@ -36,7 +37,7 @@ class Experiences_model extends CI_Model
         return $this->db->get();
     }
 
-    public function insert_entry($entreprise, $intitule, $date_debut, $duree, $description, $adresse, $cp, $ville)
+    public function insert_entry($entreprise, $intitule, $date_debut, $duree, $description, $adresse, $cp, $ville, $id_candidat) //Insère les données saisies par l'utilisateur dans la table 'experiences'
     {
         $experiences = array(
 
@@ -47,7 +48,8 @@ class Experiences_model extends CI_Model
             'description'      => $description,
             'adresse'          => $adresse,
             'cp'               => $cp,
-            'ville'            => $ville
+            'ville'            => $ville,
+            'id_candidats'      => $id_candidat
         );
 
         $this->db->insert('bp_experiences', $experiences);

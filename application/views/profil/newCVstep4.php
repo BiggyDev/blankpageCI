@@ -1,29 +1,57 @@
-<div class="ui three top attached steps">
-    <div class="step">
-        <i class="truck icon"></i>
+<div class="ui ordered attached mini steps width100">
+    <div class="completed step">
         <div class="content">
-            <div class="title">Informations</div>
-            <div class="description">Parlez nous de vous</div>
+            <div class="title">Informations </br>
+                personnelles</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Formations</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Expériences</div>
         </div>
     </div>
     <div class="active step">
-        <i class="payment icon"></i>
         <div class="content">
-            <div class="title">Formations</div>
-            <div class="description">Entrez vos diff&eacute;rents dipl&ocirc;mes</div>
+            <div class="title">Compétences </br>
+                techniques</div>
         </div>
     </div>
     <div class="disabled step">
-        <i class="info icon"></i>
         <div class="content">
-            <div class="title">Exp&eacute;riences</div>
-            <div class="description">Vos exp&eacute;riences professionnelles</div>
+            <div class="title">Langues</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Certifications</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Savoir-être</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Réseaux </br>
+                sociaux</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Centres </br>
+                d'intêret</div>
         </div>
     </div>
 </div>
 
 <div class="ui attached segment">
-    <div class="ui middle aligned center aligned margin50">
+    <div class="ui middle aligned center aligned grid">
         <div class="column">
 
         <h1 class="title">Comp&eacute;tences techniques</h1>
@@ -34,18 +62,15 @@
 
             <div class="field">
                 <label>Comp&eacute;tences</label>
-                <?= form_multiselect('name', $competence, '', 'class="ui fluid normal dropdown"'); ?>
+                <?= form_multiselect('name[]', $competence, '', 'class="ui fluid normal dropdown"'); ?>
             </div>
 
-            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
+            <div class="ui error message"></div>
 
         </div>
+        <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
 
-        <?php if (isset($_POST['submitted'])) {
-            echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
-        } else {
-            echo '<div class="ui error message">' . validation_errors() . '</div>';
-        }; ?>
+        <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
         <?= form_close(); ?>
         </div>
@@ -62,9 +87,8 @@
         .ready(function() {
 
             $('.ui.normal.dropdown')
-                .dropdown({
-                    maxSelections: 6
-                })
+                .dropdown()
+            ;
 
             $('#niveau')
                 .dropdown()
@@ -72,6 +96,14 @@
 
             $('.ui.radio.checkbox')
                 .checkbox()
+            ;
+
+            $('.ui.form')
+                .form({
+                    fields: {
+
+                    }
+                })
             ;
         })
     ;

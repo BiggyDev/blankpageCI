@@ -17,7 +17,8 @@ class Interet_model extends CI_Model
         $this->table = "bp_interet";
     }
 
-    function get_all(){
+    function get_all()
+    {
         return $this->db->get($this->table);
     }
 
@@ -30,12 +31,13 @@ class Interet_model extends CI_Model
         return $this->db->get();
     }
 
-    public function insert_entry($name, $description)
+    public function insert_entry($name, $description, $id_candidat) //Insère les données saisies par l'utilisateur dans la table 'interets'
     {
         $interets = array(
 
             'name'                => $name,
-            'description'         => $description
+            'description'         => $description,
+            'id_candidats'        => $id_candidat
         );
 
         $this->db->insert('bp_interet', $interets);

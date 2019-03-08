@@ -20,7 +20,8 @@ class Certification_model extends CI_Model
         $this->table = "bp_certifications";
     }
 
-    function get_all(){
+    function get_all()
+    {
         return $this->db->get($this->table);
     }
 
@@ -33,14 +34,15 @@ class Certification_model extends CI_Model
         return $this->db->get();
     }
 
-    public function insert_entry($name, $description, $date, $duree)
+    public function insert_entry($name, $description, $date, $duree, $id_candidat) //Insère les données saisies par l'utilisateur dans la table 'certifications'
     {
         $certification = array(
 
             'name'                => $name,
             'description'         => $description,
             'date'                => $date,
-            'duree'               => $duree
+            'duree'               => $duree,
+            'id_candidats'        => $id_candidat
         );
 
         $this->db->insert('bp_certifications', $certification);

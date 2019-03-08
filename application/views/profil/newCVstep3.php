@@ -1,104 +1,221 @@
-<div class="ui three top attached steps">
-    <div class="step">
-        <i class="truck icon"></i>
+<div class="ui ordered attached mini steps width100">
+    <div class="completed step">
         <div class="content">
-            <div class="title">Informations</div>
-            <div class="description">Parlez nous de vous</div>
+            <div class="title">Informations </br>
+                personnelles</div>
         </div>
     </div>
-    <div class="step">
-        <i class="payment icon"></i>
+    <div class="completed step">
         <div class="content">
             <div class="title">Formations</div>
-            <div class="description">Entrez vos diff&eacute;rents dipl&ocirc;mes</div>
         </div>
     </div>
     <div class="active step">
-        <i class="info icon"></i>
         <div class="content">
-            <div class="title">Exp&eacute;riences</div>
-            <div class="description">Vos exp&eacute;riences professionnelles</div>
+            <div class="title">Expériences</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Compétences </br>
+                techniques</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Langues</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Certifications</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Savoir-être</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Réseaux </br>
+                sociaux</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Centres </br>
+                d'intêret</div>
         </div>
     </div>
 </div>
 
 
 <div class="ui attached segment">
-    <div class="ui middle aligned center aligned margin50">
+    <div class="ui middle aligned center aligned grid">
         <div class="column">
+            <div class="column">
 
-        <h1 class="title">Exp&eacute;riences</h1>
+            <h1 class="title">Exp&eacute;riences</h1>
 
-        <?= form_open('', 'class = "ui huge form"'); ?>
+            <?= form_open('', 'class = "ui huge form", id="addStep"'); ?>
 
-        <div class="source-item ui stacked segment">
+            <div class="source-item ui stacked segment" id="wrapper" data-index="0">
 
-            <div class="field">
-                <label>Entreprise</label>
-                <div class="ui left input">
-                    <?= form_input('entreprise', set_value('entreprise'), 'placeholder ="ex : NFactory"'); ?>
+                <div class="field">
+                    <label>Entreprise</label>
+                    <div class="ui left input">
+                        <?= form_input('infos[0][' . 'entreprise' . ']', set_value('entreprise'), 'placeholder ="ex : NFactory", data-name="entreprise"'); ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="field">
-                <label>Adresse</label>
-                <div class="ui left input">
-                    <?= form_input('address', set_value('address'), 'placeholder ="N° + Rue"'); ?>
+                <div class="field">
+                    <label>Adresse</label>
+                    <div class="ui left input">
+                        <?= form_input('infos[0][' . 'address' . ']', set_value('address'), 'placeholder ="N° + Rue", data-name="address"'); ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="field">
-                <div class="ui left input">
-                    <?= form_input('postalcode', set_value('postalcode'), 'placeholder ="Code Postal"'); ?>
+                <div class="field">
+                    <div class="ui left input">
+                        <?= form_input('infos[0][' . 'postalcode' . ']', set_value('postalcode'), 'placeholder ="Code Postal", data-name="postalcode"'); ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="field">
-                <div class="ui left input">
-                    <?= form_input('city', set_value('city'), 'placeholder ="Ville"'); ?>
+                <div class="field">
+                    <div class="ui left input">
+                        <?= form_input('infos[0][' . 'city' . ']', set_value('city'), 'placeholder ="Ville", data-name="city"'); ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="field">
-                <label>Intitul&eacute; du poste</label>
-                <div class="ui left input">
-                    <?= form_input('intitule', set_value('intitule'), 'placeholder ="D&eacute;veloppeur, technicien, chef de projet..."'); ?>
+                <div class="field">
+                    <label>Intitul&eacute; du poste</label>
+                    <div class="ui left input">
+                        <?= form_input('infos[0][' . 'intitule' . ']', set_value('intitule'), 'placeholder ="D&eacute;veloppeur, technicien, chef de projet...", data-name="intitule"'); ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="field">
-                <label>Date de d&eacute;but</label>
-                <?= form_input($date_debut); ?>
-            </div>
-
-
-            <div class="field">
-                <label>Dur&eacute;e</label>
-                <div class="ui left input">
-                    <?= form_input('duree', set_value('duree'), 'placeholder="En mois et ann&eacute;e (1 an et 6 mois)"'); ?>
+                <div class="field">
+                    <label>Date de d&eacute;but</label>
+                    <?= form_input($date_debut); ?>
                 </div>
-            </div>
 
-            <div class="field">
-                <label>Description du poste</label>
-                <div class="ui left input">
-                    <?= form_textarea('description', set_value('description'), 'placeholder="D&eacute;crivez bri&egrave;vement votre exp&eacute;rience &agrave; ce poste"'); ?>
+
+                <div class="field">
+                    <label>Dur&eacute;e</label>
+                    <div class="ui left input">
+                        <?= form_input('infos[0][' . 'duree' . ']', set_value('duree'), 'placeholder="En mois et ann&eacute;e (1 an et 6 mois)", data-name="duree"'); ?>
+                    </div>
                 </div>
+
+                <div class="field">
+                    <label>Description du poste</label>
+                    <div class="ui left input">
+                        <?= form_textarea('infos[0][' . 'description' . ']', set_value('description'), 'placeholder="D&eacute;crivez bri&egrave;vement votre exp&eacute;rience &agrave; ce poste", data-name="description"'); ?>
+                    </div>
+                </div>
+
+                <div class="ui error message"></div>
+
+            </div>
             </div>
 
-        </div>
+            <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
 
-        <button class="ui teal big button" type="button" onclick="ajout(this);">Ajouter une expérience</button>
+            <button class="ui teal big button add-one" type="button">Ajouter une expérience</button>
 
-        <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
+            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-        <?php if (isset($_POST['submitted'])) {
-            echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
-        } else {
-            echo '<div class="ui error message">' . validation_errors() . '</div>';
-        }; ?>
 
-        <?= form_close(); ?>
+
+            <?= form_close(); ?>
         </div>
     </div>
 </div>
+
+<script>
+
+    $(document)
+        .ready(function() {
+
+            $('.ui.form')
+                .form({
+                    fields: {
+                        entrerpise: {
+                            identifier: 'infos[0][entrerpise]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[100]',
+                                    prompt : 'Le nom de l\'entreprise est trop long (100 caractères maximum).'
+                                }
+                            ]
+                        },
+                        address: {
+                            identifier: 'infos[0][address]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[70]',
+                                    prompt : 'Votre adresse est trop longue (70 caractères maximum).'
+                                }
+                            ]
+                        },
+                        postalcode: {
+                            identifier: 'infos[0][postalcode]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[5]',
+                                    prompt : 'Veuillez entrer 5 caractères maximum.'
+                                },
+                                {
+                                    type   : 'number',
+                                    prompt : 'Veuillez entrer un nombre.'
+                                }
+                            ]
+                        },
+                        city: {
+                            identifier: 'infos[0][city]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[50]',
+                                    prompt : 'Le nom de votre ville est trop long (50 caractères maximum).'
+                                }
+                            ]
+                        },
+                        intitule: {
+                            identifier: 'infos[0][intitule]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[50]',
+                                    prompt : 'Le nom de votre diplôme est trop long (50 caractères maximum).'
+                                }
+                            ]
+                        },
+                        duree: {
+                            identifier: 'infos[0][duree]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[11]',
+                                    prompt : 'Le nombre est trop long (11 caractères maximum).'
+                                },
+                                {
+                                    type   : 'number',
+                                    prompt : 'Vous devez renseigner un nombre.'
+                                }
+                            ]
+                        },
+                        description: {
+                            identifier: 'infos[0][identifier]',
+                            rules: [
+                                {
+                                    type   : 'maxLength[500]',
+                                    prompt : 'Votre texte est trop long (255 caractères maximum).'
+                                }
+                            ]
+                        }
+                    }
+                })
+            ;
+        })
+    ;
+
+</script>

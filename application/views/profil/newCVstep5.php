@@ -1,72 +1,106 @@
-<div class="ui three top attached steps">
-    <div class="step">
-        <i class="truck icon"></i>
+<div class="ui ordered attached mini steps width100">
+    <div class="completed step">
         <div class="content">
-            <div class="title">Informations</div>
-            <div class="description">Parlez nous de vous</div>
+            <div class="title">Informations </br>
+                personnelles</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Formations</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Expériences</div>
+        </div>
+    </div>
+    <div class="completed step">
+        <div class="content">
+            <div class="title">Compétences </br>
+                techniques</div>
         </div>
     </div>
     <div class="active step">
-        <i class="payment icon"></i>
         <div class="content">
-            <div class="title">Formations</div>
-            <div class="description">Entrez vos diff&eacute;rents dipl&ocirc;mes</div>
+            <div class="title">Langues</div>
         </div>
     </div>
     <div class="disabled step">
-        <i class="info icon"></i>
         <div class="content">
-            <div class="title">Exp&eacute;riences</div>
-            <div class="description">Vos exp&eacute;riences professionnelles</div>
+            <div class="title">Certifications</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Savoir-être</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Réseaux </br>
+                sociaux</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <div class="content">
+            <div class="title">Centres </br>
+                d'intêret</div>
         </div>
     </div>
 </div>
 
 <div class="ui attached segment">
-    <div class="ui middle aligned center aligned margin50">
+    <div class="ui middle aligned center aligned grid">
         <div class="column">
+            <div class="column">
 
-        <h1 class="title">Langues</h1>
+                <h1 class="title">Langues</h1>
 
-        <?= form_open('', 'class = "ui huge form"'); ?>
+                <?= form_open('', 'class = "ui huge form", id="addStep"'); ?>
 
-        <div class="source-item ui stacked segment">
+                <div class="source-item ui stacked segment" id="wrapper" data-index="0">
 
-            <div class="field">
-                <label>Langues</label>
-                <?= form_dropdown('name', $langue, '', 'class="ui fluid normal dropdown"'); ?>
+                    <div class="field">
+                        <label>Langue</label>
+                        <?= form_dropdown('name', $name, '', 'class="ui fluid normal dropdown" id="name"' ); ?>
+                    </div>
+
+                    <div class="field">
+                        <label>Niveau</label>
+                        <?= form_dropdown('niveau', $niveau, '', 'class="ui fluid normal dropdown" id="niveau"'); ?>
+                    </div>
+
+                    <div class="ui error message"></div>
+
+                </div>
+
             </div>
 
-            <div class="field">
-                <label>Niveau</label>
-                <?= form_dropdown('name', $niveau, '', 'class="ui fluid normal dropdown"'); ?>
-            </div>
+            <?= form_submit('notsubmitted', 'Etape précédente', 'class="ui teal big button"'); ?>
 
-        </div>
+            <button class="ui teal big button add-one" type="button">Ajouter une langue</button>
 
-        <button class="ui teal big button" type="button" onclick="ajout(this);">Ajouter une langue</button>
+            <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
 
-        <?= form_submit('submitted', 'Etape suivante', 'class="ui teal big button"'); ?>
-
-        <?php if (isset($_POST['submitted'])) {
-            echo '<div class="ui error message" style="display:block;">' . validation_errors() . '</div>';
-        } else {
-            echo '<div class="ui error message">' . validation_errors() . '</div>';
-        };
-
-        form_close(); ?>
+            <?= form_close(); ?>
         </div>
     </div>
 </div>
 
-    <script>
+<script>
 
     $(document)
         .ready(function() {
 
-            $('.ui.normal.dropdown')
+            $('#name')
                 .dropdown()
             ;
+
+            $('#niveau')
+                .dropdown()
+            ;
+
         })
     ;
-    </script>
+</script>

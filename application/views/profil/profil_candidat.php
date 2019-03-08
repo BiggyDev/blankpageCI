@@ -1,61 +1,39 @@
+<div class="ui attached segment">
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h1 class="title">Mes informations de connexion</h1>
 
+            <div class="ui stacked segment">
 
-<!-- Menu -->
+                <h4>Nom & Prénom</h4>
+                <div class="field">
+                    <div class="ui left input">
+                        <?= $_SESSION['bp_candidats']['name']; ?>
+                    </div>
+                </div>
 
-<div id="truc" class="ui secondary vertical pointing menu">
-    <!-- <a href="?lien=1" class="item" onclick="getElementById('demo').innerHTML = '<p>connard</p>' ">What is the time?</a> -->
-    <a href="?lien=1" class="item">Voir mes CV</a>
-    <a href="?lien=2" class="item">Lien 2</a>
-    <a href="?lien=3" class="item">Lien 3</a>
+                <h4>Adresse E-mail</h4>
+                <div class="field">
+                    <?= $_SESSION['bp_candidats']['email']; ?>
+                </div>
+
+                <h4>Mot de passe</h4>
+                <div class="field">
+                    <span>*********</span>
+                </div>
+
+                <div class="ui divider"></div>
+
+                <h4>Actions</h4>
+
+                <div class="fields">
+                    <div class="field">
+                        <?= anchor('candidats/modifEmail', 'Modifier mon adresse e-mail', 'type="button" class="ui button" id="email"'); ?>
+                        <?= anchor('candidats/modifPassword', 'Modifier mon mot de passe', 'type="button" class="ui button" id="password"'); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<!--
-<div>
-    <p id="demo">demo</p>
-</div>
--->
-
-<div>
-
-    <?php
-    if(isset($_GET['lien'])){
-        $link=$_GET['lien'];
-        if ($link == '1'){
-            echo '
-            
-            <h1>MES CV</h1>
-            
-            
-            
-            ';
-        }
-        if ($link == '2'){
-            echo '
-
-            
-
-            ';
-        }
-        if ($link == '3'){
-            echo '
-
-            
-
-            ';
-        }
-    }  ?>
-
-</div>
-
-<!-- Mes CV -->
-<script>
-    var header = document.getElementById("truc");
-    var btns = header.getElementsByClassName("item");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-        });
-    }
-</script>
